@@ -1,0 +1,41 @@
+{
+  "name": "Reconstruction Chamber",
+  "icon": "alchymastery:reconstruction_core",
+  "category": "alchymastery:machines",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Rebuilding",
+      "text": "Breaking took me a month. Rebuilding took nine years.$(br2)Compounds, distortion fluid and a base block become an item again."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:reconstruction_core",
+      "text": "Its catalyst gives matter a shape to come back into, and the base block is that shape."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Molds",
+      "text": "The base is the mold. Stone gives raw ore, cobblestone an ingot or a gem, deepslate a whole ore. Soul sand or soul soil gives back a creature's drop.$(br2)Netherite would only come back through netherrack, as an ingot."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Reconstruction Chamber",
+      "multiblock_id": "alchymastery:reconstruction_chamber",
+      "enable_visualize": true,
+      "text": "A cottage around a cauldron on a campfire."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Cottage",
+      "text": "Oak planks, logs and stairs, bookshelves, glass panes, barrels with potted flowers, lanterns, a water cauldron over a campfire, and one plank that becomes a beehive when it wakes."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Habits",
+      "text": "It drinks distortion fluid by bucket or pipe, and the cauldron behind the core shows how much is left.$(br2)Candles light themselves and a spore blossom opens when it wakes. Like every core, it starves without a $(l:energy/wormholes)wormhole$() above it."
+    }
+  ],
+  "advancement": "alchymastery:codex/reconstruction"
+}

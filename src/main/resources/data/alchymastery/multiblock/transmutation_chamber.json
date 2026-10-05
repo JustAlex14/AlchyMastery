@@ -1,0 +1,54 @@
+{
+  "core": "alchymastery:transmutation_core",
+  "front": "east",
+  "layers": [
+    ["BBBBB", "BBBBs", "BBBBb", "BBBBo", "BBBBB"],
+    ["_____", "_SSS_", "_BX._", "_OOO_", "_____"],
+    ["_____", "_SSR_", "_L.._", "_OOF_", "_____"],
+    ["_____", "_Sn._", "_W.._", "_Ou._", "_____"]
+  ],
+  "key": {
+    "B": {"block": "minecraft:stone_bricks", "name": "stone bricks"},
+    "s": {"block": "minecraft:spruce_stairs", "state": {"half": "bottom"}, "facing": "center", "name": "spruce stairs"},
+    "b": {"block": "minecraft:stone_brick_stairs", "state": {"half": "bottom"}, "facing": "center", "name": "stone brick stairs"},
+    "o": {"block": "minecraft:oak_stairs", "state": {"half": "bottom"}, "facing": "center", "name": "oak stairs"},
+    "S": {"block": "minecraft:spruce_log", "state": {"axis": "y"}, "name": "an upright spruce log"},
+    "O": {"block": "minecraft:oak_log", "state": {"axis": "y"}, "name": "an upright oak log"},
+    "R": {"block": "minecraft:spruce_shelf", "state": {"facing": "east"}, "name": "a spruce shelf facing the front"},
+    "F": {"block": "minecraft:oak_shelf", "state": {"facing": "east"}, "name": "an oak shelf facing the front"},
+    "L": {"block": "minecraft:glowstone", "name": "glowstone (becomes a shroomlight)"},
+    "n": {"block": "minecraft:lantern", "state": {"hanging": "false"}, "name": "a lantern"},
+    "u": {"block": "minecraft:lantern", "state": {"hanging": "false"}, "name": "a lantern (becomes a soul lantern)"},
+    "W": {"block": "alchymastery:wormhole", "name": "a wormhole"},
+    "X": {"core": true},
+    ".": {"air": true},
+    "_": {"any": true}
+  },
+  "result": [
+    ["ggggg", "gggge", "ggggk", "ggggw", "ggggg"],
+    ["_____", "_ccc_", "_gX._", "_vvv_", "_____"],
+    ["_____", "_ccC_", "_l.._", "_vvV_", "_____"],
+    ["_____", "_cs._", "_X.._", "_vu._", "_____"]
+  ],
+  "result_key": {
+    "g": {"block": "minecraft:warped_nylium"},
+    "e": {"block": "minecraft:crimson_stairs", "copy_state": true},
+    "k": {"block": "minecraft:nether_brick_stairs", "copy_state": true},
+    "w": {"block": "minecraft:warped_stairs", "copy_state": true},
+    "c": {"block": "minecraft:crimson_stem", "copy_state": true},
+    "v": {"block": "minecraft:warped_stem", "copy_state": true},
+    "C": {"block": "minecraft:crimson_shelf", "copy_state": true},
+    "V": {"block": "minecraft:warped_shelf", "copy_state": true},
+    "l": {"block": "minecraft:shroomlight"},
+    "s": {"same": true},
+    "X": {"keep": true},
+    ".": {"keep": true},
+    "_": {"keep": true},
+    "u": {"block": "minecraft:soul_lantern", "copy_state": true}
+  },
+  "anchors": {
+    "input_shelf": [1, 1, 1],
+    "output_shelf": [1, 1, -1],
+    "target": [0, 1, 0]
+  }
+}

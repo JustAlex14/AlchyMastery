@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "extended=false,facing=down": {
+      "model": "alchymastery:block/chamber_part_piston",
+      "x": 90
+    },
+    "extended=false,facing=east": {
+      "model": "alchymastery:block/chamber_part_piston",
+      "y": 90
+    },
+    "extended=false,facing=north": {
+      "model": "alchymastery:block/chamber_part_piston"
+    },
+    "extended=false,facing=south": {
+      "model": "alchymastery:block/chamber_part_piston",
+      "y": 180
+    },
+    "extended=false,facing=up": {
+      "model": "alchymastery:block/chamber_part_piston",
+      "x": 270
+    },
+    "extended=false,facing=west": {
+      "model": "alchymastery:block/chamber_part_piston",
+      "y": 270
+    },
+    "extended=true,facing=down": {
+      "model": "alchymastery:block/chamber_part_piston_base",
+      "x": 90
+    },
+    "extended=true,facing=east": {
+      "model": "alchymastery:block/chamber_part_piston_base",
+      "y": 90
+    },
+    "extended=true,facing=north": {
+      "model": "alchymastery:block/chamber_part_piston_base"
+    },
+    "extended=true,facing=south": {
+      "model": "alchymastery:block/chamber_part_piston_base",
+      "y": 180
+    },
+    "extended=true,facing=up": {
+      "model": "alchymastery:block/chamber_part_piston_base",
+      "x": 270
+    },
+    "extended=true,facing=west": {
+      "model": "alchymastery:block/chamber_part_piston_base",
+      "y": 270
+    }
+  }
+}

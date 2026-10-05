@@ -1,0 +1,45 @@
+{
+  "name": "Into the Void",
+  "icon": "minecraft:ender_eye",
+  "category": "alchymastery:void",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "The Call",
+      "text": "The nexuses hum at night now. Not the hum of work. A $(thing)call$(), rising from the void that runs in them.$(br2)I have stopped pretending I do not hear it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "A Warning",
+      "text": "Whoever reads this, do not mistake the void for a tool. It is older than our world, and it wants nothing we could understand.$(br2)Every rift I opened, something looked back through."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Window",
+      "text": "Last night the rift above a core did not close. Through it I saw another place. A $(thing)citadel$(), adrift in the void, turning slowly with no ground beneath it and no sky above."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Laws",
+      "text": "Over there, nothing holds. Time does not run, it pools. Distance folds back on itself. A cause forgets its effect.$(br2)The logic of our world does not reach that far, and I do not know what mine will become without it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Crossing",
+      "text": "The citadel is waiting, for something or someone. A challenge, perhaps.$(br2)I do not know where it leads, nor when I will come back.$(br2)If I come back."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "To You",
+      "text": "If you can enter too, and you find me, I hope you will help me grow.$(br2)If instead you find that I have gone mad, end me. But carry on my research."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Last Page",
+      "text": "The rest of this journal is blank.$(br2)Fill it."
+    }
+  ],
+  "advancement": "alchymastery:codex/into_the_void",
+  "secret": true
+}

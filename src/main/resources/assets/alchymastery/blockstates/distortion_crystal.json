@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "preview=false": {
+      "model": "alchymastery:block/distortion_crystal"
+    },
+    "preview=true": {
+      "model": "alchymastery:block/distortion_crystal_preview"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:emerald_block",
+    "E": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:diamond",
+        "alchymastery:tier": 3,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -10621707
+          ]
+        }
+      },
+      "strict": false
+    },
+    "X": "alchymastery:productivity_upgrade_2"
+  },
+  "result": {
+    "id": "alchymastery:productivity_upgrade_3",
+    "count": 1
+  }
+}

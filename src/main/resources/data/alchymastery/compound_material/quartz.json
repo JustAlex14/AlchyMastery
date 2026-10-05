@@ -1,0 +1,10 @@
+{
+  "color": "#EDE6DF",
+  "tier": 1,
+  "forms": {
+    "gem": "#c:gems/quartz",
+    "gem_ore": "#c:ores/quartz",
+    "block": "minecraft:quartz_block"
+  },
+  "costs": {"block": 4}
+}

@@ -1,0 +1,298 @@
+{
+  "core": "alchymastery:alchemical_nexus",
+  "layers": [
+    [
+      "SSSSSSS",
+      "SFFaFFS",
+      "SFFpFFS",
+      "SepgpbS",
+      "SFFpFFS",
+      "SFFcFFS",
+      "SSSSSSS"
+    ],
+    [
+      "P_____P",
+      "_..i.._",
+      "_....._",
+      "_m.X.j_",
+      "_....._",
+      "_..k.._",
+      "P_____P"
+    ],
+    [
+      "P_____P",
+      "_..1.._",
+      "_....._",
+      "_4...2_",
+      "_....._",
+      "_..3.._",
+      "P_____P"
+    ],
+    [
+      "P_____P",
+      "_....._",
+      "_....._",
+      "_....._",
+      "_....._",
+      "_....._",
+      "P_____P"
+    ],
+    [
+      "KRRRRRK",
+      "RssLssR",
+      "RsssssR",
+      "RLsWsLR",
+      "RsssssR",
+      "RssLssR",
+      "KRRRRRK"
+    ]
+  ],
+  "key": {
+    "S": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (floor border)"
+    },
+    "F": {
+      "block": "minecraft:stone",
+      "name": "stone (floor)"
+    },
+    "p": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (path to a machine core)"
+    },
+    "a": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (under the destructuration core)"
+    },
+    "b": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (under the transmutation core)"
+    },
+    "c": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (under the reconstruction core)"
+    },
+    "e": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (under the condensator core)"
+    },
+    "g": {
+      "block": "minecraft:glowstone",
+      "name": "glowstone under the nexus"
+    },
+    "P": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (corner pillar)"
+    },
+    "1": {
+      "block": "alchymastery:destructuration_core",
+      "name": "a destructuration core (north)"
+    },
+    "2": {
+      "block": "alchymastery:transmutation_core",
+      "name": "a transmutation core (east)",
+      "facing": "center",
+      "facing_check": false
+    },
+    "3": {
+      "block": "alchymastery:reconstruction_core",
+      "name": "a reconstruction core (south)",
+      "facing": "center",
+      "facing_check": false
+    },
+    "4": {
+      "block": "alchymastery:condensator_core",
+      "name": "a condensator core (west)",
+      "facing": "center",
+      "facing_check": false
+    },
+    "K": {
+      "block": "minecraft:stone_brick_stairs",
+      "stairs": "roof_corner",
+      "name": "stone brick stairs (roof corner)"
+    },
+    "R": {
+      "block": "minecraft:stone_brick_stairs",
+      "stairs": "roof_edge",
+      "name": "stone brick stairs (roof edge)"
+    },
+    "s": {
+      "block": "minecraft:stone_brick_slab",
+      "state": {
+        "type": "bottom"
+      },
+      "name": "a stone brick slab (bottom half)"
+    },
+    "L": {
+      "block": "minecraft:glowstone",
+      "name": "glowstone (roof light above a machine core)"
+    },
+    "i": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (under the destructuration core)"
+    },
+    "j": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (under the transmutation core)"
+    },
+    "k": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (under the reconstruction core)"
+    },
+    "m": {
+      "block": "minecraft:stone_bricks",
+      "name": "stone bricks (under the condensator core)"
+    },
+    "W": {
+      "block": "alchymastery:wormhole",
+      "name": "a wormhole"
+    },
+    "X": {
+      "core": true
+    },
+    ".": {
+      "air": true
+    },
+    "_": {
+      "any": true
+    }
+  },
+  "result": [
+    [
+      "BBBBBBB",
+      "BffnffB",
+      "BffGffB",
+      "BdGOGwB",
+      "BffGffB",
+      "BffhffB",
+      "BBBBBBB"
+    ],
+    [
+      "Y.....Y",
+      "...I...",
+      ".......",
+      ".M...J.",
+      ".......",
+      "...K...",
+      "Y.....Y"
+    ],
+    [
+      "Y.....Y",
+      "...C...",
+      ".......",
+      ".C...C.",
+      ".......",
+      "...C...",
+      "Y.....Y"
+    ],
+    [
+      "Y.....Y",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      "Y.....Y"
+    ],
+    [
+      "kkkkkkk",
+      "kllollk",
+      "klllllk",
+      "kzl.lvk",
+      "klllllk",
+      "kllqllk",
+      "kkkkkkk"
+    ]
+  ],
+  "result_key": {
+    "B": {
+      "block": "minecraft:polished_blackstone_bricks"
+    },
+    "f": {
+      "block": "minecraft:polished_blackstone"
+    },
+    "G": {
+      "block": "minecraft:gilded_blackstone"
+    },
+    "O": {
+      "block": "minecraft:gold_block"
+    },
+    "n": {
+      "block": "minecraft:nether_bricks"
+    },
+    "w": {
+      "block": "minecraft:warped_nylium"
+    },
+    "h": {
+      "block": "minecraft:cherry_planks"
+    },
+    "d": {
+      "block": "minecraft:dark_prismarine"
+    },
+    "Y": {
+      "block": "minecraft:crying_obsidian"
+    },
+    "k": {
+      "block": "minecraft:polished_blackstone_brick_stairs",
+      "copy_state": true
+    },
+    "l": {
+      "block": "minecraft:polished_blackstone_brick_slab",
+      "copy_state": true
+    },
+    "o": {
+      "block": "minecraft:ochre_froglight"
+    },
+    "v": {
+      "block": "minecraft:verdant_froglight"
+    },
+    "q": {
+      "block": "minecraft:pearlescent_froglight"
+    },
+    "z": {
+      "block": "minecraft:sea_lantern"
+    },
+    ".": {
+      "keep": true
+    },
+    "I": {
+      "block": "minecraft:chiseled_nether_bricks"
+    },
+    "J": {
+      "block": "minecraft:warped_planks"
+    },
+    "K": {
+      "block": "minecraft:bookshelf"
+    },
+    "M": {
+      "block": "minecraft:prismarine_bricks"
+    },
+    "C": {
+      "same": true,
+      "hidden": true,
+      "restore": true
+    }
+  },
+  "anchors": {
+    "destructuration": [
+      0,
+      1,
+      -2
+    ],
+    "transmutation": [
+      2,
+      1,
+      0
+    ],
+    "reconstruction": [
+      0,
+      1,
+      2
+    ],
+    "condensator": [
+      -2,
+      1,
+      0
+    ]
+  }
+}

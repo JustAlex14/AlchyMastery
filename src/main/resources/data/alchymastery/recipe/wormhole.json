@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "OAO",
+    "AEA",
+    "OAO"
+  ],
+  "key": {
+    "O": "minecraft:obsidian",
+    "A": "minecraft:amethyst_shard",
+    "E": "minecraft:ender_eye"
+  },
+  "result": {
+    "id": "alchymastery:wormhole",
+    "count": 1
+  }
+}

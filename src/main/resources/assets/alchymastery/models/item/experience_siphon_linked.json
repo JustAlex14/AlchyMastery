@@ -1,0 +1,4 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": { "layer0": "alchymastery:item/experience_siphon_linked" }
+}

@@ -1,0 +1,26 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:custom_model_data",
+    "index": 0,
+    "cases": [
+      {
+        "when": "mob",
+        "model": {
+          "type": "minecraft:model",
+          "model": "alchymastery:item/mob_essence",
+          "tints": [
+            { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 }
+          ]
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "alchymastery:item/compound",
+      "tints": [
+        { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 }
+      ]
+    }
+  }
+}

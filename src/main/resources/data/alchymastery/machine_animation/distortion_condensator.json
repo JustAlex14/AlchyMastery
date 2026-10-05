@@ -1,0 +1,23 @@
+{
+  "machine": "alchymastery:distortion_condensator",
+  "effects": [
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 4,
+      "particle": "alchymastery:void_droplet",
+      "at": [
+        0,
+        2.2,
+        0
+      ],
+      "spread": [
+        1.4,
+        0,
+        1.4
+      ],
+      "count": 1,
+      "speed": 0
+    }
+  ]
+}

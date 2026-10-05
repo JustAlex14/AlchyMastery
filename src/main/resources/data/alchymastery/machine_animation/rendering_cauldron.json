@@ -1,0 +1,323 @@
+{
+  "machine": "alchymastery:rendering_cauldron",
+  "effects": [
+    {
+      "type": "figure",
+      "figure": "alchymastery:linked_ghost",
+      "display": "linked_player",
+      "at": "caster",
+      "face": "pedestal",
+      "hover": 0.12,
+      "bob": 0.06
+    },
+    {
+      "type": "figure",
+      "figure": "alchymastery:ghost_witch",
+      "unless_display": "linked_player",
+      "at": "caster",
+      "face": "pedestal",
+      "hover": 0.12,
+      "bob": 0.06
+    },
+    {
+      "type": "figure",
+      "entity": "minecraft:cat",
+      "nbt": "{variant:\"minecraft:all_black\",Sitting:1b}",
+      "at": "cat",
+      "yaw": -90,
+      "look_at_player": true
+    },
+    {
+      "type": "sound",
+      "when": "always",
+      "interval": 200,
+      "chance": 0.3,
+      "sound": "minecraft:entity.cat.ambient",
+      "at": "cat",
+      "volume": 0.4,
+      "pitch": 1.0,
+      "pitch_variance": 0.1
+    },
+    {
+      "type": "sound",
+      "when": "always",
+      "interval": 120,
+      "chance": 0.25,
+      "sound": "minecraft:entity.cat.purr",
+      "at": "cat",
+      "volume": 0.5,
+      "pitch": 1.0,
+      "pitch_variance": 0.1
+    },
+    {
+      "type": "particle",
+      "when": "always",
+      "interval": 30,
+      "chance": 0.6,
+      "particle": "minecraft:dripping_obsidian_tear",
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          0.6,
+          0
+        ]
+      },
+      "spread": [
+        0.3,
+        0,
+        0.3
+      ]
+    },
+    {
+      "type": "particle",
+      "when": "always",
+      "interval": 30,
+      "chance": 0.4,
+      "particle": "minecraft:soul",
+      "at": {
+        "anchor": "caster",
+        "offset": [
+          0,
+          1.0,
+          0
+        ]
+      },
+      "spread": [
+        0.3,
+        0.5,
+        0.3
+      ],
+      "speed": 0.01
+    },
+    {
+      "type": "particle",
+      "when": "always",
+      "interval": 40,
+      "chance": 0.4,
+      "particle": "minecraft:reverse_portal",
+      "at": {
+        "anchor": "wormhole",
+        "offset": [
+          0,
+          -0.6,
+          0
+        ]
+      },
+      "spread": [
+        0.3,
+        0,
+        0.3
+      ],
+      "speed": 0.01
+    },
+    {
+      "type": "item",
+      "when": "working",
+      "display": "input",
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          1.9,
+          0
+        ]
+      },
+      "motion": "spin",
+      "speed": 6,
+      "scale": 0.3,
+      "bob": 0.03
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 3,
+      "particle": "minecraft:enchant",
+      "count": 2,
+      "at": {
+        "anchor": "distortion_cauldron",
+        "offset": [
+          0,
+          0.8,
+          0
+        ]
+      },
+      "spread": [
+        0.25,
+        0,
+        0.25
+      ],
+      "to": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          2.5,
+          0
+        ]
+      },
+      "style": "attract"
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 3,
+      "particle": "minecraft:enchant",
+      "count": 2,
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          1.3,
+          0
+        ]
+      },
+      "spread": [
+        0.1,
+        0.1,
+        0.1
+      ],
+      "to": {
+        "anchor": "xp_cauldron",
+        "offset": [
+          0,
+          1.9,
+          0
+        ]
+      },
+      "style": "attract"
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 4,
+      "particle": "minecraft:witch",
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          1.3,
+          0
+        ]
+      },
+      "spread": [
+        0.2,
+        0.2,
+        0.2
+      ],
+      "count": 1
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 6,
+      "particle": "minecraft:bubble_pop",
+      "at": {
+        "anchor": "distortion_cauldron",
+        "offset": [
+          0,
+          0.95,
+          0
+        ]
+      },
+      "spread": [
+        0.25,
+        0,
+        0.25
+      ],
+      "count": 2,
+      "speed": 0.01
+    },
+    {
+      "type": "sound",
+      "when": "working",
+      "interval": 20,
+      "sound": "minecraft:block.brewing_stand.brew",
+      "volume": 0.3,
+      "pitch": 1.4
+    },
+    {
+      "type": "sound",
+      "when": "start",
+      "sound": "minecraft:entity.evoker.cast_spell",
+      "volume": 0.35,
+      "pitch": 1.2,
+      "pitch_variance": 0.15
+    },
+    {
+      "type": "sound",
+      "when": "finish",
+      "sound": "minecraft:entity.experience_orb.pickup",
+      "volume": 0.4,
+      "pitch": 1.1,
+      "pitch_variance": 0.2
+    },
+    {
+      "type": "particle",
+      "when": "finish",
+      "particle": "minecraft:happy_villager",
+      "count": 6,
+      "at": {
+        "anchor": "xp_cauldron",
+        "offset": [
+          0,
+          0.6,
+          0
+        ]
+      },
+      "spread": [
+        0.3,
+        0.2,
+        0.3
+      ]
+    },
+    {
+      "type": "sound",
+      "when": "finish",
+      "sound": "minecraft:block.bubble_column.upwards_inside",
+      "volume": 0.3,
+      "pitch": 1.3
+    },
+    {
+      "type": "particle",
+      "when": "always",
+      "interval": 25,
+      "chance": 0.5,
+      "particle": "minecraft:glow",
+      "at": {
+        "anchor": "xp_cauldron",
+        "offset": [
+          0,
+          0.7,
+          0
+        ]
+      },
+      "spread": [
+        0.25,
+        0.05,
+        0.25
+      ],
+      "speed": 0.01
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 4,
+      "particle": "alchymastery:void_wisp",
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          1,
+          0
+        ]
+      },
+      "spread": [
+        0.4,
+        0.2,
+        0.4
+      ],
+      "count": 1,
+      "speed": 0.01
+    }
+  ]
+}

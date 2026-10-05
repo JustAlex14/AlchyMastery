@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/enchanting_table",
+  "textures": {
+    "top": "alchymastery:block/transmutation_core_top",
+    "side": "alchymastery:block/transmutation_core_side",
+    "bottom": "alchymastery:block/transmutation_core_bottom",
+    "particle": "alchymastery:block/transmutation_core_bottom"
+  }
+}

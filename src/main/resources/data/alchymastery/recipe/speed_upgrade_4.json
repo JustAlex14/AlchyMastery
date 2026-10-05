@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:netherite_ingot",
+    "E": "minecraft:breeze_rod",
+    "X": "alchymastery:speed_upgrade_3"
+  },
+  "result": {
+    "id": "alchymastery:speed_upgrade_4",
+    "count": 1
+  }
+}

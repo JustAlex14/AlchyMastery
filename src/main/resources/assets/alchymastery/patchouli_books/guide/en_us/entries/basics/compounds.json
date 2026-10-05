@@ -1,0 +1,34 @@
+{
+  "name": "Compounds",
+  "icon": "minecraft:sugar",
+  "category": "alchymastery:basics",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Pure Matter",
+      "text": "Distortion strips matter down to what it is. Iron is not iron. It is pure substance wearing iron's shape. I call these $(item)compounds$()."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Tiers",
+      "text": "They fall into tiers, each worth three of the one below. I wrote them down as I found them.$(li)Abundant: coal, copper, redstone, lapis$(li)Common: iron, quartz$(li)Uncommon: gold$(li)Rare: diamond, emerald$(li)Ancient: netherite"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Yields",
+      "text": "The more an item holds, the more it gives. An ingot or a gem yields one compound, raw ore or a gem ore three, an ore six.$(br2)A storage block gives nine, a raw storage block twenty-seven. Breaking the biggest pieces is always worth it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Essences",
+      "text": "Living things break down too. Flesh, bone, string, pearls, blaze rods, tears and shells leave $(item)essences$(), on the same tiers, one per drop."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Families",
+      "text": "But matter keeps its $(thing)family$(). Iron becomes gold, flesh becomes bone. Iron never becomes flesh. I tried. I will not write down what came out.$(br2)I suspect other worlds hold matter I have never seen."
+    }
+  ],
+  "advancement": "alchymastery:codex/compounds"
+}

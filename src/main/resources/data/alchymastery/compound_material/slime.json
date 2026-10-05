@@ -1,0 +1,9 @@
+{
+  "family": "mob",
+  "color": "#7FCC6A",
+  "tier": 0,
+  "forms": {
+    "drop": "#c:slime_balls",
+    "drop_block": "minecraft:slime_block"
+  }
+}

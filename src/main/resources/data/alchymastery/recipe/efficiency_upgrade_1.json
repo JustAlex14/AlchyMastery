@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:quartz",
+    "E": "minecraft:lapis_lazuli",
+    "X": "alchymastery:alchemical_lattice"
+  },
+  "result": {
+    "id": "alchymastery:efficiency_upgrade_1",
+    "count": 1
+  }
+}

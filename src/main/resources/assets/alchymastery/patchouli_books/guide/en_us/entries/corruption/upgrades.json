@@ -1,0 +1,94 @@
+{
+  "name": "The Original Void",
+  "icon": "alchymastery:speed_upgrade_4",
+  "category": "alchymastery:corruption",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "The Original Void",
+      "text": "Late, I understood what distortion is. Not energy. The $(thing)void$() that was here before the world, leaking through my tear.$(br2)Every machine I built carries a little of it. That is why they work. So I fed them more."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Upgrades",
+      "text": "Each machine grew a pocket for the void, at the right of its window, one slot for each kind: Speed, Productivity, Efficiency, and Parallel for the nexuses.$(br2)One upgrade per slot. When a core is taken down, its upgrades come with it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Corruption",
+      "text": "Void forced into a machine shows. Rifts tear open in its blocks, the End glimmering through, in the colors of what I fed it. They close and open elsewhere. More void, more rifts.$(br2)Nothing has broken. Yet."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:speed_upgrade_1",
+      "text": "$(l)Speed I$(). Every task half again as fast, for a tenth more energy.$(br2)The matrix burns half again as fast, and each stone gives 13%% less."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:speed_upgrade_2",
+      "text": "$(l)Speed II$(). Twice as fast, for a fifth more energy.$(br2)The matrix burns twice as fast, and each stone gives 23%% less."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:speed_upgrade_3",
+      "text": "$(l)Speed III$(). Three times as fast, for 30%% more energy.$(br2)The matrix burns three times as fast, and each stone gives 33%% less."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:speed_upgrade_4",
+      "text": "$(l)Speed IV$(). Four times as fast, for 40%% more energy.$(br2)The matrix burns four times as fast, and each stone gives 43%% less."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Productivity",
+      "text": "More from the same matter, though each machine shows it differently. My measurements are written under each rune. The nexuses grant it to every stage.$(br2)The matrix simply draws more DE from each stone."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:productivity_upgrade_1",
+      "text": "$(l)Productivity I$()$(li)Byproducts: 10%%$(li)Transmutation loss: 15%%$(li)Rebuild fluid: -15%%$(li)Condensing, matrix DE: +25%%$(li)Experience: +15%%"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:productivity_upgrade_2",
+      "text": "$(l)Productivity II$()$(li)Byproducts: 15%%$(li)Transmutation loss: 10%%$(li)Rebuild fluid: -30%%$(li)Condensing, matrix DE: +50%%$(li)Experience: +30%%"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:productivity_upgrade_3",
+      "text": "$(l)Productivity III$()$(li)Byproducts: 20%%$(li)Transmutation loss: 7%%$(li)Rebuild fluid: -45%%$(li)Condensing, matrix DE: +75%%$(li)Experience: +45%%"
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:productivity_upgrade_4",
+      "text": "$(l)Productivity IV$()$(li)Byproducts: 25%%$(li)Transmutation loss: 5%%$(li)Rebuild fluid: -60%%$(li)Condensing, matrix DE: +100%%$(li)Experience: +60%%"
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Efficiency",
+      "text": "Less energy for the same work.$(br2)Speed and Efficiency balance each other. With the fourth Speed and the third Efficiency, my machines ran four times faster for about half the energy."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:efficiency_upgrade_1",
+      "text": "$(l)Efficiency I$(). A fifth less energy for every task.$(br2)In the matrix, one stone in seven burns without being used up."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:efficiency_upgrade_2",
+      "text": "$(l)Efficiency II$(). Two fifths less energy.$(br2)In the matrix, nearly one stone in three burns without being used up."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:efficiency_upgrade_3",
+      "text": "$(l)Efficiency III$(). Three fifths less, down to 40%% of the cost.$(br2)In the matrix, almost half the stones burn without being used up."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:parallel_upgrade",
+      "text": "$(l)Parallel$(), for the nexuses alone. Every stage keeps the pace of the fastest, so none waits on another. Speed still adds on top."
+    }
+  ],
+  "advancement": "alchymastery:codex/upgrades"
+}

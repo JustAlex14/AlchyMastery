@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:diamond_block",
+    "E": "minecraft:echo_shard",
+    "X": "alchymastery:efficiency_upgrade_2"
+  },
+  "result": {
+    "id": "alchymastery:efficiency_upgrade_3",
+    "count": 1
+  }
+}

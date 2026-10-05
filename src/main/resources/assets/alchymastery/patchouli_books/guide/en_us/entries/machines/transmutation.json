@@ -1,0 +1,41 @@
+{
+  "name": "Transmutation Chamber",
+  "icon": "alchymastery:transmutation_core",
+  "category": "alchymastery:machines",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Changing Matter",
+      "text": "The old dream, and it works. I show the chamber what I want, a compound set as its $(thing)target$(). Only an image, never used. Whatever compounds I feed it become that target."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:transmutation_core",
+      "text": "A book that reads itself. Its catalyst turns the pages. I never learned their language, only that matter listens."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Transmutation Chamber",
+      "multiblock_id": "alchymastery:transmutation_chamber",
+      "enable_visualize": true,
+      "text": "A library around the book, built in front of it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Library",
+      "text": "Stone bricks, spruce and oak logs, shelves of both woods facing the front, a redstone lamp and lanterns.$(br2)The book faces whoever placed it, and the library must stand before it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Price",
+      "text": "Value is kept, but a fifth of it is lost when the two are worth different amounts. Whatever is left over waits for the next change.$(br2)Each change takes two seconds and 5 DE for every Abundant compound of value made."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Rules",
+      "text": "It only works within a family. Minerals become minerals, essences become essences.$(br2)Netherite weighs as much as five diamonds, so the two trade freely. Like every core, it starves without a $(l:energy/wormholes)wormhole$() above it."
+    }
+  ],
+  "advancement": "alchymastery:codex/transmutation"
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CAC",
+    "AEA",
+    "CAC"
+  ],
+  "key": {
+    "C": "minecraft:crying_obsidian",
+    "A": "minecraft:amethyst_block",
+    "E": "minecraft:ender_eye"
+  },
+  "result": {
+    "id": "alchymastery:distortion_matrix",
+    "count": 1
+  }
+}

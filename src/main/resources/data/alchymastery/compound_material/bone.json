@@ -1,0 +1,12 @@
+{
+  "family": "mob",
+  "color": "#E8E3CC",
+  "tier": 0,
+  "forms": {
+    "drop": "#c:bones",
+    "drop_block": "minecraft:bone_block"
+  },
+  "costs": {
+    "drop_block": 3
+  }
+}

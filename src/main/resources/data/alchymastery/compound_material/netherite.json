@@ -1,0 +1,20 @@
+{
+  "color": "#5A4A4F",
+  "tier": 4,
+  "worth": {
+    "of": "alchymastery:diamond",
+    "count": 5
+  },
+  "forms": {
+    "ore": "#c:ores/netherite_scrap"
+  },
+  "costs": {
+    "ore": 1
+  },
+  "catalysts": {
+    "ingot": "minecraft:netherrack"
+  },
+  "outputs": {
+    "ingot": "minecraft:netherite_ingot"
+  }
+}

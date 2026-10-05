@@ -1,0 +1,41 @@
+{
+  "name": "Distortion Condensator",
+  "icon": "alchymastery:condensator_core",
+  "category": "alchymastery:machines",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Distortion Fluid",
+      "text": "Before any other core, I needed distortion I could touch. Under dripstone, water drinks it in and thickens into $(thing)distortion fluid$(). Shards are soaked in it, and the $(l:machines/reconstruction)Reconstruction Chamber$() drinks it."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:condensator_core",
+      "text": "A conduit's heart, taught to pull instead of push. The water around it never quite stops moving."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Distortion Condensator",
+      "multiblock_id": "alchymastery:distortion_condensator",
+      "enable_visualize": true,
+      "text": "Cauldrons under dripstone ring the conduit core."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Basin",
+      "text": "Cobblestone and walls, a back wall of copper grates, glass sides, water cauldrons with pointed dripstone hanging over them, and the conduit core over a cauldron basin."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Thirst",
+      "text": "A thousand measures of water and 200 DE, five seconds, and half of it comes back as fluid. Both of its tanks hold eight thousand.$(br2)The basin shows the water it holds, the ring the fluid it made."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Habits",
+      "text": "I pour water in by bucket or pipe on any of its stones, and draw the fluid out the same way.$(br2)Like every core, it starves without a $(l:energy/wormholes)wormhole$() above it."
+    }
+  ],
+  "advancement": "alchymastery:codex/condensator"
+}

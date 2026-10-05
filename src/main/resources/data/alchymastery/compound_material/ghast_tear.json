@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#BFF0F0",
+  "tier": 2,
+  "forms": {
+    "drop": "minecraft:ghast_tear"
+  }
+}

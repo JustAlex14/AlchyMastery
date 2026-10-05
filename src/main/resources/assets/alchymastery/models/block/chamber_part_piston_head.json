@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_piston_head",
+  "textures": {
+    "platform": "alchymastery:block/chamber_part_piston_top",
+    "side": "alchymastery:block/chamber_part_piston_side",
+    "unsticky": "alchymastery:block/chamber_part_piston_top"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "criteria": {
+    "has_condensator_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:condensator_core"
+          }
+        ]
+      }
+    },
+    "has_destructuration_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:destructuration_core"
+          }
+        ]
+      }
+    },
+    "has_transmutation_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:transmutation_core"
+          }
+        ]
+      }
+    },
+    "has_reconstruction_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:reconstruction_core"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_condensator_core"
+    ],
+    [
+      "has_destructuration_core"
+    ],
+    [
+      "has_transmutation_core"
+    ],
+    [
+      "has_reconstruction_core"
+    ]
+  ]
+}

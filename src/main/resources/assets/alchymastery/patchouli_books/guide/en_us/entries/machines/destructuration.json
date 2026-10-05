@@ -1,0 +1,41 @@
+{
+  "name": "Destructuration Chamber",
+  "icon": "alchymastery:destructuration_core",
+  "category": "alchymastery:machines",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Breaking Down",
+      "text": "The first core grown from the lattice does the simplest thing. It breaks. Pistons crush whatever I give it over a lava pool until only $(l:basics/compounds)compounds$() are left. Mob drops leave essences."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:destructuration_core",
+      "text": "Its catalyst remembers violence. Set it down, and the pistons around it learn to strike as one."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Destructuration Chamber",
+      "multiblock_id": "alchymastery:destructuration_chamber",
+      "enable_visualize": true,
+      "text": "Pistons face the core over a lava source, a wormhole on top."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Frame",
+      "text": "Cobblestone, pistons turned toward the core, redstone torches on the walls, glass panes, a lava source beneath the core and a wormhole above it.$(br2)When it wakes, the glass is gone."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Hunger",
+      "text": "Bigger things take longer. An ingot costs it 10 DE and two seconds, an ore 40 DE and eight.$(br2)Now and then, once in twenty, an extra compound falls aside where I keep the byproducts."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Habits",
+      "text": "I pour things in from above, and the compounds come out the sides. Hoppers and pipes may take them from any stone of it.$(br2)It rests when its shelves are full or its energy runs out. Like every core, it starves without a $(l:energy/wormholes)wormhole$() above it."
+    }
+  ],
+  "advancement": "alchymastery:codex/destructuration"
+}

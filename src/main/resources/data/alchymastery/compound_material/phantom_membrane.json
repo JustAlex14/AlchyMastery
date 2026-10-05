@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#C9C2A6",
+  "tier": 1,
+  "forms": {
+    "drop": "minecraft:phantom_membrane"
+  }
+}

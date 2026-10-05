@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NSN",
+    "EHE",
+    "NSN"
+  ],
+  "key": {
+    "N": "minecraft:netherite_ingot",
+    "S": "alchymastery:speed_upgrade_4",
+    "E": "alchymastery:efficiency_upgrade_3",
+    "H": "alchymastery:nexus_heart"
+  },
+  "result": {
+    "id": "alchymastery:parallel_upgrade",
+    "count": 1
+  }
+}

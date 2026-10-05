@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CBW",
+    "SLS",
+    "OEO"
+  ],
+  "key": {
+    "C": "minecraft:crimson_planks",
+    "B": "minecraft:book",
+    "W": "minecraft:warped_planks",
+    "S": "alchymastery:distortion_shard",
+    "L": "alchymastery:alchemical_lattice",
+    "O": "minecraft:obsidian",
+    "E": "minecraft:enchanting_table"
+  },
+  "result": {
+    "id": "alchymastery:transmutation_core",
+    "count": 1
+  }
+}

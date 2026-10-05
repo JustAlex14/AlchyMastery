@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GAG",
+    "AEA",
+    "OOO"
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "A": "minecraft:amethyst_shard",
+    "E": "minecraft:ender_pearl",
+    "O": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "alchymastery:distortion_crystal",
+    "count": 1
+  }
+}

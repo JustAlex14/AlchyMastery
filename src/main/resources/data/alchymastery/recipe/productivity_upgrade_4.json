@@ -1,0 +1,34 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:echo_shard",
+    "E": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:netherite",
+        "alchymastery:tier": 4,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -10859953
+          ]
+        }
+      },
+      "strict": false
+    },
+    "X": "alchymastery:productivity_upgrade_3"
+  },
+  "result": {
+    "id": "alchymastery:productivity_upgrade_4",
+    "count": 1
+  }
+}

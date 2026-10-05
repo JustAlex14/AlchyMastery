@@ -1,0 +1,293 @@
+{
+  "core": "alchymastery:experience_nexus",
+  "front": "south",
+  "anchors": {
+    "destructuration": [
+      0,
+      1,
+      -2
+    ],
+    "condensator": [
+      -2,
+      1,
+      0
+    ],
+    "rendering": [
+      2,
+      1,
+      0
+    ],
+    "xp_basin": [
+      0,
+      0,
+      2
+    ]
+  },
+  "layers": [
+    [
+      "SSSSSSS",
+      "SFFaFFS",
+      "SFFpFFS",
+      "SepgprS",
+      "SFFpFFS",
+      "SFFcFFS",
+      "SSSSSSS"
+    ],
+    [
+      "P_____P",
+      "_..i.._",
+      "_....._",
+      "_m.X.j_",
+      "_....._",
+      "_..u.._",
+      "P_____P"
+    ],
+    [
+      "P_____P",
+      "_..1.._",
+      "_....._",
+      "_4...5_",
+      "_....._",
+      "_....._",
+      "P_____P"
+    ],
+    [
+      "P_____P",
+      "_....._",
+      "_....._",
+      "_....._",
+      "_....._",
+      "_....._",
+      "P_____P"
+    ],
+    [
+      "KRRRRRK",
+      "RssLssR",
+      "RsssssR",
+      "RLsWsLR",
+      "RsssssR",
+      "RssLssR",
+      "KRRRRRK"
+    ]
+  ],
+  "key": {
+    "S": {
+      "block": "minecraft:cobbled_deepslate",
+      "name": "cobbled deepslate (floor border)"
+    },
+    "F": {
+      "block": "minecraft:polished_deepslate",
+      "name": "polished deepslate (floor)"
+    },
+    "p": {
+      "block": "minecraft:deepslate_bricks",
+      "name": "deepslate bricks (path to a machine)"
+    },
+    "a": {
+      "block": "minecraft:deepslate_bricks",
+      "name": "deepslate bricks (under the destructuration core)"
+    },
+    "e": {
+      "block": "minecraft:deepslate_bricks",
+      "name": "deepslate bricks (under the condensator core)"
+    },
+    "r": {
+      "block": "minecraft:deepslate_bricks",
+      "name": "deepslate bricks (under the rendering core)"
+    },
+    "c": {
+      "block": "minecraft:deepslate_bricks",
+      "name": "deepslate bricks (under the experience basin)"
+    },
+    "g": {
+      "block": "minecraft:glowstone",
+      "name": "glowstone under the nexus"
+    },
+    "P": {
+      "block": "minecraft:deepslate_tiles",
+      "name": "deepslate tiles (corner pillar)"
+    },
+    "i": {
+      "block": "minecraft:deepslate_tiles",
+      "name": "deepslate tiles (pedestal of the destructuration core)"
+    },
+    "m": {
+      "block": "minecraft:deepslate_tiles",
+      "name": "deepslate tiles (pedestal of the condensator core)"
+    },
+    "j": {
+      "block": "minecraft:deepslate_tiles",
+      "name": "deepslate tiles (pedestal of the rendering core)"
+    },
+    "1": {
+      "block": "alchymastery:destructuration_core",
+      "name": "a destructuration core (north)"
+    },
+    "4": {
+      "block": "alchymastery:condensator_core",
+      "name": "a condensator core (west)",
+      "facing": "center",
+      "facing_check": false
+    },
+    "5": {
+      "block": "alchymastery:rendering_core",
+      "name": "a rendering core (east)",
+      "facing": "center",
+      "facing_check": false
+    },
+    "u": {
+      "tag": "minecraft:cauldrons",
+      "name": "a cauldron (the front, on the floor: shows the stored experience)"
+    },
+    "K": {
+      "block": "minecraft:cobbled_deepslate_stairs",
+      "stairs": "roof_corner",
+      "name": "cobbled deepslate stairs (roof corner)"
+    },
+    "R": {
+      "block": "minecraft:cobbled_deepslate_stairs",
+      "stairs": "roof_edge",
+      "name": "cobbled deepslate stairs (roof edge)"
+    },
+    "s": {
+      "block": "minecraft:cobbled_deepslate_slab",
+      "state": {
+        "type": "bottom"
+      },
+      "name": "a cobbled deepslate slab (bottom half)"
+    },
+    "L": {
+      "block": "minecraft:glowstone",
+      "name": "glowstone (roof light above a pedestal)"
+    },
+    "W": {
+      "block": "alchymastery:wormhole",
+      "name": "a wormhole"
+    },
+    "X": {
+      "core": true
+    },
+    ".": {
+      "air": true
+    },
+    "_": {
+      "any": true
+    }
+  },
+  "result": [
+    [
+      "BBBBBBB",
+      "BffnffB",
+      "BffGffB",
+      "BdGOGcB",
+      "BffGffB",
+      "BffhffB",
+      "BBBBBBB"
+    ],
+    [
+      "Y.....Y",
+      "...I...",
+      ".......",
+      ".M...J.",
+      ".......",
+      "...U...",
+      "Y.....Y"
+    ],
+    [
+      "Y.....Y",
+      "...C...",
+      ".......",
+      ".C...C.",
+      ".......",
+      ".......",
+      "Y.....Y"
+    ],
+    [
+      "Y.....Y",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      ".......",
+      "Y.....Y"
+    ],
+    [
+      "kkkkkkk",
+      "kllollk",
+      "klllllk",
+      "kzl.lvk",
+      "klllllk",
+      "kllqllk",
+      "kkkkkkk"
+    ]
+  ],
+  "result_key": {
+    "B": {
+      "block": "minecraft:deepslate_tiles"
+    },
+    "f": {
+      "block": "minecraft:sculk"
+    },
+    "G": {
+      "block": "minecraft:chiseled_deepslate"
+    },
+    "n": {
+      "block": "minecraft:sculk_catalyst"
+    },
+    "d": {
+      "block": "minecraft:sculk_catalyst"
+    },
+    "c": {
+      "block": "minecraft:sculk_catalyst"
+    },
+    "h": {
+      "block": "minecraft:sculk_catalyst"
+    },
+    "O": {
+      "block": "minecraft:verdant_froglight"
+    },
+    "Y": {
+      "block": "minecraft:reinforced_deepslate"
+    },
+    "I": {
+      "block": "minecraft:chiseled_nether_bricks"
+    },
+    "M": {
+      "block": "minecraft:prismarine_bricks"
+    },
+    "J": {
+      "block": "minecraft:crying_obsidian"
+    },
+    "C": {
+      "same": true,
+      "hidden": true,
+      "restore": true
+    },
+    "U": {
+      "same": true
+    },
+    "k": {
+      "block": "minecraft:deepslate_tile_stairs",
+      "copy_state": true
+    },
+    "l": {
+      "block": "minecraft:deepslate_tile_slab",
+      "copy_state": true
+    },
+    "o": {
+      "block": "minecraft:ochre_froglight"
+    },
+    "z": {
+      "block": "minecraft:sea_lantern"
+    },
+    "v": {
+      "block": "minecraft:verdant_froglight"
+    },
+    "q": {
+      "block": "minecraft:pearlescent_froglight"
+    },
+    ".": {
+      "keep": true
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GXT",
+    "XNX",
+    "BXP"
+  ],
+  "key": {
+    "G": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:ghast_tear",
+        "alchymastery:tier": 2,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mob"
+          ],
+          "colors": [
+            -4198160
+          ]
+        }
+      },
+      "strict": false
+    },
+    "T": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:shulker_shell",
+        "alchymastery:tier": 3,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mob"
+          ],
+          "colors": [
+            -6657378
+          ]
+        }
+      },
+      "strict": false
+    },
+    "B": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:blaze",
+        "alchymastery:tier": 1,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mob"
+          ],
+          "colors": [
+            -18130
+          ]
+        }
+      },
+      "strict": false
+    },
+    "P": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:phantom_membrane",
+        "alchymastery:tier": 1,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mob"
+          ],
+          "colors": [
+            -3554650
+          ]
+        }
+      },
+      "strict": false
+    },
+    "X": "minecraft:echo_shard",
+    "N": "minecraft:nether_star"
+  },
+  "result": {
+    "id": "alchymastery:soul_heart",
+    "count": 1
+  }
+}

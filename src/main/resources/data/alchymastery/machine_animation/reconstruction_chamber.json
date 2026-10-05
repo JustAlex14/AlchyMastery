@@ -1,0 +1,44 @@
+{
+  "machine": "alchymastery:reconstruction_chamber",
+  "effects": [
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 4,
+      "particle": "alchymastery:void_pollen",
+      "at": {
+        "anchor": "flower",
+        "offset": [
+          0,
+          0.5,
+          0
+        ]
+      },
+      "spread": [
+        0.6,
+        0.3,
+        0.6
+      ],
+      "count": 1,
+      "speed": 0.01
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 8,
+      "particle": "alchymastery:void_pollen",
+      "at": [
+        0,
+        1,
+        0
+      ],
+      "spread": [
+        1.5,
+        1,
+        1.5
+      ],
+      "count": 1,
+      "speed": 0.01
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "color": "#FCEE4B",
+  "tier": 2,
+  "forms": {
+    "raw": "#c:raw_materials/gold",
+    "ore": "#c:ores/gold",
+    "ingot": "#c:ingots/gold",
+    "block": "#c:storage_blocks/gold",
+    "raw_block": "#c:storage_blocks/raw_gold"
+  }
+}

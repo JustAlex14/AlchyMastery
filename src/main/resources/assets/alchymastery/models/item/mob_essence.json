@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "alchymastery:item/mob_essence",
+    "layer1": "alchymastery:item/mob_essence_overlay"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "has_destructuration_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:destructuration_core"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_destructuration_core"
+    ]
+  ]
+}

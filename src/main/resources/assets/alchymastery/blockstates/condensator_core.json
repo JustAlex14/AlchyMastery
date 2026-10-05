@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,preview=false": {
+      "model": "alchymastery:block/condensator_core",
+      "y": 0
+    },
+    "facing=north,preview=true": {
+      "model": "alchymastery:block/condensator_core_preview",
+      "y": 0
+    },
+    "facing=east,preview=false": {
+      "model": "alchymastery:block/condensator_core",
+      "y": 90
+    },
+    "facing=east,preview=true": {
+      "model": "alchymastery:block/condensator_core_preview",
+      "y": 90
+    },
+    "facing=south,preview=false": {
+      "model": "alchymastery:block/condensator_core",
+      "y": 180
+    },
+    "facing=south,preview=true": {
+      "model": "alchymastery:block/condensator_core_preview",
+      "y": 180
+    },
+    "facing=west,preview=false": {
+      "model": "alchymastery:block/condensator_core",
+      "y": 270
+    },
+    "facing=west,preview=true": {
+      "model": "alchymastery:block/condensator_core_preview",
+      "y": 270
+    }
+  }
+}

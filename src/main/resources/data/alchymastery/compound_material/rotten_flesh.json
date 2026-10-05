@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#A6573A",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:rotten_flesh"
+  }
+}

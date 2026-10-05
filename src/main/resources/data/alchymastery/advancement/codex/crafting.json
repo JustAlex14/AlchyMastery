@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "read:alchymastery:energy/wormholes": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "read:alchymastery:energy/wormholes"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "read:alchymastery:basics/welcome": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "read:alchymastery:basics/welcome"
+    ]
+  ]
+}

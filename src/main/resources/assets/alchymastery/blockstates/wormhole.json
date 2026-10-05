@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "preview=false": { "model": "alchymastery:block/wormhole" },
+    "preview=true": { "model": "alchymastery:block/wormhole_preview" }
+  }
+}

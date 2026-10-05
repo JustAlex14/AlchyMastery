@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BSB",
+    "SGS",
+    "BSB"
+  ],
+  "key": {
+    "B": "minecraft:polished_blackstone_bricks",
+    "S": "alchymastery:distortion_shard",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "alchymastery:alchemical_lattice",
+    "count": 1
+  }
+}

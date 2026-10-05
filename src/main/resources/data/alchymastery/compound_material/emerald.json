@@ -1,0 +1,9 @@
+{
+  "color": "#17DD62",
+  "tier": 3,
+  "forms": {
+    "gem": "#c:gems/emerald",
+    "gem_ore": "#c:ores/emerald",
+    "block": "#c:storage_blocks/emerald"
+  }
+}
