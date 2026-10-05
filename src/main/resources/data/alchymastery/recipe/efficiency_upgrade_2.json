@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:lapis_block",
+    "E": "alchymastery:distortion_shard",
+    "X": "alchymastery:efficiency_upgrade_1"
+  },
+  "result": {
+    "id": "alchymastery:efficiency_upgrade_2",
+    "count": 1
+  }
+}

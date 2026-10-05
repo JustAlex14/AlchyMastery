@@ -1,0 +1,41 @@
+{
+  "name": "Experience Nexus",
+  "icon": "alchymastery:experience_nexus",
+  "category": "alchymastery:end_game",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Mobs to Experience",
+      "text": "The same folding, for the living. It takes $(thing)mob drops$() or essences with water, breaks them down, condenses its own fluid and renders $(thing)liquid experience$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:soul_heart",
+      "text": "Its heart is grown around a nether star too, with echo shards, and the essences of ghast tears, shulkers, blazes and phantoms. Things that fly and burn, and remember."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:experience_nexus",
+      "text": "It remembers every creature that went into it. I try not to listen. Each stage costs what its own machine would."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Experience Nexus",
+      "multiblock_id": "alchymastery:experience_nexus",
+      "enable_visualize": true,
+      "text": "Three cores on pedestals, a cauldron in front."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Altar",
+      "text": "A destructuration, a condensator and a rendering core on their pedestals, and on the floor before them a cauldron that shows the experience.$(br2)Its front turns to whoever sets it down."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Drinking",
+      "text": "I take the experience the same ways as from a $(l:machines/rendering)rendering cauldron$(). By bucket or pipe, from its window, through taps on any of its stones, or through one bound siphon.$(br2)It too needs its $(l:energy/wormholes)wormhole$()."
+    }
+  ],
+  "advancement": "alchymastery:codex/experience_nexus"
+}

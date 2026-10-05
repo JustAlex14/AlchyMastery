@@ -1,0 +1,29 @@
+{
+  "name": "The Catalysts",
+  "icon": "alchymastery:alchemical_lattice",
+  "category": "alchymastery:machines",
+  "sortnum": -1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Catalysts",
+      "text": "$(thing)Every machine needs a core$(). Not a part, a $(thing)catalyst$(). Lay the same stone around another core and it becomes another machine.$(br2)The frame is clay. The core is the hand that shapes it."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Order",
+      "text": "They came in order, each needing the last. The $(l:basics/distortion_chamber)matrix$() made energy, $(l:energy/wormholes)wormholes$() carried it, the $(l:machines/condensator)condensator$() made distortion fluid, and from that fluid came the shards and the lattice."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:distortion_shard",
+      "text": "A bucket of distortion fluid soaks four amethyst shards. The bucket comes back. The shards never do."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:alchemical_lattice",
+      "text": "Shards and gold set in blackstone. Every later core grows from one. Each core's own recipe waits in its chapter."
+    }
+  ],
+  "advancement": "alchymastery:codex/crafting"
+}

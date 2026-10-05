@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "has_distortion_matrix": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:distortion_matrix"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_distortion_matrix"
+    ]
+  ]
+}

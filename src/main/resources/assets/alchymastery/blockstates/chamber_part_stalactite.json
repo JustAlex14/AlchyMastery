@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "base=false": { "model": "alchymastery:block/chamber_part_stalactite" },
+    "base=true": { "model": "alchymastery:block/chamber_part_stalactite_base" }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "has_rendering_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:rendering_core"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rendering_core"
+    ]
+  ]
+}

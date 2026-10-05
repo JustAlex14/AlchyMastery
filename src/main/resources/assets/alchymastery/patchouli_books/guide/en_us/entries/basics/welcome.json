@@ -1,0 +1,38 @@
+{
+  "name": "Foreword",
+  "icon": "minecraft:lapis_lazuli",
+  "category": "alchymastery:basics",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Foreword",
+      "text": "Whoever finds this journal: I was an alchemist. I chased the old dream, one matter into another, and failed like everyone before me. Until the night I tore reality.$(br2)This is how I learned to use the tear. Read it in order."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Tear",
+      "text": "It began with lapis and amethyst. Burned together in a sealed room, the lapis did not turn to ash. It turned to $(thing)distortion$(), a pressure that bent the walls and the light in them. Stone flowed. Glass forgot it was glass."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Leak",
+      "text": "But the power ran wild. It spilled out of every crack, and when the fire died it was gone.$(br2)I had opened a door, and could keep nothing that came through."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Cycle",
+      "text": "What I wanted never changed. Ores $(l:machines/destructuration)broken$() into pure $(l:basics/compounds)compounds$(), compounds $(l:machines/transmutation)transmuted$() into other matter, the result $(l:machines/reconstruction)rebuilt$() into ores and ingots. The alchemical cycle.$(br2)Every step would run on $(thing)distortion energy$(), which I came to count in DE."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Chambers",
+      "text": "Every machine I built is a $(thing)chamber$(), ordinary blocks around a $(item)core$(), remade by it the moment the structure is right.$(br2)$(#FF7F9A)Break any part and the frame collapses with nothing left.$() Only the core survives. I lost three workshops learning that."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "This Journal",
+      "text": "I bound a little distortion into these pages. Ask a machine's page to $(thing)Visualize$() and look where it should stand, and its blocks will wait there as ghosts.$(br2)Touch a core, or any stone of its frame, and the machine opens to you. Hold a block instead, and you will simply lay it down."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "color": "#3B3B3B",
+  "tier": 0,
+  "forms": {
+    "gem": "minecraft:coal",
+    "gem_ore": "#c:ores/coal",
+    "block": "#c:storage_blocks/coal"
+  }
+}

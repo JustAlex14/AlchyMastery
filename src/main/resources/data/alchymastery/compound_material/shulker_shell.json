@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#9A6A9E",
+  "tier": 3,
+  "forms": {
+    "drop": "minecraft:shulker_shell"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#B0263F",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:spider_eye"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#FFB92E",
+  "tier": 1,
+  "forms": {
+    "drop": "#c:rods/blaze"
+  }
+}

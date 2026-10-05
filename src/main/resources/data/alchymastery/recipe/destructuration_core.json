@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PGP",
+    "SLS",
+    "MBM"
+  ],
+  "key": {
+    "P": "minecraft:piston",
+    "G": "minecraft:grindstone",
+    "S": "alchymastery:distortion_shard",
+    "L": "alchymastery:alchemical_lattice",
+    "M": "minecraft:magma_block",
+    "B": "minecraft:blaze_rod"
+  },
+  "result": {
+    "id": "alchymastery:destructuration_core",
+    "count": 1
+  }
+}

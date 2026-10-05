@@ -1,0 +1,61 @@
+{
+  "core": "alchymastery:reconstruction_core",
+  "front": "east",
+  "layers": [
+    ["FFFFF", "FFFFE", "FfFFE", "FFFFE", "FFFFF"],
+    ["LBG_L", "BY.._", "BcX._", "BY.._", "LBG_L"],
+    ["LBG_L", "BP.._", "B..._", "BP.._", "LBG_L"],
+    ["L.G_L", ".l.._", "H..._", ".l.._", "L.G_L"],
+    ["CRRRC", "RSSSR", "RSWSR", "RSSSR", "CRRRC"]
+  ],
+  "key": {
+    "F": {"block": "minecraft:oak_planks", "name": "oak planks"},
+    "E": {"block": "minecraft:oak_stairs", "state": {"half": "bottom"}, "facing": "center", "name": "oak stairs (front step, facing in)"},
+    "L": {"block": "minecraft:oak_log", "state": {"axis": "y"}, "name": "an upright oak log (corner post)"},
+    "B": {"block": "minecraft:bookshelf", "name": "a bookshelf"},
+    "G": {"block": "minecraft:glass_pane", "name": "a glass pane (side window)"},
+    "Y": {"block": "minecraft:barrel", "name": "a barrel (counter)"},
+    "P": {"tag": "alchymastery:potted_flowers", "name": "a flower pot with a flower"},
+    "c": {"block": "minecraft:water_cauldron", "state": {"level": "2|1"}, "name": "a cauldron with some water (not full)"},
+    "f": {"tag": "minecraft:campfires", "name": "a campfire in the floor under the cauldron"},
+    "H": {"block": "minecraft:oak_planks", "name": "oak planks (becomes the beehive)"},
+    "l": {"block": "minecraft:lantern", "state": {"hanging": "true"}, "name": "a lantern hanging from the roof"},
+    "C": {"block": "minecraft:oak_stairs", "stairs": "roof_corner", "name": "oak stairs (roof corner)"},
+    "R": {"block": "minecraft:oak_stairs", "stairs": "roof_edge", "name": "oak stairs (roof edge)"},
+    "S": {"block": "minecraft:oak_slab", "state": {"type": "bottom"}, "name": "an oak slab (bottom half)"},
+    "W": {"block": "alchymastery:wormhole", "name": "a wormhole"},
+    "X": {"core": true},
+    ".": {"air": true},
+    "_": {"any": true}
+  },
+  "result": [
+    ["ddddd", "dnnnx", "d=nnx", "dnnnx", "ddddd"],
+    ["v=u.v", "==...", "==...", "==...", "v=i.v"],
+    ["v=u.v", "==...", "=....", "==...", "v=i.v"],
+    ["vpu.v", "p=...", "h.o..", "q=...", "vqi.v"],
+    ["xxxxx", "xsssx", "xs.sx", "xsssx", "xxxxx"]
+  ],
+  "result_key": {
+    "d": {"block": "minecraft:dark_oak_planks"},
+    "n": {"block": "minecraft:cherry_planks"},
+    "x": {"block": "minecraft:dark_oak_stairs", "copy_state": true},
+    "v": {"block": "minecraft:stripped_dark_oak_log", "copy_state": true},
+    "u": {"block": "minecraft:purple_stained_glass_pane", "copy_state": true},
+    "i": {"block": "minecraft:lime_stained_glass_pane", "copy_state": true},
+    "s": {"block": "minecraft:cherry_slab", "copy_state": true},
+    "h": {"block": "minecraft:beehive", "state": {"facing": "east", "honey_level": 5}},
+    "p": {"block": "minecraft:purple_candle", "state": {"candles": 3, "lit": true}},
+    "q": {"block": "minecraft:lime_candle", "state": {"candles": 3, "lit": true}},
+    "o": {"block": "minecraft:spore_blossom"},
+    "=": {"same": true},
+    ".": {"keep": true}
+  },
+  "anchors": {
+    "campfire": [-1, -1, 0],
+    "cauldron": [-1, 0, 0],
+    "output": [0, 1, 0],
+    "pot_left": [-1, 1, 1],
+    "pot_right": [-1, 1, -1],
+    "flower": [0, 2, 0]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DCD",
+    "SLS",
+    "FXK"
+  ],
+  "key": {
+    "D": "minecraft:dark_oak_planks",
+    "C": "minecraft:cauldron",
+    "S": "alchymastery:distortion_shard",
+    "L": "alchymastery:alchemical_lattice",
+    "F": "minecraft:fermented_spider_eye",
+    "X": "minecraft:experience_bottle",
+    "K": "minecraft:sculk_catalyst"
+  },
+  "result": {
+    "id": "alchymastery:rendering_core",
+    "count": 1
+  }
+}

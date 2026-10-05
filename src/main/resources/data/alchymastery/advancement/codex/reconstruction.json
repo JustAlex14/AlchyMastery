@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "has_transmutation_core": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:transmutation_core"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_transmutation_core"
+    ]
+  ]
+}

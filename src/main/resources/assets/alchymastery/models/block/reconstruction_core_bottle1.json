@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/brewing_stand_bottle1",
+  "textures": {
+    "particle": "alchymastery:block/reconstruction_core_stand",
+    "stand": "alchymastery:block/reconstruction_core_stand"
+  }
+}

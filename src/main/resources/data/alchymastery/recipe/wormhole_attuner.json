@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  E",
+    " A ",
+    "S  "
+  ],
+  "key": {
+    "E": "minecraft:ender_pearl",
+    "A": "minecraft:amethyst_shard",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "alchymastery:wormhole_attuner",
+    "count": 1
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:redstone",
+    "E": "minecraft:sugar",
+    "X": "alchymastery:alchemical_lattice"
+  },
+  "result": {
+    "id": "alchymastery:speed_upgrade_1",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NSN",
+    "XPX",
+    " G "
+  ],
+  "key": {
+    "N": "minecraft:gold_nugget",
+    "S": "alchymastery:distortion_shard",
+    "X": "minecraft:experience_bottle",
+    "P": "minecraft:ender_pearl",
+    "G": "minecraft:gold_ingot"
+  },
+  "result": {
+    "id": "alchymastery:experience_siphon",
+    "count": 1
+  }
+}

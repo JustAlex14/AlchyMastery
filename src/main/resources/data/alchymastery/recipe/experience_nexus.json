@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CXC",
+    "TNT",
+    "CYC"
+  ],
+  "key": {
+    "C": "minecraft:sculk_catalyst",
+    "X": "minecraft:echo_shard",
+    "T": "minecraft:deepslate_tiles",
+    "N": "alchymastery:soul_heart",
+    "Y": "minecraft:totem_of_undying"
+  },
+  "result": {
+    "id": "alchymastery:experience_nexus",
+    "count": 1
+  }
+}

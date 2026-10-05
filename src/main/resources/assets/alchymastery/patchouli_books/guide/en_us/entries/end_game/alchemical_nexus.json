@@ -1,0 +1,41 @@
+{
+  "name": "Alchemical Nexus",
+  "icon": "alchymastery:alchemical_nexus",
+  "category": "alchymastery:end_game",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Smaller",
+      "text": "The last thing distortion taught me: size is a choice. Bent hard enough, a chamber folds and keeps working, small enough to stand on a pedestal.$(br2)Four of them around one heart, and the whole cycle runs in a single room."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:nexus_heart",
+      "text": "The nexus needed more than a catalyst. A heart, grown around a nether star, from diamond, emerald, gold and netherite $(l:basics/compounds)compounds$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:alchemical_nexus",
+      "text": "When it beats, the four chambers fold into their cores. I choose a $(thing)target$(), feed it ores and water, and it does the rest."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Alchemical Nexus",
+      "multiblock_id": "alchymastery:alchemical_nexus",
+      "enable_visualize": true,
+      "text": "Four cores on their pedestals around the nexus."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "One Machine",
+      "text": "When it wakes, each core tears a rift open and its chamber comes back through it, shrunk to a working miniature.$(br2)It breaks, changes, condenses and rebuilds on its own, and needs no molds."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Habits",
+      "text": "Choosing a new target starts it over, though it keeps its fluids. Each stage eats what its own machine would, and the compounds between stages wait in a store of 256.$(br2)Any of the four cores opens it. And it still needs its $(l:energy/wormholes)wormhole$()."
+    }
+  ],
+  "advancement": "alchymastery:codex/alchemical_nexus"
+}

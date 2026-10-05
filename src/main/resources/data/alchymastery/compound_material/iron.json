@@ -1,0 +1,11 @@
+{
+  "color": "#D9D9D9",
+  "tier": 1,
+  "forms": {
+    "raw": "#c:raw_materials/iron",
+    "ore": "#c:ores/iron",
+    "ingot": "#c:ingots/iron",
+    "block": "#c:storage_blocks/iron",
+    "raw_block": "#c:storage_blocks/raw_iron"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DSE",
+    "SNS",
+    "GSI"
+  ],
+  "key": {
+    "D": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:diamond",
+        "alchymastery:tier": 3,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -10621707
+          ]
+        }
+      },
+      "strict": false
+    },
+    "E": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:emerald",
+        "alchymastery:tier": 3,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -15213214
+          ]
+        }
+      },
+      "strict": false
+    },
+    "G": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:gold",
+        "alchymastery:tier": 2,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -201141
+          ]
+        }
+      },
+      "strict": false
+    },
+    "I": {
+      "neoforge:ingredient_type": "neoforge:components",
+      "items": "alchymastery:compound",
+      "components": {
+        "alchymastery:material": "alchymastery:netherite",
+        "alchymastery:tier": 4,
+        "minecraft:custom_model_data": {
+          "strings": [
+            "mineral"
+          ],
+          "colors": [
+            -10859953
+          ]
+        }
+      },
+      "strict": false
+    },
+    "S": "alchymastery:distortion_shard",
+    "N": "minecraft:nether_star"
+  },
+  "result": {
+    "id": "alchymastery:nexus_heart",
+    "count": 1
+  }
+}

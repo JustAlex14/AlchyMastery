@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pointed_dripstone",
+  "textures": {
+    "cross": "alchymastery:block/chamber_part_stalactite"
+  }
+}

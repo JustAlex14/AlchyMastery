@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "read:alchymastery:basics/distortion_chamber": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "read:alchymastery:basics/distortion_chamber"
+    ]
+  ]
+}

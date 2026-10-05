@@ -1,0 +1,50 @@
+{
+  "core": "alchymastery:condensator_core",
+  "front": "east",
+  "layers": [
+    ["PPPPP", "PPPPE", "PPLPE", "PPPPE", "PPPPP"],
+    ["wgggw", "q.c._", "qcb._", "q.c._", "wgggw"],
+    ["wgggw", "q.d._", "qdX._", "q.d._", "wgggw"],
+    ["wgggw", "q.d._", "qd.._", "q.d._", "wgggw"],
+    ["CRRRC", "RSSSR", "RSWSR", "RSSSR", "CRRRC"]
+  ],
+  "key": {
+    "P": {"block": "minecraft:cobblestone", "name": "cobblestone"},
+    "E": {"block": "minecraft:cobblestone_stairs", "state": {"half": "bottom"}, "facing": "center", "name": "cobblestone stairs (front step)"},
+    "L": {"block": "minecraft:glowstone", "name": "glowstone under the basin (becomes a sea lantern)"},
+    "w": {"block": "minecraft:cobblestone_wall", "name": "a cobblestone wall (corner post)"},
+    "g": {"block": "minecraft:glass", "name": "glass (side window)"},
+    "q": {"tag": "alchymastery:copper_grates", "name": "a copper grate (back wall, any oxidation)"},
+    "c": {"block": "minecraft:water_cauldron", "state": {"level": 3}, "name": "a full water cauldron"},
+    "d": {"block": "minecraft:pointed_dripstone", "state": {"vertical_direction": "down"}, "name": "pointed dripstone hanging from the roof (two blocks long)"},
+    "C": {"block": "minecraft:cobblestone_stairs", "stairs": "roof_corner", "name": "cobblestone stairs (roof corner)"},
+    "R": {"block": "minecraft:cobblestone_stairs", "stairs": "roof_edge", "name": "cobblestone stairs (roof edge)"},
+    "S": {"block": "minecraft:cobblestone_slab", "state": {"type": "bottom"}, "name": "a cobblestone slab (bottom half)"},
+    "b": {"block": "minecraft:water_cauldron", "state": {"level": "3|2|1"}, "name": "a water cauldron under the core"},
+    "W": {"block": "alchymastery:wormhole", "name": "a wormhole"},
+    "X": {"core": true},
+    ".": {"air": true},
+    "_": {"any": true}
+  },
+  "result": [
+    ["ppppp", "ppppe", "ppLpe", "ppppe", "ppppp"],
+    ["wgggw", "o.=..", "o==..", "o.=..", "wgggw"],
+    ["wgggw", "o.t..", "ot...", "o.t..", "wgggw"],
+    ["wgggw", "o.u..", "ou...", "o.u..", "wgggw"],
+    ["xxxxx", "xsssx", "xs.sx", "xsssx", "xxxxx"]
+  ],
+  "result_key": {
+    "p": {"block": "minecraft:dark_prismarine"},
+    "e": {"block": "minecraft:dark_prismarine_stairs", "copy_state": true},
+    "g": {"block": "minecraft:cyan_stained_glass"},
+    "o": {"block": "minecraft:oxidized_copper_grate"},
+    "x": {"block": "minecraft:dark_prismarine_stairs", "copy_state": true},
+    "s": {"block": "minecraft:dark_prismarine_slab", "copy_state": true},
+    "t": {"block": "alchymastery:chamber_part_stalactite"},
+    "u": {"block": "alchymastery:chamber_part_stalactite", "state": {"base": true}},
+    "=": {"same": true},
+    ".": {"keep": true},
+    "L": {"block": "minecraft:sea_lantern"},
+    "w": {"block": "minecraft:prismarine_wall", "copy_state": true}
+  }
+}

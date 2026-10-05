@@ -1,0 +1,10 @@
+{
+  "color": "#2546C9",
+  "tier": 0,
+  "forms": {
+    "gem": "#c:gems/lapis",
+    "gem_ore": "#c:ores/lapis",
+    "block": "#c:storage_blocks/lapis"
+  },
+  "costs": {"gem_ore": 6}
+}

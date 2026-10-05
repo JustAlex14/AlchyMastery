@@ -1,0 +1,26 @@
+{
+  "name": "item.alchymastery.guide",
+  "landing_text": "info.alchymastery.guide.landing",
+  "version": 1,
+  "creative_tab": "alchymastery:main",
+  "use_resource_pack": true,
+  "i18n": true,
+  "model": "patchouli:book_purple",
+  "show_progress": false,
+  "book_texture": "alchymastery:textures/gui/void_book.png",
+  "filler_texture": "alchymastery:textures/gui/void_filler.png",
+  "crafting_texture": "alchymastery:textures/gui/void_crafting.png",
+  "text_color": "E2D8F5",
+  "header_color": "F2EAFF",
+  "nameplate_color": "E2D8F5",
+  "link_color": "C893FF",
+  "link_hover_color": "F0DDFF",
+  "progress_bar_color": "B07CFF",
+  "progress_bar_background": "2A1840",
+  "open_sound": "minecraft:block.amethyst_block.resonate",
+  "flip_sound": "minecraft:block.amethyst_block.chime",
+  "macros": {
+    "$(item)": "$(#D9A8FF)",
+    "$(thing)": "$(#86E3D2)"
+  }
+}

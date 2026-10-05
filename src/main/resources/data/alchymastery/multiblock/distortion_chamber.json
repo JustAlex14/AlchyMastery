@@ -1,0 +1,163 @@
+{
+  "core": "alchymastery:distortion_matrix",
+  "layers": [
+    [
+      "BBBBB",
+      "BBBBB",
+      "BBBBB",
+      "BBBBB",
+      "BBBBB"
+    ],
+    [
+      "BTTTB",
+      "TFSFT",
+      "TSDST",
+      "TFSFT",
+      "BTTTB"
+    ],
+    [
+      "GTTTG",
+      "T...T",
+      "T.M.T",
+      "T...T",
+      "GTTTG"
+    ],
+    [
+      "BTTTB",
+      "T.S.T",
+      "TSDST",
+      "T.S.T",
+      "BTTTB"
+    ],
+    [
+      "CRRRC",
+      "RHHHR",
+      "RHXHR",
+      "RHHHR",
+      "CRRRC"
+    ]
+  ],
+  "key": {
+    "B": {
+      "tag": "alchymastery:distortion_chamber_frame",
+      "name": "stone bricks"
+    },
+    "T": {
+      "tag": "alchymastery:distortion_chamber_window",
+      "name": "glass"
+    },
+    "G": {
+      "block": "minecraft:glowstone",
+      "name": "glowstone"
+    },
+    "S": {
+      "tag": "alchymastery:distortion_chamber_stairs",
+      "stairs": "face_center",
+      "name": "stone brick stairs"
+    },
+    "R": {
+      "tag": "alchymastery:distortion_chamber_stairs",
+      "stairs": "roof_edge",
+      "name": "stone brick stairs"
+    },
+    "C": {
+      "tag": "alchymastery:distortion_chamber_stairs",
+      "stairs": "roof_corner",
+      "name": "stone brick stairs"
+    },
+    "D": {
+      "block": "minecraft:amethyst_block",
+      "name": "an amethyst block (becomes a diamond block)"
+    },
+    "F": {
+      "block": "minecraft:campfire",
+      "state": {
+        "lit": true
+      },
+      "name": "a lit campfire (becomes a soul campfire)"
+    },
+    "H": {
+      "tag": "alchymastery:distortion_chamber_slabs",
+      "state": {
+        "type": "bottom"
+      },
+      "name": "a stone brick slab (bottom half)"
+    },
+    "M": {
+      "core": true
+    },
+    ".": {
+      "air": true
+    },
+    "X": {
+      "block": "alchymastery:distortion_crystal",
+      "name": "a distortion crystal"
+    }
+  },
+  "result": [
+    [
+      "bbbbb",
+      "bbbbb",
+      "bbbbb",
+      "bbbbb",
+      "bbbbb"
+    ],
+    [
+      "bgggb",
+      "gfsfg",
+      "gsdsg",
+      "gfsfg",
+      "bgggb"
+    ],
+    [
+      "lgggl",
+      "g...g",
+      "g...g",
+      "g...g",
+      "lgggl"
+    ],
+    [
+      "bgggb",
+      "g.s.g",
+      "gsdsg",
+      "g.s.g",
+      "bgggb"
+    ],
+    [
+      "sssss",
+      "shhhs",
+      "sh.hs",
+      "shhhs",
+      "sssss"
+    ]
+  ],
+  "result_key": {
+    "b": {
+      "block": "alchymastery:chamber_part"
+    },
+    "h": {
+      "block": "minecraft:polished_blackstone_brick_slab",
+      "copy_state": true
+    },
+    "g": {
+      "block": "alchymastery:chamber_part_glass"
+    },
+    "l": {
+      "block": "alchymastery:chamber_part_glow"
+    },
+    "s": {
+      "block": "alchymastery:chamber_part_stairs",
+      "copy_state": true
+    },
+    ".": {
+      "keep": true
+    },
+    "d": {
+      "block": "minecraft:diamond_block"
+    },
+    "f": {
+      "block": "minecraft:soul_campfire",
+      "copy_state": true
+    }
+  }
+}

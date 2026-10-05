@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/piston_extended",
+  "textures": {
+    "bottom": "alchymastery:block/chamber_part_piston_bottom",
+    "side": "alchymastery:block/chamber_part_piston_side",
+    "inside": "alchymastery:block/chamber_part_piston_inner"
+  }
+}

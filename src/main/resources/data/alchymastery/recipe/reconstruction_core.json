@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "XRX",
+    "SLS",
+    "GKP"
+  ],
+  "key": {
+    "X": "minecraft:cherry_planks",
+    "R": "minecraft:brewing_stand",
+    "S": "alchymastery:distortion_shard",
+    "L": "alchymastery:alchemical_lattice",
+    "G": "minecraft:lime_candle",
+    "K": "minecraft:bookshelf",
+    "P": "minecraft:purple_candle"
+  },
+  "result": {
+    "id": "alchymastery:reconstruction_core",
+    "count": 1
+  }
+}

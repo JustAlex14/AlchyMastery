@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:diamond",
+    "E": "minecraft:wind_charge",
+    "X": "alchymastery:speed_upgrade_2"
+  },
+  "result": {
+    "id": "alchymastery:speed_upgrade_3",
+    "count": 1
+  }
+}

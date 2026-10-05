@@ -1,0 +1,11 @@
+{
+  "color": "#E77C56",
+  "tier": 0,
+  "forms": {
+    "raw": "#c:raw_materials/copper",
+    "ore": "#c:ores/copper",
+    "ingot": "#c:ingots/copper",
+    "block": "#c:storage_blocks/copper",
+    "raw_block": "#c:storage_blocks/raw_copper"
+  }
+}

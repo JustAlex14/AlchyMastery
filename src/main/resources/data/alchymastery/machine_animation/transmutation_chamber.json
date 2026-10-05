@@ -1,0 +1,23 @@
+{
+  "machine": "alchymastery:transmutation_chamber",
+  "effects": [
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 4,
+      "particle": "alchymastery:void_glyph",
+      "at": [
+        0,
+        0.9,
+        0
+      ],
+      "spread": [
+        0.7,
+        0.3,
+        0.7
+      ],
+      "count": 1,
+      "speed": 0.01
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "has_alchemical_lattice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "alchymastery:alchemical_lattice"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alchemical_lattice"
+    ]
+  ]
+}

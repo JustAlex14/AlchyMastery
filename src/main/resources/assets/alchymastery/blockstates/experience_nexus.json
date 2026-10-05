@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "alchymastery:block/experience_nexus",
+      "y": 0
+    },
+    "facing=east": {
+      "model": "alchymastery:block/experience_nexus",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "alchymastery:block/experience_nexus",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alchymastery:block/experience_nexus",
+      "y": 270
+    }
+  }
+}

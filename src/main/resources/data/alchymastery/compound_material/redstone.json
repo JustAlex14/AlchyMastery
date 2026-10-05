@@ -1,0 +1,10 @@
+{
+  "color": "#E02020",
+  "tier": 0,
+  "forms": {
+    "gem": "#c:dusts/redstone",
+    "gem_ore": "#c:ores/redstone",
+    "block": "#c:storage_blocks/redstone"
+  },
+  "costs": {"gem_ore": 5}
+}

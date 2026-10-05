@@ -1,0 +1,39 @@
+{
+  "name": "Wormholes",
+  "icon": "alchymastery:wormhole_attuner",
+  "category": "alchymastery:energy",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "The Second Problem",
+      "text": "The chamber held the energy, but only there. Every machine had to stand inside its walls, and there was no room.$(br2)The energy had to travel."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:distortion_crystal",
+      "text": "The answer was already on the chamber's roof. The crystal gathers the energy instead of letting it seep into the stone, and spins faster while the matrix burns. No chamber wakes without one."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Folding Space",
+      "text": "Distance is only a shape, and distortion bends shapes. A $(item)wormhole$() is a tear I learned to keep small.$(br2)Set in a machine's roof, it drinks from a linked chamber up to $(thing)124 blocks$() away, as long as both stand in the same world."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:wormhole",
+      "text": "Every machine but the chamber needs one. Unlinked, it is a sealed shell of obsidian. Linked, its cage turns slowly. When the machine drinks, its eye opens."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:wormhole_attuner",
+      "text": "Two tears must agree on where they lead. I touch a chamber with the attuner, then the machine, core or frame, and the two are bound."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Bound",
+      "text": "Light arcs between them while they are bound. To make the attuner forget, I crouch and use it on empty air.$(br2)When a machine wakes, I see the void pour down from its wormhole into the core."
+    }
+  ],
+  "advancement": "alchymastery:codex/wormholes"
+}

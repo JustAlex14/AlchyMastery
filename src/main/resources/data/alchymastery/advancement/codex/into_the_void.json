@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "read:alchymastery:end_game/alchemical_nexus": {
+      "trigger": "minecraft:impossible"
+    },
+    "read:alchymastery:end_game/experience_nexus": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "read:alchymastery:end_game/alchemical_nexus"
+    ],
+    [
+      "read:alchymastery:end_game/experience_nexus"
+    ]
+  ]
+}

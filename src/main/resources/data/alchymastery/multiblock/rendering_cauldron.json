@@ -1,0 +1,186 @@
+{
+  "core": "alchymastery:rendering_core",
+  "front": "east",
+  "anchors": {
+    "pedestal": [2, 0, 0],
+    "wormhole": [2, 3, 0],
+    "caster": [1, 0, 0],
+    "cat": [1, 1, 1],
+    "distortion_cauldron": [2, 0, -1],
+    "xp_cauldron": [2, 0, 1]
+  },
+  "layers": [
+    ["KKKKK", "KKKKK", "KKKKK", "KKKKK", "KKKKK"],
+    ["LWWWL", "WAdm.", "X.O..", "WAeo.", "LWWWL"],
+    ["LWPWL", "Wb...", "W....", "W....", "LWPWL"],
+    ["LWTWL", "Wq__T", "W..hT", "W__qT", "LWTWL"],
+    ["m_Z_o", "__Z__", "HHwHH", "__Z__", "o_Z_m"]
+  ],
+  "key": {
+    "K": {
+      "block": "minecraft:cobblestone",
+      "name": "cobblestone (floor)"
+    },
+    "L": {
+      "block": "minecraft:oak_log",
+      "state": {
+        "axis": "y"
+      },
+      "name": "an upright oak log (corner post)"
+    },
+    "W": {
+      "block": "minecraft:spruce_planks",
+      "name": "spruce planks"
+    },
+    "P": {
+      "block": "minecraft:spruce_fence",
+      "name": "a spruce fence (window)"
+    },
+    "A": {
+      "block": "minecraft:barrel",
+      "name": "a barrel"
+    },
+    "b": {
+      "block": "minecraft:brewing_stand",
+      "name": "a brewing stand (on the barrel)"
+    },
+    "h": {
+      "block": "minecraft:lantern",
+      "state": {
+        "hanging": true
+      },
+      "name": "a lantern hanging from the beam"
+    },
+    "H": {
+      "block": "minecraft:spruce_log",
+      "state": {
+        "axis": "x"
+      },
+      "name": "a spruce log beam (lying front to back)"
+    },
+    "Z": {
+      "block": "minecraft:spruce_log",
+      "state": {
+        "axis": "z"
+      },
+      "name": "a spruce log beam (lying side to side)"
+    },
+    "w": {
+      "block": "alchymastery:wormhole",
+      "name": "a wormhole (where the beams cross, over the pedestal)"
+    },
+    "X": {
+      "core": true
+    },
+    "m": {
+      "air": true
+    },
+    "o": {
+      "air": true
+    },
+    "q": {
+      "air": true
+    },
+    ".": {
+      "air": true
+    },
+    "_": {
+      "any": true
+    },
+    "e": {
+      "tag": "minecraft:cauldrons",
+      "name": "a cauldron (left of the pedestal: shows the experience)"
+    },
+    "d": {
+      "tag": "minecraft:cauldrons",
+      "name": "a cauldron (right of the pedestal: shows the distortion fluid)"
+    },
+    "O": {
+      "block": "minecraft:obsidian",
+      "name": "obsidian (the crystal's pedestal, under the wormhole)"
+    },
+    "T": {
+      "block": "minecraft:spruce_slab",
+      "state": {
+        "type": "top"
+      },
+      "name": "a spruce slab in the upper half (over the door or a window)"
+    }
+  },
+  "result": [
+    ["kkkkk", "kkkkk", "kkkkk", "kkkkk", "kkkkk"],
+    ["lvvvl", "vAdm.", "X.O..", "vAeo.", "lvvvl"],
+    ["lvpvl", "vb...", "v....", "v....", "lvpvl"],
+    ["lvtvl", "vq__t", "v..st", "v__qt", "lvtvl"],
+    ["m_r_o", "__r__", "rrwrr", "__r__", "o_r_m"]
+  ],
+  "result_key": {
+    "k": {
+      "block": "minecraft:mossy_cobblestone"
+    },
+    "l": {
+      "block": "minecraft:dark_oak_log",
+      "copy_state": true
+    },
+    "v": {
+      "block": "minecraft:dark_oak_planks"
+    },
+    "p": {
+      "block": "minecraft:dark_oak_fence",
+      "copy_state": true
+    },
+    "A": {
+      "same": true
+    },
+    "b": {
+      "block": "minecraft:brewing_stand",
+      "state": {
+        "has_bottle_0": true,
+        "has_bottle_1": true,
+        "has_bottle_2": true
+      }
+    },
+    "s": {
+      "block": "minecraft:soul_lantern",
+      "copy_state": true
+    },
+    "r": {
+      "block": "minecraft:mangrove_log",
+      "copy_state": true
+    },
+    "m": {
+      "block": "minecraft:red_mushroom"
+    },
+    "o": {
+      "block": "minecraft:brown_mushroom"
+    },
+    "q": {
+      "block": "minecraft:cobweb"
+    },
+    "w": {
+      "keep": true
+    },
+    "X": {
+      "keep": true
+    },
+    ".": {
+      "keep": true
+    },
+    "_": {
+      "keep": true
+    },
+    "e": {
+      "same": true
+    },
+    "d": {
+      "same": true
+    },
+    "O": {
+      "block": "minecraft:crying_obsidian"
+    },
+    "t": {
+      "block": "minecraft:dark_oak_slab",
+      "copy_state": true
+    }
+  }
+}

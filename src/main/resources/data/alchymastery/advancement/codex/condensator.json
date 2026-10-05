@@ -1,0 +1,12 @@
+{
+  "criteria": {
+    "read:alchymastery:machines/crafting": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "read:alchymastery:machines/crafting"
+    ]
+  ]
+}

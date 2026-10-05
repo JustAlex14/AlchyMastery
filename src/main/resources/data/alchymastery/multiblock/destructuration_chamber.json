@@ -1,0 +1,38 @@
+{
+  "core": "alchymastery:destructuration_core",
+  "anchors": {"wormhole": [0, 2, 0], "lava": [0, -1, 0]},
+  "layers": [
+    ["KENEK", "ELLLE", "NLVLN", "ELLLE", "KENEK"],
+    ["PPIPP", "P...P", "I.X.I", "P...P", "PPIPP"],
+    ["PPNPP", "P...P", "N...N", "P...P", "PPNPP"],
+    ["LLELL", "L.t.L", "EtWtE", "L.t.L", "LLELL"]
+  ],
+  "key": {
+    "N": {"block": "minecraft:cobblestone", "name": "cobblestone"},
+    "L": {"block": "minecraft:cobblestone_slab", "state": {"type": "bottom"}, "name": "a cobblestone slab (bottom half)"},
+    "E": {"block": "minecraft:cobblestone_stairs", "stairs": "roof_edge", "name": "cobblestone stairs"},
+    "K": {"block": "minecraft:cobblestone_stairs", "stairs": "roof_corner", "name": "cobblestone stairs"},
+    "V": {"block": "minecraft:lava", "state": {"level": 0}, "consumed": true, "name": "a lava source"},
+    "P": {"block": "minecraft:glass_pane", "name": "a glass pane"},
+    "I": {"block": "minecraft:piston", "facing": "center", "name": "a piston"},
+    "t": {"block": "minecraft:redstone_wall_torch", "facing": "center", "name": "a redstone torch"},
+    "W": {"block": "alchymastery:wormhole", "name": "a wormhole"},
+    "X": {"core": true},
+    ".": {"air": true}
+  },
+  "result": [
+    ["eenee", "ellle", "nl.ln", "ellle", "eenee"],
+    ["hhphh", "h...h", "p...p", "h...h", "hhphh"],
+    ["hhnhh", "h...h", "n...n", "h...h", "hhnhh"],
+    ["llell", "l.s.l", "es.se", "l.s.l", "llell"]
+  ],
+  "result_key": {
+    "n": {"block": "minecraft:nether_bricks"},
+    "l": {"block": "minecraft:nether_brick_slab", "copy_state": true},
+    "e": {"block": "minecraft:nether_brick_stairs", "copy_state": true},
+    "s": {"same": true},
+    "h": {"same": true, "hidden": true},
+    ".": {"keep": true},
+    "p": {"block": "alchymastery:chamber_part_piston", "copy_state": true}
+  }
+}

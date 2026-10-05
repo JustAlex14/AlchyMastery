@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GBG",
+    "HNH",
+    "GIG"
+  ],
+  "key": {
+    "G": "minecraft:gold_block",
+    "B": "minecraft:beacon",
+    "H": "minecraft:gilded_blackstone",
+    "N": "alchymastery:nexus_heart",
+    "I": "minecraft:netherite_ingot"
+  },
+  "result": {
+    "id": "alchymastery:alchemical_nexus",
+    "count": 1
+  }
+}

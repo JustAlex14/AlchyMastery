@@ -1,0 +1,61 @@
+{
+  "name": "Rendering Cauldron",
+  "icon": "alchymastery:rendering_core",
+  "category": "alchymastery:machines",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Rendering",
+      "text": "Living things leave more than flesh. Dissolved in distortion fluid, $(item)mob essences$() render into $(thing)liquid experience$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:rendering_core",
+      "text": "A crystal turns over the obsidian, tended by a soul. A remnant the void left behind, taking any shape. I gave this one a purpose. It is not the only one."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Rendering Cauldron",
+      "multiblock_id": "alchymastery:rendering_cauldron",
+      "enable_visualize": true,
+      "text": "A witch's hut open to the sky, the core in its back wall."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Hut",
+      "text": "A wide door under slabs, beams crossing over the room to hold the wormhole, an obsidian pedestal beneath it and a cauldron on each side.$(br2)I set the core from inside, facing the door."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Its Price",
+      "text": "Each essence costs 100 measures of fluid and 10 DE. The humblest gives 2 experience, and each tier above gives three times more. 2, 6, 18, 54...$(br2)The side cauldrons show the fluid and the experience."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Drinking",
+      "text": "The experience can be drawn off by bucket or pipe, or drunk straight from its window, one level at a time or all at once.$(br2)But I found better ways to take it. Like every core, it starves without a $(l:energy/wormholes)wormhole$() above it."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:experience_tap",
+      "text": "A tap on any stone of the cauldron. Opened, it pours up to 20 points a second, a stream of orbs falling like water. Closed, it holds."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Bottling",
+      "text": "An empty bottle held to the tap fills into a $(item)bottle o' enchanting$(), for 10 points of the cauldron's experience."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:experience_siphon",
+      "text": "I touch the cauldron with it to bind the two, and the soul there takes my shape. To unbind it, I crouch and use it on empty air."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Mending",
+      "text": "Carried, or worn as a charm, it mends anything I own that knows Mending, from the cauldron's experience, wherever I am, as long as the cauldron's land is awake.$(br2)Each cauldron answers only one of us."
+    }
+  ],
+  "advancement": "alchymastery:codex/rendering"
+}

@@ -1,0 +1,8 @@
+{
+  "family": "mob",
+  "color": "#E06A1F",
+  "tier": 1,
+  "forms": {
+    "drop": "minecraft:magma_cream"
+  }
+}

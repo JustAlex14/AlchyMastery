@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ILI",
+    " B "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "L": "minecraft:lever",
+    "B": "minecraft:bucket"
+  },
+  "result": {
+    "id": "alchymastery:experience_tap",
+    "count": 1
+  }
+}

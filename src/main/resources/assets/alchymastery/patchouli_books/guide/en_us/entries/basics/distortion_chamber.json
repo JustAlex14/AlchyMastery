@@ -1,0 +1,41 @@
+{
+  "name": "The Distortion Chamber",
+  "icon": "alchymastery:distortion_matrix",
+  "category": "alchymastery:basics",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "title": "Holding the Tear",
+      "text": "I stopped fighting the leak and gave it somewhere to go. I built a room to concentrate it, amethyst above and below the heart, fire to keep the air burning, glass to watch through."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "alchymastery:distortion_matrix",
+      "text": "At its center, the $(item)Distortion Matrix$(). A core that drinks the distortion instead of letting it escape. It holds up to $(thing)100,000 DE$(), but only while its room stands."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Distortion Chamber",
+      "multiblock_id": "alchymastery:distortion_chamber",
+      "enable_visualize": true,
+      "text": "The matrix between the amethyst, a $(l:energy/wormholes)crystal$() on the roof."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Room",
+      "text": "Stone bricks and glass for the walls, glowstone and campfires for the light, amethyst above and below the matrix, the crystal on top.$(br2)When it woke, the amethyst hardened into diamond and the fires burned blue with souls."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Feeding It",
+      "text": "Lapis feeds it best. A single stone gives 100 DE, a block of it 900, and the matrix burns through 100 DE a second. I drop the fuel through its window, or let a hopper do it while I sleep. The stones float around the heart until their turn."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "Watching It",
+      "text": "I read its store in its window, or on its walls when I look closely.$(br2)Alchemists of other lands swear by other fuels. Perhaps their world burns differently.$(br2)Much later, the $(l:corruption/upgrades)void$() taught me to push it further."
+    }
+  ],
+  "advancement": "alchymastery:codex/distortion_chamber"
+}

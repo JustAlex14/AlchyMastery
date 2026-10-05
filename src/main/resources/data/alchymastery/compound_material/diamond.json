@@ -1,0 +1,9 @@
+{
+  "color": "#5DECF5",
+  "tier": 3,
+  "forms": {
+    "gem": "#c:gems/diamond",
+    "gem_ore": "#c:ores/diamond",
+    "block": "#c:storage_blocks/diamond"
+  }
+}

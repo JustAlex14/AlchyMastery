@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CEC",
+    "EXE",
+    "CEC"
+  ],
+  "key": {
+    "C": "minecraft:emerald",
+    "E": "alchymastery:distortion_shard",
+    "X": "alchymastery:productivity_upgrade_1"
+  },
+  "result": {
+    "id": "alchymastery:productivity_upgrade_2",
+    "count": 1
+  }
+}

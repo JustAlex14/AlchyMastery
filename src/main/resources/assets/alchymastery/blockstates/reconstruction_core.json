@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_bottle0"
+      },
+      "when": {
+        "has_bottle_0": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_bottle1"
+      },
+      "when": {
+        "has_bottle_1": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_bottle2"
+      },
+      "when": {
+        "has_bottle_2": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_empty0"
+      },
+      "when": {
+        "has_bottle_0": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_empty1"
+      },
+      "when": {
+        "has_bottle_1": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "alchymastery:block/reconstruction_core_empty2"
+      },
+      "when": {
+        "has_bottle_2": "false"
+      }
+    }
+  ]
+}

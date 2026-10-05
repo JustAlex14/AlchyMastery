@@ -1,0 +1,215 @@
+{
+  "machine": "alchymastery:destructuration_chamber",
+  "effects": [
+    {
+      "type": "item",
+      "display": "input",
+      "at": [
+        0,
+        0.75,
+        0
+      ],
+      "motion": "spin",
+      "speed": 0.8,
+      "working_speed": 3.0,
+      "scale": 0.6,
+      "bob": 0.05
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "particle": "minecraft:enchant",
+      "count": 2,
+      "at": {
+        "anchor": "wormhole",
+        "offset": [
+          0,
+          -0.55,
+          0
+        ]
+      },
+      "spread": [
+        0.3,
+        0,
+        0.3
+      ],
+      "to": [
+        0,
+        0.9,
+        0
+      ],
+      "style": "attract"
+    },
+    {
+      "type": "block_move",
+      "when": "working",
+      "interval": 20,
+      "targets": {
+        "block": "alchymastery:chamber_part_piston"
+      },
+      "direction": "facing",
+      "draw": "alchymastery:chamber_part_piston_head",
+      "swap": {
+        "extended": true
+      },
+      "keyframes": [
+        {
+          "t": 0,
+          "move": 0,
+          "state": {
+            "short": true
+          }
+        },
+        {
+          "t": 1,
+          "move": 0.5,
+          "state": {
+            "short": false
+          }
+        },
+        {
+          "t": 2,
+          "move": 1
+        },
+        {
+          "t": 4,
+          "move": 1
+        },
+        {
+          "t": 5.5,
+          "move": 0.5,
+          "state": {
+            "short": true
+          }
+        },
+        {
+          "t": 7,
+          "move": 0
+        }
+      ]
+    },
+    {
+      "type": "sound",
+      "when": "working",
+      "interval": 20,
+      "sound": "minecraft:block.piston.extend",
+      "volume": 0.4,
+      "pitch": 0.9,
+      "pitch_variance": 0.1
+    },
+    {
+      "type": "sound",
+      "when": "working",
+      "interval": 20,
+      "delay": 5,
+      "sound": "minecraft:block.piston.contract",
+      "volume": 0.4,
+      "pitch": 0.9
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 20,
+      "delay": 2,
+      "item": "input",
+      "count": 10,
+      "at": [
+        0,
+        0.6,
+        0
+      ],
+      "spread": [
+        0.25,
+        0.1,
+        0.25
+      ],
+      "speed": 0.08
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 20,
+      "delay": 2,
+      "particle": "minecraft:smoke",
+      "count": 4,
+      "at": [
+        0,
+        0.6,
+        0
+      ],
+      "spread": [
+        0.3,
+        0.1,
+        0.3
+      ],
+      "speed": 0.01
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 20,
+      "delay": 2,
+      "chance": 0.33,
+      "particle": "minecraft:lava",
+      "at": {
+        "anchor": "lava",
+        "offset": [
+          0,
+          0.1,
+          0
+        ]
+      },
+      "spread": [
+        0.2,
+        0,
+        0.2
+      ]
+    },
+    {
+      "type": "sound",
+      "when": "finish",
+      "sound": "minecraft:block.grindstone.use",
+      "volume": 0.6,
+      "pitch": 1.0,
+      "pitch_variance": 0.1
+    },
+    {
+      "type": "particle",
+      "when": "finish",
+      "particle": "minecraft:reverse_portal",
+      "count": 15,
+      "at": [
+        0,
+        0.7,
+        0
+      ],
+      "spread": [
+        0.3,
+        0.2,
+        0.3
+      ],
+      "speed": 0.02
+    },
+    {
+      "type": "particle",
+      "when": "working",
+      "interval": 3,
+      "particle": "alchymastery:void_ember",
+      "at": {
+        "anchor": "lava",
+        "offset": [
+          0,
+          0.6,
+          0
+        ]
+      },
+      "spread": [
+        0.4,
+        0.1,
+        0.4
+      ],
+      "count": 1,
+      "speed": 0.02
+    }
+  ]
+}
