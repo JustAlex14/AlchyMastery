@@ -24,16 +24,16 @@ public final class ClientConfig {
             .define("enabled", true);
     public static final ModConfigSpec.IntValue STAGGER = BUILDER
             .comment("Ticks between one machine core opening its rift and the next.")
-            .defineInRange("stagger", 25, 0, 200);
+            .defineInRange("stagger", 48, 0, 200);
     public static final ModConfigSpec.IntValue RIFT_OPEN_TICKS = BUILDER
             .comment("A core's rift tearing open.")
-            .defineInRange("riftOpenTicks", 14, 1, 200);
+            .defineInRange("riftOpenTicks", 22, 1, 200);
     public static final ModConfigSpec.IntValue EMERGE_TICKS = BUILDER
             .comment("The miniature chamber coming out of the rift.")
-            .defineInRange("emergeTicks", 30, 1, 200);
+            .defineInRange("emergeTicks", 50, 1, 200);
     public static final ModConfigSpec.IntValue RIFT_CLOSE_TICKS = BUILDER
             .comment("The rift closing behind it.")
-            .defineInRange("riftCloseTicks", 12, 1, 200);
+            .defineInRange("riftCloseTicks", 18, 1, 200);
     public static final ModConfigSpec.DoubleValue EMERGE_SPIN = BUILDER
             .comment("Turns the miniature spins as it comes out.")
             .defineInRange("emergeSpin", 0.75, 0.0, 10.0);
@@ -42,19 +42,19 @@ public final class ClientConfig {
             .defineInRange("riftSize", 1.6, 0.5, 4.0);
     public static final ModConfigSpec.IntValue REVEAL_DELAY = BUILDER
             .comment("Ticks between the last miniature and the first block coming back.")
-            .defineInRange("revealDelay", 10, 0, 200);
+            .defineInRange("revealDelay", 16, 0, 200);
     public static final ModConfigSpec.DoubleValue REVEAL_SPREAD = BUILDER
             .comment("Ticks per block of distance from the nexus: how fast the blocks come back outward.")
             .defineInRange("revealSpread", 3.0, 0.0, 40.0);
     public static final ModConfigSpec.IntValue REVEAL_RIFT_TICKS = BUILDER
             .comment("A block's own rift: it opens, the block comes back halfway, it closes.")
-            .defineInRange("revealRiftTicks", 16, 2, 200);
+            .defineInRange("revealRiftTicks", 24, 2, 200);
     public static final ModConfigSpec.DoubleValue VEIL_OPACITY = BUILDER
             .comment("How visible the see-through blocks are while they wait (0: invisible).")
             .defineInRange("veilOpacity", 0.3, 0.0, 1.0);
     public static final ModConfigSpec.IntValue BIND_TICKS = BUILDER
             .comment("The finale: glyphs streaming from the miniatures into the nexus (0: no finale).")
-            .defineInRange("bindTicks", 50, 0, 400);
+            .defineInRange("bindTicks", 80, 0, 400);
     public static final ModConfigSpec.DoubleValue PARTICLES = BUILDER
             .comment("Particle amount (0: none, 1: normal, 2: double).")
             .defineInRange("particles", 1.0, 0.0, 4.0);
@@ -72,7 +72,7 @@ public final class ClientConfig {
     public record Genesis(boolean enabled, int stagger, int riftOpen, int emerge, int riftClose, float emergeSpin,
                           float riftSize, int revealDelay, float revealSpread, int revealRift, float veilOpacity,
                           int bind, float particles, boolean sounds) {
-        public static final Genesis DEFAULT = new Genesis(true, 25, 14, 30, 12, 0.75F, 1.6F, 10, 3F, 16, 0.3F, 50, 1F, true);
+        public static final Genesis DEFAULT = new Genesis(true, 48, 22, 50, 18, 0.75F, 1.6F, 16, 3F, 24, 0.3F, 80, 1F, true);
 
         /** The nexus core charging before it blasts a machine core's rift open (warden style). */
         public static final int CHARGE = 16;
