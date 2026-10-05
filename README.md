@@ -13,12 +13,12 @@ An alchemy mod for NeoForge (Minecraft 26.1.2). Tear reality open, hold the dist
 
 ## Screenshots
 
-| | |
-|---|---|
-| ![Distortion Chamber](docs/screenshots/01_distortion_chamber.jpg) **Distortion Chamber**: lapis burns behind the glass, rifts already tearing through the panes | ![Destructuration Chamber](docs/screenshots/02_destructuration.jpg) **Destructuration Chamber**: pistons crush matter over a lava pool into pure compounds |
-| ![Transmutation Chamber](docs/screenshots/03_transmutation.jpg) **Transmutation Chamber**: a book that reads itself. Show it what you want, and matter listens | ![Distortion Condensator](docs/screenshots/04_condensator.jpg) **Distortion Condensator**: under dripstone, water thickens into distortion fluid |
-| ![Rendering Cauldron](docs/screenshots/05_rendering_cauldron.jpg) **Rendering Cauldron**: a soul tends the crystal, rendering mob essences into liquid experience | ![A Nexus forming](docs/screenshots/06_nexus_forming.jpg) **A Nexus forming**: the chambers phase out and come back through rifts, folded into miniatures |
-| ![Experience Nexus](docs/screenshots/08_experience_nexus.jpg) **Experience Nexus**: mob drops in, liquid experience out | |
+<table>
+<tr><td width="50%"><img src="docs/screenshots/01_distortion_chamber.jpg" alt="Distortion Chamber"><br><b>Distortion Chamber</b>: lapis burns behind the glass, rifts already tearing through the panes</td><td width="50%"><img src="docs/screenshots/02_destructuration.jpg" alt="Destructuration Chamber"><br><b>Destructuration Chamber</b>: pistons crush matter over a lava pool into pure compounds</td></tr>
+<tr><td width="50%"><img src="docs/screenshots/03_reconstruction.jpg" alt="Reconstruction Chamber"><br><b>Reconstruction Chamber</b>: a cottage around a cauldron, where compounds become items again</td><td width="50%"><img src="docs/screenshots/04_condensator.jpg" alt="Distortion Condensator"><br><b>Distortion Condensator</b>: under dripstone, water thickens into distortion fluid</td></tr>
+<tr><td width="50%"><img src="docs/screenshots/05_rendering_cauldron.jpg" alt="Rendering Cauldron"><br><b>Rendering Cauldron</b>: a soul tends the crystal, rendering mob essences into liquid experience</td><td width="50%"><img src="docs/screenshots/06_nexus_forming.jpg" alt="A Nexus forming"><br><b>A Nexus forming</b>: the chambers phase out and come back through rifts, folded into miniatures</td></tr>
+<tr><td width="50%"><img src="docs/screenshots/08_experience_nexus.jpg" alt="Experience Nexus"><br><b>Experience Nexus</b>: mob drops in, liquid experience out</td><td></td></tr>
+</table>
 
 ## Requirements
 
