@@ -1,60 +1,44 @@
 package com.lealex.alchymastery.client;
 
 import com.lealex.alchymastery.block.CondensatorCoreBlock;
-import com.lealex.alchymastery.block.ReconstructionCoreBlock;
-import com.lealex.alchymastery.block.TransmutationCoreBlock;
-import com.lealex.alchymastery.block.entity.BookAnimation;
 import com.lealex.alchyx.block.entity.ChamberShellBlockEntity;
 import com.lealex.alchymastery.block.entity.MiniatureHost;
 import com.lealex.alchymastery.block.entity.NexusCoreBlockEntity;
 import com.lealex.alchyx.block.entity.MultiblockCoreBlockEntity;
+import com.lealex.alchyx.client.miniature.BoxMesh;
+import com.lealex.alchyx.client.miniature.Miniatures;
+import com.lealex.alchyx.miniature.BlockBox;
 import com.lealex.alchyx.multiblock.MultiblockPattern;
 import com.lealex.alchymastery.registry.ModRegistries;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.model.object.book.BookModel;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.block.MovingBlockRenderState;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.blockentity.ConduitRenderer;
-import net.minecraft.client.renderer.blockentity.EnchantTableRenderer;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;
-import net.minecraft.client.renderer.blockentity.state.ConduitRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.client.resources.model.sprite.SpriteGetter;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.level.ColorResolver;
 import net.minecraft.util.LightCoordsUtil;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.BrewingStandBlock;
-import net.minecraft.world.level.block.piston.PistonBaseBlock;
-import net.minecraft.world.level.block.piston.PistonHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.PistonType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
-import net.minecraft.client.model.object.crystal.EndCrystalModel;
-import net.minecraft.client.renderer.entity.state.EndCrystalRenderState;
 import com.lealex.alchymastery.multiblock.ModPatterns;
 import com.lealex.alchyx.animation.ClientAnimations;
-import com.lealex.alchyx.animation.Effect;
 import com.lealex.alchyx.animation.ResolvedAnimation;
-import com.lealex.alchyx.animation.Target;
-import com.lealex.alchyx.client.animation.AnimationEngine;
-import com.lealex.alchyx.client.animation.FigureDrawer;
+import com.lealex.alchyx.client.animation.MiniatureAnimation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Rotation;
 import java.util.ArrayList;
 import java.util.Map;
@@ -62,19 +46,19 @@ import java.util.List;
 
 /**
  * Draws a nexus's miniatures (the alchemical nexus, the experience nexus: any MiniatureHost): over each machine core, a small copy of that machine's formed chamber
- * (from its own pattern file, so a datapack change shows here too), animated when its stage works:
+ * (from its own pattern file, so a datapack change shows here too), animated when its stage works. The blocks that
+ * never change are one cached mesh per miniature (AlchyX's miniature kit). What moves comes from each machine's own
+ * animation file, played in the miniature (AlchyX's MiniatureAnimation): the pistons striking, the book, the
+ * conduit waking up, the stand's bottles filling, the hut's crystal, ghost and cat. This renderer itself only adds:
  * <ul>
- *   <li>destructuration: the pistons strike and the input item spins over the core;</li>
- *   <li>transmutation: the book opens and flips, a compound spins and turns into the target's compound;</li>
- *   <li>condensator: the conduit wakes up;</li>
- *   <li>reconstruction: the bottles fill and the target's compound turns into the target item;</li>
- *   <li>rendering: the essence being rendered spins over the hut's pedestal.</li>
+ *   <li>the items floating over each miniature, larger than life so they can be seen (submitItems);</li>
+ *   <li>the miniature wormholes, whose look follows the nexus's own link;</li>
+ *   <li>Rift Genesis, the formation.</li>
  * </ul>
  */
 public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHost>
         implements BlockEntityRenderer<T, NexusCoreRenderer.State> {
     public static final float SCALE = 0.25F;       // a 5-wide chamber becomes 1.25 blocks wide
-    private static final int STRIKE_INTERVAL = 20; // ticks between miniature piston strikes
 
     /** One miniature, ready to draw. */
     public static class Mini {
@@ -84,18 +68,16 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         public int minY;
         public boolean working;
         public float progress;
-        public final List<MovingBlockRenderState> blocks = new ArrayList<>();
-        public final List<Vec3> blockOffsets = new ArrayList<>();
-        public final List<@Nullable MovingBlockRenderState> heads = new ArrayList<>(); // piston heads (or null)
-        public final List<Vec3> headShift = new ArrayList<>();
-        public @Nullable Vec3 conduitCell, bookCell;
+        // The blocks that never change, worked out once (AlchyX BoxMesh): drawn at meshAt, lit with light
+        public @Nullable BoxMesh mesh;
+        public Vec3 meshAt = Vec3.ZERO;
+        public int light;
+        // What the machine's own animation file shows right now (AlchyX MiniatureAnimation): pistons striking, bottles
+        // filling, the book, the conduit, the crystal, figures
+        public MiniatureAnimation.@Nullable Frame frame;
         public final List<Vec3> wormholeCells = new ArrayList<>(); // drawn by WormholeRenderer.draw
         public Vec3 focus = Vec3.ZERO; // where the items float (miniature units)
         public double centerX = 0.5, centerZ = 0.5;   // middle of the miniature's footprint (it's centered on the pedestal)
-        // The rendering hut: its crystal (pedestal + wormhole anchors) and the figures of its animation file
-        public @Nullable Vec3 pedestal, wormhole;
-        public final List<Vec3> figureFeet = new ArrayList<>();
-        public final List<FigureDrawer.Prepared> figures = new ArrayList<>();
         public @Nullable ItemStackRenderState itemA, itemB;
     }
 
@@ -103,9 +85,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         public final List<Mini> minis = new ArrayList<>();
         public float time;
         public boolean linked; // the nexus's wormhole link (its miniature wormholes show it)
-        public float bookTime, bookYRot, bookFlip, bookOpen;
-        public final ConduitRenderState conduit = new ConduitRenderState();
-        public final EndCrystalRenderState crystal = new EndCrystalRenderState(); // the rendering hut's
         // Rift Genesis (NexusGenesis): ticks since the nexus formed while it plays, -1 otherwise
         public float genesisT = -1;
         public com.lealex.alchymastery.ClientConfig.Genesis genesis = com.lealex.alchymastery.ClientConfig.Genesis.DEFAULT;
@@ -118,19 +97,124 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
 
     }
 
+    /**
+     * A miniature's fixed blocks as a mesh and its machine's animation file ready to play in it, kept until its cells
+     * change, the game's models are reloaded or new animation files arrive. The owner is what the animation's
+     * figures are kept under (their stand-in entities, the book's state).
+     */
+    private record CachedMesh(List<MultiblockPattern.LookCell> cells, BoxMesh mesh, Vec3 at,
+                              @Nullable MiniatureAnimation animation, int animations, Object owner) {}
+
+    /** The pattern (and so the animation file) of a miniature's machine. */
+    private static @Nullable Identifier patternOf(String machine) {
+        return switch (machine) {
+            case "destructuration" -> ModPatterns.DESTRUCTURATION_CHAMBER;
+            case "transmutation" -> ModPatterns.TRANSMUTATION_CHAMBER;
+            case "reconstruction" -> ModPatterns.RECONSTRUCTION_CHAMBER;
+            case "condensator" -> ModPatterns.DISTORTION_CONDENSATOR;
+            case "rendering" -> ModPatterns.RENDERING_CAULDRON;
+            default -> null;
+        };
+    }
+
+    private static final Map<MultiblockCoreBlockEntity, Map<String, CachedMesh>> MESHES = new java.util.WeakHashMap<>();
+
+    /**
+     * What a cell shows in the mesh: its look, lava's look-alike block, or nothing (drawn another way, or not at all).
+     * The cells an animation file changes (pistons, the stand's bottles) are left out by the animation itself.
+     */
+    private static BlockState fixedLook(BlockState look) {
+        if (look.getBlock() instanceof CondensatorCoreBlock || look.getBlock() instanceof com.lealex.alchymastery.block.WormholeBlock) {
+            return Blocks.AIR.defaultBlockState(); // no block model: the conduit is a figure of the file, the wormhole is drawn here
+        }
+        if (look.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock) {
+            return look.getFluidState().is(net.minecraft.tags.FluidTags.LAVA)
+                    ? ModRegistries.MINIATURE_LAVA.get().defaultBlockState() : Blocks.AIR.defaultBlockState();
+        }
+        return look;
+    }
+
+    private static CachedMesh mesh(MultiblockCoreBlockEntity nexus, ClientLevel level, NexusCoreBlockEntity.Miniature miniature,
+                                   BlockPos lightPos) {
+        String machine = miniature.machine();
+        List<MultiblockPattern.LookCell> cells = miniature.cells();
+        Map<String, CachedMesh> byMachine = MESHES.computeIfAbsent(nexus, key -> new java.util.HashMap<>());
+        CachedMesh cached = byMachine.get(machine);
+        if (cached != null && cached.cells == cells && !cached.mesh.isStale() && cached.animations == ClientAnimations.generation()) return cached;
+
+        // The machine's animation file plays in the miniature: its block moves (pistons), block states (bottles) and
+        // figures (the book, the conduit, the hut's crystal, ghost and cat). Floating items stay this renderer's: they
+        // are drawn larger than life here, to be seen. Particles and sounds are left off: the nexus has its own (set
+        // the last two to true to hear and see the files').
+        Identifier pattern = patternOf(machine);
+        ResolvedAnimation definition = pattern == null ? null : ClientAnimations.get(pattern);
+        MiniatureAnimation animation = null;
+        if (definition != null) {
+            Map<BlockPos, BlockState> all = new java.util.HashMap<>();
+            for (MultiblockPattern.LookCell cell : cells) all.put(cell.offset(), cell.state());
+            animation = new MiniatureAnimation(definition, all, miniature.anchors(),
+                    Rotation.values()[Math.floorMod(miniature.turn(), 4)], new MiniatureAnimation.Plays(true, false, true, false, false));
+        }
+        java.util.Set<BlockPos> animated = animation == null ? java.util.Set.of() : animation.changingCells();
+
+        int minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, minZ = Integer.MAX_VALUE;
+        int maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE, maxZ = Integer.MIN_VALUE;
+        Map<BlockPos, BlockState> looks = new java.util.HashMap<>();
+        for (MultiblockPattern.LookCell cell : cells) {
+            BlockPos at = cell.offset();
+            looks.put(at, animated.contains(at) ? Blocks.AIR.defaultBlockState() : fixedLook(cell.state()));
+            minX = Math.min(minX, at.getX()); maxX = Math.max(maxX, at.getX());
+            minY = Math.min(minY, at.getY()); maxY = Math.max(maxY, at.getY());
+            minZ = Math.min(minZ, at.getZ()); maxZ = Math.max(maxZ, at.getZ());
+        }
+        if (looks.isEmpty()) {
+            minX = minY = minZ = maxX = maxY = maxZ = 0;
+        }
+        BlockPos min = new BlockPos(minX, minY, minZ);
+        BlockBox box = BlockBox.of(maxX - minX + 1, maxY - minY + 1, maxZ - minZ + 1, false,
+                (x, y, z) -> looks.getOrDefault(min.offset(x, y, z), Blocks.AIR.defaultBlockState()));
+        // Cauldrons of distortion fluid (the condensator's ring, the reconstruction's cauldron) show it purple, like
+        // the real chambers; the condensator's basin under its core stays water
+        BoxMesh.Tints tints = (state, x, y, z) -> state.is(Blocks.WATER_CAULDRON)
+                && (machine.equals("reconstruction") || (machine.equals("condensator") && !min.offset(x, y, z).equals(BlockPos.ZERO.below())))
+                ? ModRegistries.DISTORTION_FLUID_COLOR : 0;
+        cached = new CachedMesh(cells, BoxMesh.build(level, lightPos, box, Integer.MAX_VALUE, tints), Vec3.atLowerCornerOf(min),
+                animation, ClientAnimations.generation(), new Object());
+        byMachine.put(machine, cached);
+        return cached;
+    }
+
+    /** What a machine's animation file is told about the miniature of that machine. */
+    private static <N extends MultiblockCoreBlockEntity & MiniatureHost> MiniatureAnimation.State animationState(N nexus, String machine) {
+        return new MiniatureAnimation.State() {
+            @Override
+            public boolean working() {
+                return nexus.isMachineWorking(machine);
+            }
+
+            @Override
+            public float progress() {
+                return nexus.getMachineProgress(machine);
+            }
+
+            // The nexus's own displays (its "linked_player" decides which ghost stands in the hut)
+            @Override
+            public ItemStack display(String name) {
+                return nexus.getAnimationDisplay(name);
+            }
+
+            @Override
+            public int level(String name) {
+                return nexus.getAnimationLevel(name);
+            }
+        };
+    }
+
     private final ItemModelResolver itemModelResolver;
-    private final ConduitRenderer conduitRenderer;
-    private final BookModel bookModel;
-    private final SpriteGetter sprites;
-    private final EndCrystalModel crystalModel;
     private final WormholeRenderer.Parts wormholeParts;
 
     public NexusCoreRenderer(BlockEntityRendererProvider.Context context) {
         this.itemModelResolver = context.itemModelResolver();
-        this.conduitRenderer = new ConduitRenderer(context);
-        this.bookModel = new BookModel(context.bakeLayer(ModelLayers.BOOK));
-        this.sprites = context.sprites();
-        this.crystalModel = new EndCrystalModel(context.bakeLayer(ModelLayers.END_CRYSTAL));
         this.wormholeParts = WormholeRenderer.Parts.bake(context);
     }
 
@@ -177,27 +261,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         state.linked = nexus instanceof com.lealex.alchymastery.block.entity.PoweredCoreBlockEntity powered
                 && powered.getEnergySource() != null;
 
-        BookAnimation book = nexus.book();
-        if (book != null) {
-            state.bookTime = book.time + partialTicks;
-            state.bookFlip = Mth.lerp(partialTicks, book.oFlip, book.flip);
-            state.bookOpen = Mth.lerp(partialTicks, book.oOpen, book.open);
-            float turn = book.rot - book.oRot;
-            while (turn >= Math.PI) turn -= (float) (Math.PI * 2);
-            while (turn < -Math.PI) turn += (float) (Math.PI * 2);
-            state.bookYRot = book.oRot + turn * partialTicks;
-        }
-
-        boolean condensing = nexus.isMachineWorking("condensator");
-        ConduitRenderState conduit = state.conduit;
-        conduit.isActive = condensing;
-        conduit.isHunting = condensing;
-        conduit.activeRotation = condensing ? state.time * -0.0375F : 0;
-        conduit.animTime = state.time;
-        conduit.animationPhase = (int) (gameTime / 66 % 3);
-        conduit.lightCoords = state.lightCoords;
-        conduit.breakProgress = null;
-
         for (NexusCoreBlockEntity.Miniature miniature : nexus.getMiniatures()) {
             Mini mini = new Mini();
             mini.machine = miniature.machine();
@@ -219,57 +282,22 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
             // Lit like the space the miniature stands in (where its invisible machine core is)
             BlockPos lightPos = nexus.getBlockPos().offset(miniature.offset().getX(), 1, miniature.offset().getZ());
 
-            float strike = mini.working ? ChamberShellBlockEntity.strikeExtension((gameTime % STRIKE_INTERVAL) + partialTicks) : 0;
+            CachedMesh fixed = mesh(nexus, level, miniature, lightPos);
+            mini.mesh = fixed.mesh();
+            mini.meshAt = fixed.at();
+            mini.light = net.minecraft.client.renderer.LevelRenderer.getLightCoords(level, lightPos);
+            mini.frame = fixed.animation() == null ? null
+                    : fixed.animation().prepare(level, fixed.owner(), animationState(nexus, mini.machine), lightPos, state.time, partialTicks);
+
             for (MultiblockPattern.LookCell cell : mini.cells) {
-                BlockState look = cell.state();
-                Vec3 at = Vec3.atLowerCornerOf(cell.offset());
-                if (look.getBlock() instanceof CondensatorCoreBlock) {
-                    mini.conduitCell = at; // the conduit is drawn by its own renderer
-                    continue;
+                if (cell.state().getBlock() instanceof com.lealex.alchymastery.block.WormholeBlock) {
+                    mini.wormholeCells.add(Vec3.atLowerCornerOf(cell.offset()));
                 }
-                if (look.getBlock() instanceof net.minecraft.world.level.block.LiquidBlock) {
-                    // Liquids have no block model: lava is shown with its look-alike block, other liquids skipped
-                    if (!look.getFluidState().is(net.minecraft.tags.FluidTags.LAVA)) continue;
-                    look = ModRegistries.MINIATURE_LAVA.get().defaultBlockState();
-                }
-                if (look.getBlock() instanceof com.lealex.alchymastery.block.WormholeBlock) {
-                    mini.wormholeCells.add(at); // so is the wormhole
-                    continue;
-                }
-                if (look.getBlock() instanceof TransmutationCoreBlock && book != null) mini.bookCell = at;
-                if (look.getBlock() instanceof ReconstructionCoreBlock && look.hasProperty(BrewingStandBlock.HAS_BOTTLE[0])) {
-                    int bottles = mini.working ? 1 + Math.min(2, (int) (mini.progress * 3)) : 0;
-                    for (int i = 0; i < 3; i++) look = look.setValue(BrewingStandBlock.HAS_BOTTLE[i], i < bottles);
-                }
-                MovingBlockRenderState head = null;
-                Vec3 shift = Vec3.ZERO;
-                if (look.getBlock() instanceof PistonBaseBlock && strike > 0) {
-                    Direction facing = look.getValue(PistonBaseBlock.FACING);
-                    look = look.setValue(PistonBaseBlock.EXTENDED, true);
-                    BlockState headState = (look.is(ModRegistries.CHAMBER_PART_PISTON.get())
-                            ? ModRegistries.CHAMBER_PART_PISTON_HEAD.get() : Blocks.PISTON_HEAD).defaultBlockState()
-                            .setValue(PistonHeadBlock.FACING, facing)
-                            .setValue(PistonHeadBlock.TYPE, PistonType.DEFAULT)
-                            .setValue(PistonHeadBlock.SHORT, strike < 0.5F);
-                    head = moving(level, headState, lightPos);
-                    shift = new Vec3(facing.getStepX() * strike, facing.getStepY() * strike, facing.getStepZ() * strike);
-                }
-                // Cauldrons of distortion fluid (the condensator's ring, the reconstruction's cauldron) show it
-                // purple, like the real chambers; the condensator's basin under its core stays water
-                boolean distortion = look.is(Blocks.WATER_CAULDRON)
-                        && (mini.machine.equals("reconstruction")
-                            || (mini.machine.equals("condensator") && !cell.offset().equals(BlockPos.ZERO.below())));
-                MovingBlockRenderState block = distortion ? new Tinted(ModRegistries.DISTORTION_FLUID_COLOR) : new MovingBlockRenderState();
-                mini.blocks.add(fill(block, level, look, lightPos));
-                mini.blockOffsets.add(at);
-                mini.heads.add(head);
-                mini.headShift.add(shift);
             }
 
             // Items over the miniature's core (or its focus cell)
             mini.itemA = item(nexus.miniatureItemA(mini.machine), level, seed + mini.machine.hashCode());
             mini.itemB = item(nexus.miniatureItemB(mini.machine), level, seed + mini.machine.hashCode() + 1);
-            if (mini.machine.equals("rendering")) extractHut(nexus, state, level, mini, miniature, partialTicks, cameraPosition);
             state.minis.add(mini);
         }
 
@@ -310,63 +338,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         }
     }
 
-    /**
-     * The rendering hut miniature: its crystal, and the "figure" effects of the rendering cauldron's animation file
-     * (the ghost, the cat...) placed with the hut pattern's anchors, turned like the miniature. The nexus's own
-     * displays (its "linked_player") decide which ghost shows.
-     */
-    private void extractHut(T nexus, State state, ClientLevel level, Mini mini, NexusCoreBlockEntity.Miniature miniature,
-                            float partialTicks, Vec3 camera) {
-        Map<String, BlockPos> anchors = miniature.anchors();
-        BlockPos pedestal = anchors.get("pedestal"), wormhole = anchors.get("wormhole");
-        mini.pedestal = pedestal == null ? null : Vec3.atLowerCornerOf(pedestal);
-        mini.wormhole = wormhole == null ? null : Vec3.atLowerCornerOf(wormhole);
-        state.crystal.ageInTicks = state.time;
-        state.crystal.showsBottom = false;
-
-        ResolvedAnimation hut = ClientAnimations.get(ModPatterns.RENDERING_CAULDRON);
-        if (hut == null) return;
-        Rotation turn = Rotation.values()[Math.floorMod(miniature.turn(), 4)];
-        Vec3 world = Vec3.atLowerCornerOf(nexus.getBlockPos().offset(miniature.offset()))
-                .add(0.5, NexusCoreBlockEntity.MINIATURE_HEIGHT, 0.5); // roughly where the miniature stands
-        List<Effect> effects = hut.effects();
-        for (int i = 0; i < effects.size(); i++) {
-            if (!(effects.get(i) instanceof Effect.Figure figure)) continue;
-            Vec3 at = cellCenter(figure.at(), anchors, turn);
-            if (at == null) continue;
-            Vec3 feet = at.add(0, -0.5, 0);
-            float yaw;
-            Vec3 face = figure.face().map(target -> cellCenter(target, anchors, turn)).orElse(null);
-            if (face != null) {
-                Vec3 to = face.subtract(feet);
-                yaw = (float) Math.toDegrees(Math.atan2(-to.x, to.z));
-            } else {
-                yaw = AnimationEngine.turnYaw(figure.yaw().orElse(0.0F), turn);
-            }
-            FigureDrawer.Prepared prepared = FigureDrawer.prepare(nexus, 1000 + i, level, figure, world, yaw, mini.working,
-                    nexus::getAnimationDisplay, state.time, partialTicks, null); // no head turning: a miniature isn't where its figures look from
-            if (prepared != null) {
-                mini.figureFeet.add(feet);
-                mini.figures.add(prepared);
-            }
-        }
-    }
-
-    /** Center of a target's cell in miniature units (anchors as the miniature carries them; offsets turned). */
-    private static @Nullable Vec3 cellCenter(Target target, Map<String, BlockPos> anchors, Rotation turn) {
-        String name = target.anchor().orElse("core");
-        BlockPos cell = name.equals("core") ? BlockPos.ZERO : anchors.get(name);
-        if (cell == null) return null;
-        Vec3 o = target.offset();
-        Vec3 offset = switch (turn) {
-            case CLOCKWISE_90 -> new Vec3(-o.z, o.y, o.x);
-            case CLOCKWISE_180 -> new Vec3(-o.x, o.y, -o.z);
-            case COUNTERCLOCKWISE_90 -> new Vec3(o.z, o.y, -o.x);
-            default -> o;
-        };
-        return Vec3.atCenterOf(cell).add(offset);
-    }
-
     private static MovingBlockRenderState moving(ClientLevel level, BlockState state, BlockPos lightPos) {
         return fill(new MovingBlockRenderState(), level, state, lightPos);
     }
@@ -379,20 +350,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         moving.cardinalLighting = level.cardinalLighting();
         moving.lightEngine = level.getLightEngine();
         return moving;
-    }
-
-    /** A block drawn with one color in place of the biome's (water in a cauldron becomes distortion fluid). */
-    private static class Tinted extends MovingBlockRenderState {
-        private final int color;
-
-        Tinted(int color) {
-            this.color = color;
-        }
-
-        @Override
-        public int getBlockTint(BlockPos pos, ColorResolver resolver) {
-            return color;
-        }
     }
 
     private @Nullable ItemStackRenderState item(ItemStack stack, ClientLevel level, int seed) {
@@ -462,27 +419,13 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
             poseStack.scale(pose.scale(), pose.scale(), pose.scale());
             poseStack.translate(-mini.centerX, -mini.minY, -mini.centerZ); // centered on the pedestal
 
-            for (int i = 0; i < mini.blocks.size(); i++) {
-                Vec3 at = mini.blockOffsets.get(i);
+            if (mini.mesh != null) {
                 poseStack.pushPose();
-                poseStack.translate(at.x, at.y, at.z);
-                collector.submitMovingBlock(poseStack, mini.blocks.get(i));
-                MovingBlockRenderState head = mini.heads.get(i);
-                if (head != null) {
-                    Vec3 shift = mini.headShift.get(i);
-                    poseStack.translate(shift.x, shift.y, shift.z);
-                    collector.submitMovingBlock(poseStack, head);
-                }
+                poseStack.translate(mini.meshAt.x, mini.meshAt.y, mini.meshAt.z);
+                Miniatures.submit(poseStack, collector, camera, mini.mesh, mini.light, List.of());
                 poseStack.popPose();
             }
-            if (mini.conduitCell != null) {
-                poseStack.pushPose();
-                poseStack.translate(mini.conduitCell.x, mini.conduitCell.y, mini.conduitCell.z);
-                WormholeRenderer.draw(wormholeParts, WormholeRenderer.CONDENSATOR,
-                        state.conduit.isActive ? com.lealex.alchymastery.block.WormholeBlock.Look.ACTIVE : com.lealex.alchymastery.block.WormholeBlock.Look.UNLINKED,
-                        state.time, state.lightCoords, null, poseStack, collector, camera);
-                poseStack.popPose();
-            }
+            if (mini.frame != null) MiniatureAnimation.submit(mini.frame, poseStack, collector, camera);
             if (!mini.wormholeCells.isEmpty()) {
                 com.lealex.alchymastery.block.WormholeBlock.Look look = mini.working
                         ? com.lealex.alchymastery.block.WormholeBlock.Look.ACTIVE
@@ -495,8 +438,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
                     poseStack.popPose();
                 }
             }
-            if (mini.bookCell != null) submitBook(state, mini.bookCell, poseStack, collector);
-            if (mini.machine.equals("rendering")) submitHutFigures(state, mini, poseStack, collector, camera);
             poseStack.pushPose();
             poseStack.translate(mini.focus.x, mini.focus.y, mini.focus.z);
             submitItems(state, mini, poseStack, collector);
@@ -548,37 +489,6 @@ public class NexusCoreRenderer<T extends MultiblockCoreBlockEntity & MiniatureHo
         poseStack.mulPose(Axis.YP.rotationDegrees(spinDegrees));
         poseStack.scale(scale, scale, scale);
         item.submit(poseStack, collector, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, 0);
-        poseStack.popPose();
-    }
-
-    /** In miniature units (1 = one block of the hut): the hut's crystal and figures, smaller. */
-    private void submitHutFigures(State state, Mini mini, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState camera) {
-        if (mini.pedestal != null) {
-            Vec3 base = mini.pedestal.add(0.5, 1.0, 0.5);
-            RenderingCoreRenderer.submitCrystal(crystalModel, state.crystal, base, poseStack, collector);
-        }
-        for (int i = 0; i < mini.figures.size(); i++) {
-            Vec3 feet = mini.figureFeet.get(i);
-            poseStack.pushPose();
-            poseStack.translate(feet.x, feet.y, feet.z);
-            FigureDrawer.submit(mini.figures.get(i), poseStack, collector, camera);
-            poseStack.popPose();
-        }
-    }
-
-    /** The enchanting table's book on the miniature transmutation core, like vanilla's EnchantTableRenderer. */
-    private void submitBook(State state, Vec3 cell, PoseStack poseStack, SubmitNodeCollector collector) {
-        poseStack.pushPose();
-        poseStack.translate(cell.x + 0.5F, cell.y + 0.75F, cell.z + 0.5F);
-        poseStack.translate(0.0F, 0.1F + Mth.sin(state.bookTime * 0.1F) * 0.01F, 0.0F);
-        poseStack.mulPose(Axis.YP.rotation(-state.bookYRot));
-        poseStack.mulPose(Axis.ZP.rotationDegrees(80.0F));
-        float ff1 = Mth.frac(state.bookFlip + 0.25F) * 1.6F - 0.3F;
-        float ff2 = Mth.frac(state.bookFlip + 0.75F) * 1.6F - 0.3F;
-        BookModel.State bookState = BookModel.State.forAnimation(state.bookTime, Mth.clamp(ff1, 0.0F, 1.0F),
-                Mth.clamp(ff2, 0.0F, 1.0F), state.bookOpen);
-        collector.submitModel(bookModel, bookState, poseStack, state.lightCoords, OverlayTexture.NO_OVERLAY, -1,
-                EnchantTableRenderer.BOOK_TEXTURE, sprites, 0, state.breakProgress);
         poseStack.popPose();
     }
 

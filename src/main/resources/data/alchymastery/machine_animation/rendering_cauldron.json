@@ -3,6 +3,19 @@
   "effects": [
     {
       "type": "figure",
+      "where": "miniature",
+      "figure": "alchymastery:crystal",
+      "at": {
+        "anchor": "pedestal",
+        "offset": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "type": "figure",
       "figure": "alchymastery:linked_ghost",
       "display": "linked_player",
       "at": "caster",

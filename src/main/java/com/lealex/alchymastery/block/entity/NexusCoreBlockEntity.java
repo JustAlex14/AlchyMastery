@@ -166,7 +166,6 @@ public class NexusCoreBlockEntity extends PoweredCoreBlockEntity implements Menu
     private boolean miniaturesDirty = false; // send them with the next client update (they're big: not every time)
 
     // Client-only animation state
-    public final BookAnimation book = new BookAnimation();
     private final float[] displayProgress = new float[STAGES];
     private long lastTransmuteSeen = Long.MIN_VALUE / 2; // client: game time the transmutation stage last worked
 
@@ -355,11 +354,6 @@ public class NexusCoreBlockEntity extends PoweredCoreBlockEntity implements Menu
             case "reconstruction" -> isStageWorking(RECONSTRUCT) ? getTargetStack() : getStack(OUTPUT);
             default -> ItemStack.EMPTY;
         };
-    }
-
-    @Override
-    public BookAnimation book() {
-        return book;
     }
 
     // ---- Structure ----
@@ -659,8 +653,6 @@ public class NexusCoreBlockEntity extends PoweredCoreBlockEntity implements Menu
                 displayProgress[stage] = (displayProgress[stage] + 1F / total[stage]) % 1F;
             }
         }
-        BlockPos transmutation = miniatureCore("transmutation");
-        book.tick(level, transmutation != null ? transmutation : worldPosition, isStageWorking(TRANSMUTE));
         if (level.getNearestPlayer(worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), 32, false) == null) return;
 
         // Material flowing between the miniatures: destructuration -> transmutation -> reconstruction, and

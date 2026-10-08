@@ -2,6 +2,12 @@
   "machine": "alchymastery:distortion_condensator",
   "effects": [
     {
+      "type": "figure",
+      "where": "miniature",
+      "figure": "alchymastery:condensator_conduit",
+      "at": "core"
+    },
+    {
       "type": "particle",
       "when": "working",
       "interval": 4,

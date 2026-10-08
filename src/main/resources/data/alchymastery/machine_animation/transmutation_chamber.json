@@ -2,6 +2,12 @@
   "machine": "alchymastery:transmutation_chamber",
   "effects": [
     {
+      "type": "figure",
+      "where": "miniature",
+      "figure": "alchymastery:book",
+      "at": "core"
+    },
+    {
       "type": "particle",
       "when": "working",
       "interval": 4,

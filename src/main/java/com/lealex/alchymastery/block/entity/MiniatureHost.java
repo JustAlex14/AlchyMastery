@@ -1,7 +1,6 @@
 package com.lealex.alchymastery.block.entity;
 
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
@@ -27,9 +26,4 @@ public interface MiniatureHost {
     ItemStack miniatureItemA(String machine);
 
     ItemStack miniatureItemB(String machine);
-
-    /** The transmutation miniature's book, or null if this host has no transmutation stage. */
-    default @Nullable BookAnimation book() {
-        return null;
-    }
 }

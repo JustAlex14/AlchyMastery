@@ -2,6 +2,31 @@
   "machine": "alchymastery:reconstruction_chamber",
   "effects": [
     {
+      "type": "block_state",
+      "when": "working",
+      "where": "miniature",
+      "targets": {
+        "block": "alchymastery:reconstruction_core"
+      },
+      "steps": [
+        {
+          "has_bottle_0": true,
+          "has_bottle_1": false,
+          "has_bottle_2": false
+        },
+        {
+          "has_bottle_0": true,
+          "has_bottle_1": true,
+          "has_bottle_2": false
+        },
+        {
+          "has_bottle_0": true,
+          "has_bottle_1": true,
+          "has_bottle_2": true
+        }
+      ]
+    },
+    {
       "type": "particle",
       "when": "working",
       "interval": 4,

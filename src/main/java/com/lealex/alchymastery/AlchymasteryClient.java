@@ -43,6 +43,8 @@ public class AlchymasteryClient {
 
     public AlchymasteryClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+        // The Codex's paper: old at first, the void's by the end (AlchyX BookPapers; a no-op without Patchouli)
+        com.lealex.alchymastery.client.VoidBookTexture.register();
     }
 
     @SubscribeEvent
@@ -51,6 +53,8 @@ public class AlchymasteryClient {
         Alchymastery.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         // The ghost figures the animation files can use ("figure": "alchymastery:linked_ghost" / "ghost_witch")
         event.enqueueWork(com.lealex.alchymastery.client.GhostFigures::register);
+        // The machine parts they can place (the book, the condensator's conduit, the crystal): what miniatures show
+        event.enqueueWork(com.lealex.alchymastery.client.MachineFigures::register);
     }
 
     // Tells the client which screen to show for each menu type
