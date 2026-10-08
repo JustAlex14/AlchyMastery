@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
@@ -44,7 +45,7 @@ public final class GhostFigures {
         Figures.register(Identifier.fromNamespaceAndPath(Alchymastery.MODID, "ghost_witch"), GhostFigures::witch);
     }
 
-    private static void linkedGhost(CodedFigure.Context context, PoseStack poseStack, SubmitNodeCollector collector) {
+    private static void linkedGhost(CodedFigure.Context context, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState camera) {
         ResolvableProfile profile = context.display().get(DataComponents.PROFILE);
         if (profile == null) return;
         Minecraft minecraft = Minecraft.getInstance();
@@ -65,7 +66,7 @@ public final class GhostFigures {
                 LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, GHOST_TINT, null, 0, null);
     }
 
-    private static void witch(CodedFigure.Context context, PoseStack poseStack, SubmitNodeCollector collector) {
+    private static void witch(CodedFigure.Context context, PoseStack poseStack, SubmitNodeCollector collector, CameraRenderState camera) {
         if (witch == null) witch = new GhostWitchModel(Minecraft.getInstance().getEntityModels().bakeLayer(ModelLayers.WITCH));
         GhostWitchModel.State state = new GhostWitchModel.State();
         state.ageInTicks = context.time();

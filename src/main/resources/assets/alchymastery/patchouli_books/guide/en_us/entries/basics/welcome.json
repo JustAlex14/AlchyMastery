@@ -7,12 +7,17 @@
     {
       "type": "patchouli:text",
       "title": "Foreword",
-      "text": "Whoever finds this journal: I was an alchemist. I chased the old dream, one matter into another, and failed like everyone before me. Until the night I tore reality.$(br2)This is how I learned to use the tear. Read it in order."
+      "text": "Whoever finds this journal: I wanted to mend the world. No more hunger for iron, no more wars over gold. I said so out loud, and they laughed, kindly, the way you laugh at a child.$(br2)This journal is my answer. Read it in order."
+    },
+    {
+      "type": "patchouli:text",
+      "title": "The Night",
+      "text": "I chased the old dream, one matter into another, and failed like everyone before me. Nobody was surprised.$(br2)One night that laughter came back to me, and I was done being their child. I threw my bench over. Amethyst and obsidian burst on the stone floor, and the air split where they broke."
     },
     {
       "type": "patchouli:text",
       "title": "The Tear",
-      "text": "It began with lapis and amethyst. Burned together in a sealed room, the lapis did not turn to ash. It turned to $(thing)distortion$(), a pressure that bent the walls and the light in them. Stone flowed. Glass forgot it was glass."
+      "text": "I had $(thing)torn reality$().$(br2)It took me months to learn how. Lapis, burned between amethyst in a sealed room, does not turn to ash. It turns to $(thing)distortion$(), a pressure that bent the walls and the light in them. Stone flowed. Glass forgot it was glass."
     },
     {
       "type": "patchouli:text",
