@@ -64,7 +64,7 @@ public final class JeiCategories {
 
         @Override
         public void draw(JeiDisplays.Destructuration recipe, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
-            text(graphics, recipe.energy() + " DE · " + seconds(recipe.ticks()), 10, 28);
+            text(graphics, recipe.energy() + " DE, " + seconds(recipe.ticks()), 10, 28);
         }
     }
 
@@ -89,7 +89,7 @@ public final class JeiCategories {
 
         @Override
         public void draw(JeiDisplays.Transmutation recipe, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
-            text(graphics, recipe.energy() + " DE · 2 s", 10, 28);
+            text(graphics, recipe.energy() + " DE, 2 s", 10, 28);
         }
     }
 
@@ -118,7 +118,7 @@ public final class JeiCategories {
 
         @Override
         public void draw(JeiDisplays.Reconstruction recipe, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
-            text(graphics, recipe.fluid() + " mB · " + recipe.energy() + " DE · " + seconds(recipe.ticks()), 6, 48);
+            text(graphics, recipe.fluid() + " mB, " + recipe.energy() + " DE, " + seconds(recipe.ticks()), 6, 48);
         }
     }
 
@@ -146,7 +146,7 @@ public final class JeiCategories {
 
         @Override
         public void draw(JeiDisplays.Rendering recipe, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
-            text(graphics, recipe.points() + " XP · " + recipe.energy() + " DE · " + seconds(recipe.ticks()), 6, 28);
+            text(graphics, recipe.points() + " XP, " + recipe.energy() + " DE, " + seconds(recipe.ticks()), 6, 28);
         }
     }
 
@@ -173,7 +173,7 @@ public final class JeiCategories {
 
         @Override
         public void draw(JeiDisplays.Condensation recipe, IRecipeSlotsView slots, GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
-            text(graphics, recipe.energy() + " DE · " + seconds(recipe.ticks()), 10, 28);
+            text(graphics, recipe.energy() + " DE, " + seconds(recipe.ticks()), 10, 28);
         }
     }
 }

@@ -116,7 +116,7 @@ public class RenderingScreen extends AbstractContainerScreen<RenderingMenu> {
                 case PoweredCoreBlockEntity.LINK_UNREACHABLE -> "Wormhole: chamber unreachable";
                 default -> "No wormhole link";
             };
-            graphics.setTooltipForNextFrame(Component.literal(status + " · 1 essence = 100 mB + 10 DE"), mouseX, mouseY);
+            graphics.setTooltipForNextFrame(Component.literal(status + ", 1 essence = 100 mB + 10 DE"), mouseX, mouseY);
         }
     }
 

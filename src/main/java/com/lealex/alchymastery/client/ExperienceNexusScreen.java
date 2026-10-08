@@ -142,7 +142,7 @@ public class ExperienceNexusScreen extends AbstractContainerScreen<ExperienceNex
                     + " points)"), mouseX, mouseY);
         } else if (isHovering(ARROW_X, ARROW_Y, 24, 16, mouseX, mouseY)) {
             graphics.setTooltipForNextFrame(Component.literal("Essences waiting: " + menu.getStoredEssences() + " / "
-                    + ExperienceNexusBlockEntity.STORE_CAPACITY + " · 1 essence = 100 mB + 10 DE"), mouseX, mouseY);
+                    + ExperienceNexusBlockEntity.STORE_CAPACITY + ", 1 essence = 100 mB + 10 DE"), mouseX, mouseY);
         } else if (isHovering(56, 35, 16, 16, mouseX, mouseY) && menu.isInputRefused()) {
             graphics.setTooltipForNextFrame(Component.literal("Only mob drops and essences can be rendered"), mouseX, mouseY);
         } else if (isHovering(56, 35, 16, 16, mouseX, mouseY) && menu.slots.get(0).getItem().isEmpty()) {
