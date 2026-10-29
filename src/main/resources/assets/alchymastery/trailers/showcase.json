@@ -1,0 +1,300 @@
+{
+  "letterbox": true,
+  "shots": [
+    {
+      "ticks": 180,
+      "orbit": {
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 62,
+        "height": 26,
+        "from": 200,
+        "to": 245,
+        "look_height": 4
+      },
+      "fade_in": 30
+    },
+    {
+      "ticks": 150,
+      "points": [
+        [
+          0,
+          9,
+          48
+        ],
+        [
+          0,
+          5,
+          26
+        ],
+        [
+          0,
+          3.5,
+          12
+        ]
+      ],
+      "look": [
+        0,
+        2,
+        -7
+      ]
+    },
+    {
+      "ticks": 170,
+      "points": [
+        [
+          -14,
+          4,
+          -0.5
+        ],
+        [
+          0,
+          4.5,
+          -0.5
+        ],
+        [
+          14,
+          4,
+          -0.5
+        ]
+      ],
+      "looks": [
+        [
+          -10,
+          2,
+          -7
+        ],
+        [
+          0,
+          2.5,
+          -7
+        ],
+        [
+          10,
+          2,
+          -7
+        ]
+      ]
+    },
+    {
+      "ticks": 170,
+      "points": [
+        [
+          14,
+          4,
+          0.5
+        ],
+        [
+          0,
+          4.5,
+          0.5
+        ],
+        [
+          -14,
+          4,
+          0.5
+        ]
+      ],
+      "looks": [
+        [
+          10,
+          2,
+          5
+        ],
+        [
+          0,
+          1,
+          6
+        ],
+        [
+          -10,
+          2,
+          5
+        ]
+      ]
+    },
+    {
+      "ticks": 110,
+      "orbit": {
+        "center": [
+          0,
+          0,
+          6
+        ],
+        "radius": 3.2,
+        "height": 6.5,
+        "from": 0,
+        "to": 140,
+        "look_height": 0
+      },
+      "ease": "linear"
+    },
+    {
+      "ticks": 220,
+      "orbit": {
+        "center": [
+          0,
+          0,
+          -20
+        ],
+        "radius": 8,
+        "height": 4,
+        "from": 140,
+        "to": 230,
+        "look_height": 1.5
+      },
+      "fade_in": 12
+    },
+    {
+      "ticks": 420,
+      "orbit": {
+        "center": [
+          -28,
+          0,
+          0
+        ],
+        "radius": 10,
+        "height": 7.5,
+        "from": 20,
+        "to": 200,
+        "look_height": 2
+      },
+      "fade_in": 12
+    },
+    {
+      "ticks": 380,
+      "orbit": {
+        "center": [
+          28,
+          0,
+          0
+        ],
+        "radius": 10,
+        "height": 7.5,
+        "from": -20,
+        "to": -190,
+        "look_height": 2
+      }
+    },
+    {
+      "ticks": 200,
+      "points": [
+        [
+          28,
+          8,
+          14
+        ],
+        [
+          10,
+          16,
+          36
+        ],
+        [
+          0,
+          30,
+          58
+        ]
+      ],
+      "look": [
+        0,
+        4,
+        0
+      ],
+      "ease": "out",
+      "fade_out": 45
+    }
+  ],
+  "texts": [
+    {
+      "at": 40,
+      "ticks": 110,
+      "text": "AlchyMastery",
+      "style": "title",
+      "color": "#C9A2FF"
+    },
+    {
+      "at": 200,
+      "ticks": 100,
+      "text": "Lapis and amethyst. Then a tear in the air.",
+      "style": "caption"
+    },
+    {
+      "at": 370,
+      "ticks": 100,
+      "text": "Break it down.",
+      "style": "caption"
+    },
+    {
+      "at": 540,
+      "ticks": 100,
+      "text": "Make it something else.",
+      "style": "caption"
+    },
+    {
+      "at": 680,
+      "ticks": 90,
+      "text": "Build it back.",
+      "style": "caption"
+    },
+    {
+      "at": 1060,
+      "ticks": 120,
+      "text": "Fold it all together.",
+      "style": "caption"
+    },
+    {
+      "at": 1860,
+      "ticks": 120,
+      "text": "AlchyMastery",
+      "style": "title",
+      "color": "#C9A2FF"
+    },
+    {
+      "at": 1885,
+      "ticks": 95,
+      "text": "The void was here before the world.",
+      "style": "subtitle"
+    }
+  ],
+  "commands": [
+    {
+      "at": 0,
+      "command": "time set midnight"
+    },
+    {
+      "at": 190,
+      "command": "alchyx showcase build alchymastery:distortion_chamber ~ ~ ~-7 south"
+    },
+    {
+      "at": 330,
+      "command": "alchyx showcase build alchymastery:destructuration_chamber ~-10 ~ ~-7 south"
+    },
+    {
+      "at": 410,
+      "command": "alchyx showcase build alchymastery:transmutation_chamber ~10 ~ ~-7 south"
+    },
+    {
+      "at": 500,
+      "command": "alchyx showcase build alchymastery:reconstruction_chamber ~10 ~ ~5 north"
+    },
+    {
+      "at": 580,
+      "command": "alchyx showcase build alchymastery:distortion_condensator ~-10 ~ ~5 north"
+    },
+    {
+      "at": 790,
+      "command": "alchyx showcase build alchymastery:rendering_cauldron ~ ~ ~-20 south"
+    },
+    {
+      "at": 1010,
+      "command": "alchyx showcase build alchymastery:alchemical_nexus ~-28 ~ ~"
+    },
+    {
+      "at": 1430,
+      "command": "alchyx showcase build alchymastery:experience_nexus ~28 ~ ~ west"
+    }
+  ]
+}
