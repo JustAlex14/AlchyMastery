@@ -204,6 +204,9 @@ public abstract class PoweredCoreBlockEntity extends MultiblockCoreBlockEntity {
     public void clientTick() {
         if (level != null) siphonTick();
         if (level == null || energySource == null || wormholePos == null || !isFormed()) return;
+        // the matrix broken (or not formed any more): no arc to nothing
+        if (com.lealex.alchyx.link.Links.goneEntity(level, energySource, entity ->
+                entity instanceof com.lealex.alchymastery.block.entity.DistortionMatrixBlockEntity matrix && matrix.isFormed())) return;
         Vec3 from = sourceEmitter != null ? Vec3.upFromBottomCenterOf(sourceEmitter, 1.1) : Vec3.atCenterOf(energySource);
         Vec3 to = Vec3.upFromBottomCenterOf(wormholePos, 1.1);
         if (level.getNearestPlayer(to.x, to.y, to.z, PARTICLE_PLAYER_RANGE, false) == null

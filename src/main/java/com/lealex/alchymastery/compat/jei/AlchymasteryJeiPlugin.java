@@ -33,12 +33,27 @@ import java.util.Map;
  * refers to it). Shows every compound (one per material), and recipe pages for the four machines, built from the
  * same material files and rules the machines use. The alchemical nexus is listed as a station for all four.
  *
- * Limit: the material files are server data. In single player JEI sees them; on a dedicated server the client
- * doesn't have them yet (needs a sync packet), so only the condensation page shows there for now.
+ * The material files are server data: on a dedicated server JEI first shows the materials that ship with the mod,
+ * then swaps in the server's list (datapacks included) when it arrives (CompoundMaterials.clientListener).
  */
 @JeiPlugin
 public class AlchymasteryJeiPlugin implements IModPlugin {
     private static final Identifier UID = Identifier.fromNamespaceAndPath(Alchymastery.MODID, "jei");
+
+    /** The material pages JEI shows now, so a refresh can hide them before adding the server's. */
+    private record Pages(List<JeiDisplays.Destructuration> destructuration, List<JeiDisplays.Transmutation> transmutation,
+                         List<JeiDisplays.Reconstruction> reconstruction, List<JeiDisplays.Rendering> rendering) {}
+
+    private static @org.jspecify.annotations.Nullable Pages shown;
+    private static final java.util.Set<Identifier> SHOWN_COMPOUNDS = new java.util.HashSet<>();
+    private static mezz.jei.api.runtime.@org.jspecify.annotations.Nullable IJeiRuntime runtime;
+
+    /** A client that has no materials yet (dedicated server, before the server's list): the mod's own files. */
+    private static void ensureMaterials() {
+        if (CompoundMaterials.all().isEmpty() && net.minecraft.client.Minecraft.getInstance().level != null) {
+            CompoundMaterials.loadBuiltIn(net.minecraft.client.Minecraft.getInstance().level.registryAccess());
+        }
+    }
 
     @Override
     public Identifier getPluginUid() {
@@ -53,8 +68,13 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
 
     @Override
     public void registerExtraIngredients(IExtraIngredientRegistration registration) {
+        ensureMaterials();
+        SHOWN_COMPOUNDS.clear();
         List<ItemStack> compounds = new ArrayList<>();
-        for (Identifier material : CompoundMaterials.all().keySet()) compounds.add(compound(material, 1));
+        for (Identifier material : CompoundMaterials.all().keySet()) {
+            compounds.add(compound(material, 1));
+            SHOWN_COMPOUNDS.add(material);
+        }
         registration.addExtraItemStacks(compounds);
     }
 
@@ -71,6 +91,63 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
+        ensureMaterials();
+        shown = build();
+        registration.addRecipes(JeiCategories.DESTRUCTURATION, shown.destructuration());
+        registration.addRecipes(JeiCategories.TRANSMUTATION, shown.transmutation());
+        registration.addRecipes(JeiCategories.RECONSTRUCTION, shown.reconstruction());
+        registration.addRecipes(JeiCategories.RENDERING, shown.rendering());
+
+        // Condensation (same values as the condensator)
+        registration.addRecipes(JeiCategories.CONDENSATION, List.of(new JeiDisplays.Condensation(1_000, 500, 200, 100)));
+
+        // A few words on the end-game machine and the wormhole attuner
+        registration.addIngredientInfo(ModRegistries.EXPERIENCE_NEXUS_ITEM.get(),
+                Component.translatable("jei.alchymastery.info.experience_nexus"));
+        registration.addIngredientInfo(ModRegistries.ALCHEMICAL_NEXUS_ITEM.get(),
+                Component.translatable("jei.alchymastery.info.alchemical_nexus"));
+        registration.addIngredientInfo(ModRegistries.WORMHOLE_ATTUNER.get(),
+                Component.translatable("jei.alchymastery.info.wormhole_attuner"));
+    }
+
+    @Override
+    public void onRuntimeAvailable(mezz.jei.api.runtime.IJeiRuntime jeiRuntime) {
+        runtime = jeiRuntime;
+        CompoundMaterials.clientListener = AlchymasteryJeiPlugin::refresh;
+    }
+
+    @Override
+    public void onRuntimeUnavailable() {
+        runtime = null;
+        CompoundMaterials.clientListener = () -> {};
+    }
+
+    /** The server sent its materials (join, /reload): the pages show those in place of the ones shown. */
+    private static void refresh() {
+        if (runtime == null) return;
+        var recipes = runtime.getRecipeManager();
+        if (shown != null) {
+            recipes.hideRecipes(JeiCategories.DESTRUCTURATION, shown.destructuration());
+            recipes.hideRecipes(JeiCategories.TRANSMUTATION, shown.transmutation());
+            recipes.hideRecipes(JeiCategories.RECONSTRUCTION, shown.reconstruction());
+            recipes.hideRecipes(JeiCategories.RENDERING, shown.rendering());
+        }
+        shown = build(); // new display objects, so none of them is hidden
+        recipes.addRecipes(JeiCategories.DESTRUCTURATION, shown.destructuration());
+        recipes.addRecipes(JeiCategories.TRANSMUTATION, shown.transmutation());
+        recipes.addRecipes(JeiCategories.RECONSTRUCTION, shown.reconstruction());
+        recipes.addRecipes(JeiCategories.RENDERING, shown.rendering());
+
+        // compounds of materials JEI did not list yet (datapack materials)
+        List<ItemStack> fresh = new ArrayList<>();
+        for (Identifier material : CompoundMaterials.all().keySet()) {
+            if (SHOWN_COMPOUNDS.add(material)) fresh.add(compound(material, 1));
+        }
+        if (!fresh.isEmpty()) runtime.getIngredientManager().addIngredientsAtRuntime(mezz.jei.api.constants.VanillaTypes.ITEM_STACK, fresh);
+    }
+
+    /** The material pages, from the materials loaded on this side. */
+    private static Pages build() {
         Map<Identifier, CompoundMaterial> materials = CompoundMaterials.all();
 
         // Destructuration: every form of every material
@@ -85,7 +162,6 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
                         compound(entry.getKey(), entry.getValue().compoundsFor(f)), f.energy, f.ticks));
             }
         }
-        registration.addRecipes(JeiCategories.DESTRUCTURATION, destructuration);
 
         // Transmutation: every pair of materials, as the smallest whole exchange
         List<JeiDisplays.Transmutation> transmutation = new ArrayList<>();
@@ -108,7 +184,6 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
                 transmutation.add(new JeiDisplays.Transmutation(compound(from, taken), compound(to, made), energy));
             }
         }
-        registration.addRecipes(JeiCategories.TRANSMUTATION, transmutation);
 
         // Reconstruction: what each base block rebuilds, per material
         List<JeiDisplays.Reconstruction> reconstruction = new ArrayList<>();
@@ -119,7 +194,6 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
             reconstruction.add(new JeiDisplays.Reconstruction(compound(recipe.material(), recipe.compounds()), bases,
                     recipe.fluid(), new ItemStack(recipe.output()), recipe.energy(), recipe.ticks()));
         }
-        registration.addRecipes(JeiCategories.RECONSTRUCTION, reconstruction);
 
         // Rendering: every mob essence (same values as the rendering cauldron)
         List<JeiDisplays.Rendering> rendering = new ArrayList<>();
@@ -130,18 +204,7 @@ public class AlchymasteryJeiPlugin implements IModPlugin {
             rendering.add(new JeiDisplays.Rendering(essence, RenderingCoreBlockEntity.FLUID_PER_ESSENCE,
                     points * ModRegistries.MB_PER_XP, points, RenderingCoreBlockEntity.ENERGY_PER_ESSENCE, RenderingCoreBlockEntity.TICKS_PER_ESSENCE));
         }
-        registration.addRecipes(JeiCategories.RENDERING, rendering);
-
-        // Condensation (same values as the condensator)
-        registration.addRecipes(JeiCategories.CONDENSATION, List.of(new JeiDisplays.Condensation(1_000, 500, 200, 100)));
-
-        // A few words on the end-game machine and the wormhole attuner
-        registration.addIngredientInfo(ModRegistries.EXPERIENCE_NEXUS_ITEM.get(),
-                Component.translatable("jei.alchymastery.info.experience_nexus"));
-        registration.addIngredientInfo(ModRegistries.ALCHEMICAL_NEXUS_ITEM.get(),
-                Component.translatable("jei.alchymastery.info.alchemical_nexus"));
-        registration.addIngredientInfo(ModRegistries.WORMHOLE_ATTUNER.get(),
-                Component.translatable("jei.alchymastery.info.wormhole_attuner"));
+        return new Pages(destructuration, transmutation, reconstruction, rendering);
     }
 
     @Override
