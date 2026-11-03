@@ -38,6 +38,7 @@ public class Alchymastery {
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::registerCapabilities);
         NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.addListener(com.lealex.alchymastery.command.ShowcaseCommands::register); // showcase maps, trailers
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);

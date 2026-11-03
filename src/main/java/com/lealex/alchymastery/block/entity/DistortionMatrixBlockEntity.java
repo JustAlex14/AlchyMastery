@@ -128,6 +128,15 @@ public class DistortionMatrixBlockEntity extends MultiblockCoreBlockEntity imple
         return energy;
     }
 
+    /** Showcases (/alchymastery showcase charge): at least this much energy, up to the cap. */
+    public void chargeAtLeast(long amount) {
+        long target = Math.min(MAX_ENERGY, amount);
+        if (energy < target) {
+            energy = target;
+            setChanged();
+        }
+    }
+
     /** Takes up to {@code amount} DE out of the buffer (machines draw through their wormhole); returns what it gave. */
     public long extractEnergy(long amount) {
         long given = Math.min(Math.max(0, amount), energy);
