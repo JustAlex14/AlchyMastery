@@ -43,129 +43,245 @@
       ]
     },
     {
-      "ticks": 170,
-      "points": [
-        [
-          -14,
-          4,
-          -0.5
-        ],
-        [
-          0,
-          4.5,
-          -0.5
-        ],
-        [
-          14,
-          4,
-          -0.5
-        ]
-      ],
-      "looks": [
-        [
-          -10,
-          2,
-          -7
-        ],
-        [
-          0,
-          2.5,
-          -7
-        ],
-        [
-          10,
-          2,
-          -7
-        ]
-      ]
-    },
-    {
-      "ticks": 170,
-      "points": [
-        [
-          14,
-          4,
-          0.5
-        ],
-        [
-          0,
-          4.5,
-          0.5
-        ],
-        [
-          -14,
-          4,
-          0.5
-        ]
-      ],
-      "looks": [
-        [
-          10,
-          2,
-          5
-        ],
-        [
-          0,
-          1,
-          6
-        ],
-        [
-          -10,
-          2,
-          5
-        ]
-      ]
-    },
-    {
-      "ticks": 110,
+      "ticks": 260,
       "orbit": {
         "center": [
           0,
           0,
-          6
+          -7
         ],
-        "radius": 3.2,
-        "height": 6.5,
-        "from": 0,
-        "to": 140,
-        "look_height": 0
-      },
-      "ease": "linear"
+        "radius": 6.5,
+        "height": 4.5,
+        "from": -50,
+        "to": 50,
+        "look_height": 1.5
+      }
     },
     {
-      "ticks": 220,
+      "ticks": 600,
+      "points": [
+        [
+          -15,
+          4.2,
+          -1.5
+        ],
+        [
+          -10,
+          3.6,
+          -2.3
+        ],
+        [
+          -5,
+          3.9,
+          -2.5
+        ],
+        [
+          0,
+          3.8,
+          -2.5
+        ],
+        [
+          5,
+          3.9,
+          -2.5
+        ],
+        [
+          10,
+          3.6,
+          -2.3
+        ],
+        [
+          14.5,
+          4.2,
+          0
+        ],
+        [
+          10,
+          3.6,
+          1.6
+        ],
+        [
+          5,
+          3.9,
+          1.6
+        ],
+        [
+          -5,
+          3.9,
+          1.6
+        ],
+        [
+          -10,
+          3.6,
+          1.6
+        ],
+        [
+          -15,
+          4.2,
+          0
+        ]
+      ],
+      "looks": [
+        [
+          -10,
+          1.5,
+          -7
+        ],
+        [
+          -10,
+          1.2,
+          -7
+        ],
+        [
+          0,
+          2,
+          -7
+        ],
+        [
+          0,
+          2.2,
+          -7
+        ],
+        [
+          10,
+          1.2,
+          -7
+        ],
+        [
+          10,
+          1.2,
+          -7
+        ],
+        [
+          10,
+          1.2,
+          5
+        ],
+        [
+          10,
+          1.2,
+          5
+        ],
+        [
+          -10,
+          1.5,
+          5
+        ],
+        [
+          -10,
+          1.5,
+          5
+        ],
+        [
+          -10,
+          1.5,
+          5
+        ],
+        [
+          -10,
+          2,
+          5
+        ]
+      ],
+      "ease": "smooth"
+    },
+    {
+      "ticks": 200,
       "orbit": {
         "center": [
           0,
           0,
           -20
         ],
-        "radius": 8,
-        "height": 4,
-        "from": 140,
-        "to": 230,
-        "look_height": 1.5
+        "radius": 5.2,
+        "height": 2.6,
+        "from": -55,
+        "to": 55,
+        "look_height": 1.2
       },
       "fade_in": 12
     },
     {
-      "ticks": 420,
+      "ticks": 160,
       "orbit": {
         "center": [
           -28,
           0,
           0
         ],
-        "radius": 10,
-        "height": 7.5,
-        "from": 20,
-        "to": 200,
+        "radius": 11,
+        "height": 6,
+        "from": 60,
+        "to": 10,
         "look_height": 2
       },
       "fade_in": 12
     },
     {
-      "ticks": 380,
+      "ticks": 470,
+      "points": [
+        [
+          -20.5,
+          3.45,
+          0.5
+        ],
+        [
+          -24.2,
+          3.45,
+          0.4
+        ],
+        [
+          -27.4,
+          3.45,
+          0.1
+        ],
+        [
+          -28,
+          3.45,
+          0
+        ],
+        [
+          -28.3,
+          3.45,
+          -0.2
+        ]
+      ],
+      "looks": [
+        [
+          -28,
+          2.3,
+          0
+        ],
+        [
+          -26,
+          2.3,
+          0
+        ],
+        [
+          -28,
+          2.3,
+          -2
+        ],
+        [
+          -30,
+          2.3,
+          0
+        ],
+        [
+          -28,
+          2.3,
+          2
+        ],
+        [
+          -26,
+          2.3,
+          0
+        ]
+      ],
+      "ease": "smooth"
+    },
+    {
+      "ticks": 100,
       "orbit": {
         "center": [
           28,
@@ -174,8 +290,8 @@
         ],
         "radius": 10,
         "height": 7.5,
-        "from": -20,
-        "to": -190,
+        "from": -25,
+        "to": -60,
         "look_height": 2
       }
     },
@@ -213,49 +329,55 @@
       "ticks": 110,
       "text": "AlchyMastery",
       "style": "title",
-      "color": "#C9A2FF"
+      "color": "#B98CFF"
     },
     {
       "at": 200,
-      "ticks": 100,
-      "text": "Lapis and amethyst. Then a tear in the air.",
+      "ticks": 110,
+      "text": "They called me a dreamer. This hall is what the dreamer built.",
       "style": "caption"
     },
     {
-      "at": 370,
-      "ticks": 100,
-      "text": "Break it down.",
-      "style": "caption"
-    },
-    {
-      "at": 540,
-      "ticks": 100,
-      "text": "Make it something else.",
-      "style": "caption"
-    },
-    {
-      "at": 680,
-      "ticks": 90,
-      "text": "Build it back.",
-      "style": "caption"
-    },
-    {
-      "at": 1060,
+      "at": 390,
       "ticks": 120,
-      "text": "Fold it all together.",
+      "text": "I did not want a fire. I wanted a wound in the world, and a room to keep it open.",
       "style": "caption"
     },
     {
-      "at": 1860,
+      "at": 650,
+      "ticks": 120,
+      "text": "Ore goes in. Something purer comes out. Nobody has to dig anymore.",
+      "style": "caption"
+    },
+    {
+      "at": 920,
+      "ticks": 120,
+      "text": "Iron, gold, bone. To these walls it is all the same clay.",
+      "style": "caption"
+    },
+    {
+      "at": 1220,
+      "ticks": 120,
+      "text": "The thing in the cauldron works without sleep. I never asked where it came from.",
+      "style": "caption"
+    },
+    {
+      "at": 1810,
+      "ticks": 120,
+      "text": "Four rooms folded into one heartbeat. Distance was only a habit.",
+      "style": "caption"
+    },
+    {
+      "at": 2180,
       "ticks": 120,
       "text": "AlchyMastery",
       "style": "title",
-      "color": "#C9A2FF"
+      "color": "#B98CFF"
     },
     {
-      "at": 1885,
+      "at": 2205,
       "ticks": 95,
-      "text": "The void was here before the world.",
+      "text": "Past the last fold, something is still calling.",
       "style": "subtitle"
     }
   ],
@@ -265,36 +387,169 @@
       "command": "time set midnight"
     },
     {
-      "at": 190,
-      "command": "alchyx showcase build alchymastery:distortion_chamber ~ ~ ~-7 south"
-    },
-    {
-      "at": 330,
+      "at": 2,
       "command": "alchyx showcase build alchymastery:destructuration_chamber ~-10 ~ ~-7 south"
     },
     {
-      "at": 410,
+      "at": 4,
       "command": "alchyx showcase build alchymastery:transmutation_chamber ~10 ~ ~-7 south"
     },
     {
-      "at": 500,
-      "command": "alchyx showcase build alchymastery:reconstruction_chamber ~10 ~ ~5 north"
+      "at": 6,
+      "command": "alchyx showcase build alchymastery:distortion_condensator ~-10 ~ ~5 east"
     },
     {
-      "at": 580,
-      "command": "alchyx showcase build alchymastery:distortion_condensator ~-10 ~ ~5 north"
+      "at": 8,
+      "command": "alchyx showcase build alchymastery:reconstruction_chamber ~10 ~ ~5 west"
     },
     {
-      "at": 790,
-      "command": "alchyx showcase build alchymastery:rendering_cauldron ~ ~ ~-20 south"
+      "at": 10,
+      "command": "alchyx showcase build alchymastery:rendering_cauldron ~0 ~ ~-20 south"
     },
     {
-      "at": 1010,
-      "command": "alchyx showcase build alchymastery:alchemical_nexus ~-28 ~ ~"
+      "at": 12,
+      "command": "alchyx showcase build alchymastery:experience_nexus ~28 ~ ~0 west"
     },
     {
-      "at": 1430,
-      "command": "alchyx showcase build alchymastery:experience_nexus ~28 ~ ~ west"
+      "at": 200,
+      "command": "alchymastery showcase feed ~-10 ~1 ~-7 minecraft:raw_iron 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase compound ~10 ~1 ~-7 alchymastery:iron 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase target ~10 ~1 ~-7 alchymastery:gold"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase fill ~-10 ~2 ~5 minecraft:water 8000"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase compound ~10 ~1 ~5 alchymastery:iron 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase feed ~10 ~1 ~5 minecraft:stone 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase fill ~10 ~1 ~5 alchymastery:distortion_fluid 4000"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase compound ~0 ~1 ~-22 alchymastery:bone 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase fill ~0 ~1 ~-22 alchymastery:distortion_fluid 4000"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase feed ~28 ~1 ~0 minecraft:bone 64"
+    },
+    {
+      "at": 200,
+      "command": "alchymastery showcase fill ~28 ~1 ~0 minecraft:water 8000"
+    },
+    {
+      "at": 335,
+      "command": "alchyx showcase build alchymastery:distortion_chamber ~0 ~ ~-7 south"
+    },
+    {
+      "at": 530,
+      "command": "alchymastery showcase feed ~0 ~2 ~-7 minecraft:lapis_block 64"
+    },
+    {
+      "at": 535,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 545,
+      "command": "alchymastery showcase power 64"
+    },
+    {
+      "at": 600,
+      "command": "alchymastery showcase power 64"
+    },
+    {
+      "at": 635,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 670,
+      "command": "alchymastery showcase power 64"
+    },
+    {
+      "at": 735,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 835,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 935,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1035,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1135,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1190,
+      "command": "alchymastery showcase power 64"
+    },
+    {
+      "at": 1235,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1335,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1400,
+      "command": "alchyx showcase build alchymastery:alchemical_nexus ~-28 ~ ~0"
+    },
+    {
+      "at": 1435,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1535,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1635,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1735,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1835,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 1935,
+      "command": "alchymastery showcase charge 10000 64"
+    },
+    {
+      "at": 2000,
+      "command": "alchymastery showcase power 64"
+    },
+    {
+      "at": 2035,
+      "command": "alchymastery showcase charge 10000 64"
     }
-  ]
+  ],
+  "music": "alchymastery:trailer_music"
 }

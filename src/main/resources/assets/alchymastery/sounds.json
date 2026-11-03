@@ -1,0 +1,10 @@
+{
+  "trailer_music": {
+    "sounds": [
+      {
+        "name": "alchymastery:trailer_music",
+        "stream": true
+      }
+    ]
+  }
+}
