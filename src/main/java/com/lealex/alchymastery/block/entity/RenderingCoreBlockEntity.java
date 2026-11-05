@@ -141,7 +141,7 @@ public class RenderingCoreBlockEntity extends PoweredCoreBlockEntity implements 
         return stack.is(ModRegistries.COMPOUND.get()) && CompoundMaterial.MOB.equals(CompoundItem.familyOf(stack));
     }
 
-    /** Experience points one essence gives: 2 x 3^tier. */
+    /** Experience points one essence gives: 2 x its tier's value (2, 6, 18... by default). */
     public static int pointsFor(ItemStack essence) {
         Integer tier = essence.get(ModRegistries.TIER.get());
         if (tier == null) {
@@ -149,9 +149,16 @@ public class RenderingCoreBlockEntity extends PoweredCoreBlockEntity implements 
             CompoundMaterial data = material == null ? null : CompoundMaterials.get(material);
             tier = data == null ? 0 : data.tier();
         }
-        int points = BASE_POINTS;
-        for (int i = 0; i < Math.clamp(tier, 0, 6); i++) points *= 3;
-        return points;
+        return pointsForTier(tier);
+    }
+
+    /** Most experience a single essence gives (2 x 729, the old tier 6 cap). */
+    public static final int MAX_POINTS = BASE_POINTS * 729;
+
+    /** Experience points of one essence of this tier: 2 x the tier's value from the config, capped. */
+    public static int pointsForTier(int tier) {
+        long value = com.lealex.alchymastery.Config.tierValue(Math.max(tier, 0));
+        return (int) Math.min((long) BASE_POINTS * value, MAX_POINTS);
     }
 
     public RenderingCoreBlockEntity(BlockPos pos, BlockState state) {
