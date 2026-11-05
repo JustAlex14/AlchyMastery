@@ -1,0 +1,12 @@
+{
+  "family": "food",
+  "color": "#D8B54A",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:wheat",
+    "drop_block": "minecraft:hay_block"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}

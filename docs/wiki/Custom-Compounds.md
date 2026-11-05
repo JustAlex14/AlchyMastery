@@ -45,7 +45,7 @@ The simplest case: a tin ore from another mod, in the `mineral` family.
 
 A family is just a name. As soon as one material file uses a new name, the family exists. There is nothing to register.
 
-Say you want crops to become their own family, so wheat can turn into carrots but never into iron. Give each crop the same `family`:
+The built-in `food` family (files in `data/alchymastery/compound_material/`, like `wheat.json`) is a complete example to copy. Say you want crops to become their own family, so wheat can turn into carrots but never into iron. Give each crop the same `family`:
 
 `data/mypack/compound_material/wheat.json`
 

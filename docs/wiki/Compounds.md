@@ -36,6 +36,20 @@ Breaking down the biggest form is always worth it.
 
 Mob drops break down into essences on the same tiers: flesh, bone, string, spider eyes, gunpowder, leather, feathers, slime, magma cream, ender pearls, blaze rods, ghast tears, phantom membranes and shulker shells. The Rendering Cauldron turns essences into experience.
 
+## Food extracts
+
+Crops and food break down into extracts, in their own `food` family. Like every drop, they are rebuilt in the Reconstruction Chamber, here on dirt.
+
+| Tier | Materials |
+|---|---|
+| Abundant | wheat (and hay bales), carrot, potato, beetroot, melon (slices and blocks), pumpkin |
+| Common | apple, cocoa beans |
+| Uncommon | golden carrot, glistering melon slice |
+| Rare | golden apple |
+| Tier 5 | enchanted golden apple |
+
+The enchanted golden apple sits above Ancient, on tier 5. With the default config it is worth 243 Abundant compounds and shows as "Tier 5". Add a fifth line to `compoundTiers` to name it and set its value, see [Custom Compounds](Custom-Compounds#adding-a-new-tier). Extracts do not go in the Rendering Cauldron.
+
 ## Families
 
-Matter keeps its family. Compounds only transmute into materials of the same family: iron can become gold, flesh can become bone, but iron never becomes flesh. The built-in families are `mineral` (ores, ingots, gems) and `mob` (essences). A datapack can add more families and tiers, see [Custom Compounds](Custom-Compounds).
+Matter keeps its family. Compounds only transmute into materials of the same family: iron can become gold, flesh can become bone, but iron never becomes flesh. The built-in families are `mineral` (ores, ingots, gems), `mob` (essences) and `food` (extracts). A datapack can add more families and tiers, see [Custom Compounds](Custom-Compounds).
