@@ -40,15 +40,14 @@ Mob drops break down into essences on the same tiers: flesh, bone, string, spide
 
 Crops and food break down into extracts, in their own `food` family. Like every drop, they are rebuilt in the Reconstruction Chamber, here on dirt.
 
-| Tier | Materials |
-|---|---|
-| Abundant | wheat (and hay bales), carrot, potato, beetroot, melon (slices and blocks), pumpkin |
-| Common | apple, cocoa beans |
-| Uncommon | golden carrot, glistering melon slice |
-| Rare | golden apple |
-| Tier 5 | enchanted golden apple |
+| Tier | Value | Materials |
+|---|---|---|
+| Raw food | 1 | wheat (and hay bales), carrot, potato, beetroot, melon (slices and blocks), pumpkin |
+| Exotic food | 4 | apple, cocoa beans |
+| Golden food | 16 | golden carrot, glistering melon slice, golden apple |
+| Enchanted meal | 64 | enchanted golden apple |
 
-The enchanted golden apple sits above Ancient, on tier 5. With the default config it is worth 243 Abundant compounds and shows as "Tier 5". Add a sixth line to `compoundTiers` (for example `"Mythic=243"`) to name it and set its value, see [Custom Compounds](Custom-Compounds#adding-a-new-tier). Extracts do not go in the Rendering Cauldron.
+Food has its own tiers, separate from the mineral ones, set by `familyTiers` in the config. The values above are counted in raw food extracts: one golden apple extract is worth 16 wheat extracts. See [Custom Compounds](Custom-Compounds#tiers-for-one-family) to change them. Extracts do not go in the Rendering Cauldron.
 
 ## Families
 

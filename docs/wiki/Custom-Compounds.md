@@ -51,11 +51,12 @@ AlchyMastery ships a `food` family built exactly this way, so it doubles as a fu
 
 | Tier | Materials |
 |---|---|
-| 0 Abundant | wheat, carrot, potato, beetroot, melon, pumpkin |
-| 1 Common | apple, cocoa |
-| 2 Uncommon | golden_carrot, glistering_melon |
-| 3 Rare | golden_apple |
-| 5 | enchanted_golden_apple |
+| 0 Raw food | wheat, carrot, potato, beetroot, melon, pumpkin |
+| 1 Exotic food | apple, cocoa |
+| 2 Golden food | golden_carrot, glistering_melon, golden_apple |
+| 3 Enchanted meal | enchanted_golden_apple |
+
+The tier names and values come from the food family's own tier list, see [Tiers for one family](#tiers-for-one-family).
 
 `wheat.json`: a tier 0 material with a storage block. The hay bale gives 9 wheat extracts, like the 9 wheat it is crafted from.
 
@@ -80,7 +81,7 @@ AlchyMastery ships a `food` family built exactly this way, so it doubles as a fu
 {
   "family": "food",
   "color": "#F5D547",
-  "tier": 3,
+  "tier": 2,
   "forms": {
     "drop": "minecraft:golden_apple"
   },
@@ -90,13 +91,13 @@ AlchyMastery ships a `food` family built exactly this way, so it doubles as a fu
 }
 ```
 
-`enchanted_golden_apple.json`: a material on tier 5, above Ancient. It is worth whatever tier 5 is worth in the config (see [Adding a new tier](#adding-a-new-tier)).
+`enchanted_golden_apple.json`: the top food tier, Enchanted meal.
 
 ```json
 {
   "family": "food",
   "color": "#E86BE0",
-  "tier": 5,
+  "tier": 3,
   "forms": {
     "drop": "minecraft:enchanted_golden_apple"
   },
@@ -124,7 +125,7 @@ And the names, in `assets/alchymastery/lang/en_us.json`:
 }
 ```
 
-With these, a wheat extract is called "Wheat Extract" and its tooltip says "Tier: Abundant" and "Food".
+With these, a wheat extract is called "Wheat Extract" and its tooltip says "Tier: Raw food" and "Food".
 
 ### Making your own
 
@@ -223,7 +224,7 @@ To add tiers, add lines. Each new line is the next tier number. For a tier 5 wor
 compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81", "Mythic=162", "Legendary=243"]
 ```
 
-Then give a material that tier in its datapack file. The built-in enchanted golden apple is on tier 5, so with the list above its tooltip says "Tier: Mythic" and it is worth two Ancient compounds. Without the extra line it shows as "Tier 5" and is worth 243. Your own materials work the same way:
+Then give a material that tier in its datapack file. With the list above, this one shows "Tier: Mythic" and is worth two Ancient compounds. Without the extra line it shows as "Tier 5" and is worth 243:
 
 ```json
 {
@@ -244,9 +245,30 @@ Things to know:
 
 - Keep values going up with each tier. Nothing checks it, but a tier worth less than the one below is confusing to play with.
 - A material whose tier is past the end of the list is worth 3 times the last tier per step, and shows as "Tier 7", "Tier 8" and so on.
-- To translate a tier name, add the lang key `tier.alchymastery.<tier number>`, e.g. `"tier.alchymastery.5": "Mythique"` in `fr_fr.json`. Without it, the name from the config is shown.
+- To translate a tier name from `compoundTiers`, add the lang key `tier.alchymastery.<tier number>`, e.g. `"tier.alchymastery.5": "Mythique"` in `fr_fr.json`. Without it, the name from the config is shown.
 - For the `mob` family, the Rendering Cauldron gives 2 experience points per unit of value, capped at 1458 points per essence.
-- The config is read on each side. On a server, give players the same `compoundTiers` (a modpack ships it in its config folder), or their tooltips and JEI will show the wrong values. The machines always use the server's list.
+- The config is read on each side. On a server, give players the same `compoundTiers` and `familyTiers` (a modpack ships it in its config folder), or their tooltips and JEI will show the wrong values. The machines always use the server's list.
+
+### Tiers for one family
+
+`compoundTiers` is shared by every family that has no tiers of its own. A family can have its own list instead, in `familyTiers`, one `family:Name=value` line per tier. The first line of a family is its tier 0, the next its tier 1, and so on. The built-in food family uses this:
+
+```toml
+familyTiers = ["food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64"]
+```
+
+The values count in that family's own tier 0. Since a family never transmutes into another one, its values only have to make sense inside the family: one golden apple extract is worth 16 wheat extracts, whatever the mineral tiers say.
+
+To give your own family tiers, add its lines to the list:
+
+```toml
+familyTiers = ["food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64",
+               "flower:Common flower=1", "flower:Rare flower=5"]
+```
+
+Removing all the lines of a family puts it back on `compoundTiers`. Tier names of a family are translated with `tier.alchymastery.<family>.<tier number>`, e.g. `"tier.alchymastery.food.0": "Nourriture crue"`.
+
+The `mob` family can have its own tiers too. The Rendering Cauldron then gives 2 experience points per unit of the mob tier's value.
 
 ### A value between two tiers
 

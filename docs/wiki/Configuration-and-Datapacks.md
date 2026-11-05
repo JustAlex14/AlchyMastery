@@ -8,6 +8,7 @@
 |---|---|---|
 | `distortionFuels` | `["minecraft:lapis_lazuli=100", "minecraft:lapis_block=900"]` | items the Distortion Matrix burns, as `item_id=energy`. Fuel burns at 5 DE per tick |
 | `compoundTiers` | `["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81"]` | compound tiers from tier 0 up, as `Name=value`, the value counted in tier 0 compounds. Add lines to add tiers, see [Custom Compounds](Custom-Compounds#adding-a-new-tier) |
+| `familyTiers` | `["food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64"]` | tiers for one family only, as `family:Name=value`, in order from tier 0. A family listed here uses these instead of `compoundTiers`, see [Custom Compounds](Custom-Compounds#tiers-for-one-family) |
 
 ## Client config
 
@@ -36,7 +37,7 @@ Each material is a datapack file: `data/<namespace>/compound_material/<name>.jso
 | Field | Meaning |
 |---|---|
 | `color` | the compound's colour |
-| `tier` | 0 Abundant, 1 Common, 2 Uncommon, 3 Rare, 4 Ancient, or a higher tier added in `compoundTiers` |
+| `tier` | 0 Abundant, 1 Common, 2 Uncommon, 3 Rare, 4 Ancient, or a higher tier added in `compoundTiers`. For a family with its own tiers in `familyTiers`, the number counts in that list |
 | `forms` | the items it breaks down from and rebuilds into. Each takes an item id, a `#tag` or a list. Forms: `raw`, `ore`, `ingot`, `block`, `raw_block`, `gem`, `gem_ore`, `drop`, `drop_block` |
 | `costs` | optional, compounds per form when the default does not fit, e.g. `{"ore": 6}` |
 | `worth` | optional, a special value: `{"of": "alchymastery:diamond", "count": 5}` |

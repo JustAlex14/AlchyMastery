@@ -155,9 +155,9 @@ public class RenderingCoreBlockEntity extends PoweredCoreBlockEntity implements 
     /** Most experience a single essence gives (2 x 729, the old tier 6 cap). */
     public static final int MAX_POINTS = BASE_POINTS * 729;
 
-    /** Experience points of one essence of this tier: 2 x the tier's value from the config, capped. */
+    /** Experience points of one mob essence of this tier: 2 x the tier's value (mob family tiers), capped. */
     public static int pointsForTier(int tier) {
-        long value = com.lealex.alchymastery.Config.tierValue(Math.max(tier, 0));
+        long value = com.lealex.alchymastery.Config.tierValue(CompoundMaterial.MOB, Math.max(tier, 0));
         return (int) Math.min((long) BASE_POINTS * value, MAX_POINTS);
     }
 
