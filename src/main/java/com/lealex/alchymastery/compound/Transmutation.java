@@ -22,6 +22,11 @@ public final class Transmutation {
         return com.lealex.alchymastery.Config.tierValue(tier) * UNIT;
     }
 
+    /** Value of one compound of this family and tier, in hundredths (the family's own tiers if it has some). */
+    public static long valueOf(String family, int tier) {
+        return com.lealex.alchymastery.Config.tierValue(family, tier) * UNIT;
+    }
+
     /**
      * Value of one compound of this material: from its tier, or from its "worth" (count x another material's
      * value, followed through the chain). 0 if the material is unknown or the chain loops.
@@ -36,7 +41,7 @@ public final class Transmutation {
         if (data.worth().isPresent()) {
             return data.worth().get().count() * valueOf(data.worth().get().of(), depth + 1);
         }
-        return valueOf(data.tier());
+        return valueOf(data.family(), data.tier());
     }
 
     /**

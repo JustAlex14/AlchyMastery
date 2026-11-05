@@ -42,6 +42,22 @@ public class Config {
                     () -> "Mythic=243",
                     Config::isValidTierEntry);
 
+    private static final List<String> DEFAULT_FAMILY_TIER_LINES = List.of(
+            "mineral:Abundant=1", "mineral:Common=3", "mineral:Uncommon=9", "mineral:Rare=27", "mineral:Ancient=81",
+            "mob:Weak essence=1", "mob:Strong essence=3", "mob:Rare essence=9", "mob:Mythic essence=27",
+            "food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64");
+
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> FAMILY_TIERS = BUILDER
+            .comment("Tiers for one family only, as \"family:Name=value\". A family listed here uses these tiers",
+                    "instead of compoundTiers: its tier 0 is its first line, tier 1 its second line, and so on.",
+                    "Families never transmute into each other, so their values don't need to match other families.",
+                    "Families not listed here (a datapack's new families) use compoundTiers.",
+                    "The name can be translated with the lang key tier.alchymastery.<family>.<tier number>.")
+            .defineListAllowEmpty("familyTiers",
+                    DEFAULT_FAMILY_TIER_LINES,
+                    () -> "food:Raw food=1",
+                    Config::isValidFamilyTierEntry);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 
     // ---- Compound tiers ----
@@ -75,9 +91,55 @@ public class Config {
         return cachedTiers;
     }
 
-    /** Value of one compound of this tier, in tier 0 compounds. Past the list: x3 per extra tier. */
+    private static List<? extends String> cachedFamilySource = null;
+    private static Map<String, List<Tier>> cachedFamilyTiers = Map.of();
+
+    /** Families with their own tier list (familyTiers config), each list tier 0 first. */
+    public static Map<String, List<Tier>> familyTiers() {
+        List<? extends String> source;
+        try {
+            source = FAMILY_TIERS.get();
+        } catch (IllegalStateException notLoadedYet) {
+            return Map.of();
+        }
+        if (source != cachedFamilySource) {
+            Map<String, List<Tier>> parsed = new LinkedHashMap<>();
+            for (String entry : source) {
+                int colon = entry.indexOf(':'), split = entry.lastIndexOf('=');
+                String family = entry.substring(0, colon).trim();
+                parsed.computeIfAbsent(family, f -> new java.util.ArrayList<>()).add(new Tier(
+                        entry.substring(colon + 1, split).trim(), Long.parseLong(entry.substring(split + 1).trim())));
+            }
+            Map<String, List<Tier>> frozen = new LinkedHashMap<>();
+            parsed.forEach((family, list) -> frozen.put(family, List.copyOf(list)));
+            cachedFamilyTiers = Map.copyOf(frozen);
+            cachedFamilySource = source;
+        }
+        return cachedFamilyTiers;
+    }
+
+    /** Whether this family has its own tiers in familyTiers. */
+    public static boolean hasOwnTiers(String family) {
+        return family != null && familyTiers().containsKey(family);
+    }
+
+    /** The tiers this family uses: its own from familyTiers, else compoundTiers. */
+    public static List<Tier> tiersFor(String family) {
+        List<Tier> own = family == null ? null : familyTiers().get(family);
+        return own != null ? own : tiers();
+    }
+
+    /** Value of one compound of this tier in the global list, in tier 0 compounds. */
     public static long tierValue(int tier) {
-        List<Tier> tiers = tiers();
+        return tierValue(tiers(), tier);
+    }
+
+    /** Value of one compound of this family and tier, in tier 0 compounds. Past the list: x3 per extra tier. */
+    public static long tierValue(String family, int tier) {
+        return tierValue(tiersFor(family), tier);
+    }
+
+    private static long tierValue(List<Tier> tiers, int tier) {
         if (tier <= 0) return tiers.get(0).value();
         if (tier < tiers.size()) return tiers.get(tier).value();
         long value = tiers.get(tiers.size() - 1).value();
@@ -85,10 +147,26 @@ public class Config {
         return value;
     }
 
-    /** Display name of this tier: the configured name, or "Tier N" past the list. */
+    /** Display name of this tier in the global list, or "Tier N" past the list. */
     public static String tierName(int tier) {
-        List<Tier> tiers = tiers();
+        return tierName(tiers(), tier);
+    }
+
+    /** Display name of this family's tier, or "Tier N" past the list. */
+    public static String tierName(String family, int tier) {
+        return tierName(tiersFor(family), tier);
+    }
+
+    private static String tierName(List<Tier> tiers, int tier) {
         return tier >= 0 && tier < tiers.size() ? tiers.get(tier).name() : "Tier " + tier;
+    }
+
+    /** Accepts "family:Name=value" with a lowercase family, a non-empty name and a positive value. */
+    private static boolean isValidFamilyTierEntry(Object obj) {
+        if (!(obj instanceof String entry)) return false;
+        int colon = entry.indexOf(':');
+        if (colon <= 0 || !entry.substring(0, colon).trim().matches("[a-z0-9_]+")) return false;
+        return isValidTierEntry(entry.substring(colon + 1));
     }
 
     /** Accepts "Name=value" with a non-empty name and a positive value. */

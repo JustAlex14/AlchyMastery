@@ -59,9 +59,13 @@ public class CompoundItem extends Item {
                                 Consumer<Component> tooltip, TooltipFlag flag) {
         Integer tier = stack.get(ModRegistries.TIER.get());
         if (tier != null) {
-            // Name from the compoundTiers config, translatable with tier.alchymastery.<tier>
-            Component name = Component.translatableWithFallback("tier.alchymastery." + tier,
-                    com.lealex.alchymastery.Config.tierName(tier));
+            // Name from the familyTiers config (lang tier.alchymastery.<family>.<tier>) for a family with its own
+            // tiers, else from compoundTiers (lang tier.alchymastery.<tier>)
+            String tierFamily = familyOf(stack);
+            String key = com.lealex.alchymastery.Config.hasOwnTiers(tierFamily)
+                    ? "tier.alchymastery." + tierFamily + "." + tier : "tier.alchymastery." + tier;
+            Component name = Component.translatableWithFallback(key,
+                    com.lealex.alchymastery.Config.tierName(tierFamily, tier));
             tooltip.accept(Component.literal("Tier: ").append(name).withStyle(ChatFormatting.GRAY));
         }
         String family = familyOf(stack);

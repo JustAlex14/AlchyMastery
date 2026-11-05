@@ -1,7 +1,7 @@
 {
   "family": "food",
   "color": "#E86BE0",
-  "tier": 5,
+  "tier": 3,
   "forms": {
     "drop": "minecraft:enchanted_golden_apple"
   },

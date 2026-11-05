@@ -1,7 +1,7 @@
 {
   "family": "food",
   "color": "#F5D547",
-  "tier": 3,
+  "tier": 2,
   "forms": {
     "drop": "minecraft:golden_apple"
   },
