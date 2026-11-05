@@ -10,7 +10,25 @@
           "type": "minecraft:model",
           "model": "alchymastery:item/mob_essence",
           "tints": [
-            { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 }
+            {
+              "type": "minecraft:custom_model_data",
+              "index": 0,
+              "default": 16777215
+            }
+          ]
+        }
+      },
+      {
+        "when": "food",
+        "model": {
+          "type": "minecraft:model",
+          "model": "alchymastery:item/food_extract",
+          "tints": [
+            {
+              "type": "minecraft:custom_model_data",
+              "index": 0,
+              "default": 16777215
+            }
           ]
         }
       }
@@ -19,7 +37,11 @@
       "type": "minecraft:model",
       "model": "alchymastery:item/compound",
       "tints": [
-        { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 }
+        {
+          "type": "minecraft:custom_model_data",
+          "index": 0,
+          "default": 16777215
+        }
       ]
     }
   }

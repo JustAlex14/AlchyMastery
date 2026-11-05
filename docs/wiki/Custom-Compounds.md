@@ -158,7 +158,7 @@ The family keys always use the `alchymastery` namespace, whatever namespace your
 
 ### Giving the family its own look
 
-By default a new family uses the normal compound texture, tinted with each material's `color`. The `mob` family has its own essence texture. To do the same for your family, override `assets/alchymastery/items/compound.json` in a resource pack and add a case for it. Keep the `mob` case, since this file replaces the built-in one:
+By default a new family uses the normal compound texture, tinted with each material's `color`. The `mob` family has its own essence texture, and the `food` family a bottle. To do the same for your family, override `assets/alchymastery/items/compound.json` in a resource pack and add a case for it. Keep the `mob` and `food` cases, since this file replaces the built-in one:
 
 ```json
 {
@@ -179,7 +179,15 @@ By default a new family uses the normal compound texture, tinted with each mater
         "when": "food",
         "model": {
           "type": "minecraft:model",
-          "model": "mypack:item/food_extract",
+          "model": "alchymastery:item/food_extract",
+          "tints": [ { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 } ]
+        }
+      },
+      {
+        "when": "flower",
+        "model": {
+          "type": "minecraft:model",
+          "model": "mypack:item/flower_petals",
           "tints": [ { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 } ]
         }
       }
@@ -193,7 +201,7 @@ By default a new family uses the normal compound texture, tinted with each mater
 }
 ```
 
-Then add the model `assets/mypack/models/item/food_extract.json` and its texture. Look at `alchymastery:item/mob_essence` for the layout: a greyscale layer that takes the tint, and an overlay that keeps its own colours.
+Then add the model `assets/mypack/models/item/flower_petals.json` and its texture. Look at `alchymastery:item/mob_essence` or `alchymastery:item/food_extract` for the layout: a greyscale layer that takes the tint, and an overlay that keeps its own colours.
 
 ### What a new family can and cannot do
 
