@@ -14,6 +14,7 @@ Every machine is a multiblock chamber built from ordinary blocks around a core. 
 - [Nexuses](Nexuses): the Alchemical Nexus and the Experience Nexus
 - [Custom Compounds](Custom-Compounds): new materials, families and tiers, step by step
 - [Configuration and Datapacks](Configuration-and-Datapacks): fuels, new materials, animations
+- [Modpack Guide](Modpack-Guide): editing tiers, materials, fuels and names for a modpack
 
 ## Requirements
 

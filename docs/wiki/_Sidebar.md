@@ -9,6 +9,7 @@
 - [Nexuses](Nexuses)
 - [Custom Compounds](Custom-Compounds)
 - [Configuration and Datapacks](Configuration-and-Datapacks)
+- [Modpack Guide](Modpack-Guide)
 
 **Related**
 

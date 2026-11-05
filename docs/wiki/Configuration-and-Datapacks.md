@@ -1,5 +1,7 @@
 # Configuration and Datapacks
 
+The full reference. For a step by step guide to editing these for a modpack, see the [Modpack Guide](Modpack-Guide).
+
 ## Common config
 
 `config/alchymastery-common.toml`:
