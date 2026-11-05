@@ -26,7 +26,82 @@ public class Config {
                     () -> "minecraft:lapis_lazuli=100",
                     Config::isValidFuelEntry);
 
+    // Declared before COMPOUND_TIERS, which uses it
+    private static final List<String> DEFAULT_TIER_LINES = List.of("Abundant=1", "Common=3", "Uncommon=9",
+            "Rare=27", "Ancient=81");
+
+    public static final ModConfigSpec.ConfigValue<List<? extends String>> COMPOUND_TIERS = BUILDER
+            .comment("Compound tiers, from tier 0 up, as \"Name=value\".",
+                    "The value is what one compound of that tier is worth, counted in tier 0 compounds.",
+                    "Add lines to add tiers: \"Mythic=162\" makes tier 5 worth 2 Ancient compounds.",
+                    "Values should go up with each tier. A tier past the end of the list is worth",
+                    "3 times the last one and shows as \"Tier N\".",
+                    "The name can be translated with the lang key tier.alchymastery.<tier number>.")
+            .defineListAllowEmpty("compoundTiers",
+                    DEFAULT_TIER_LINES,
+                    () -> "Mythic=243",
+                    Config::isValidTierEntry);
+
     static final ModConfigSpec SPEC = BUILDER.build();
+
+    // ---- Compound tiers ----
+
+    /** One compound tier: its name and its value in tier 0 compounds. */
+    public record Tier(String name, long value) {}
+
+    private static final List<Tier> DEFAULT_TIERS = List.of(new Tier("Abundant", 1), new Tier("Common", 3),
+            new Tier("Uncommon", 9), new Tier("Rare", 27), new Tier("Ancient", 81));
+
+    private static List<? extends String> cachedTierSource = null;
+    private static List<Tier> cachedTiers = DEFAULT_TIERS;
+
+    /** The configured tiers, tier 0 first. */
+    public static List<Tier> tiers() {
+        List<? extends String> source;
+        try {
+            source = COMPOUND_TIERS.get();
+        } catch (IllegalStateException notLoadedYet) {
+            return DEFAULT_TIERS;
+        }
+        if (source != cachedTierSource) {
+            List<Tier> parsed = new java.util.ArrayList<>();
+            for (String entry : source) {
+                int split = entry.lastIndexOf('=');
+                parsed.add(new Tier(entry.substring(0, split).trim(), Long.parseLong(entry.substring(split + 1).trim())));
+            }
+            cachedTiers = parsed.isEmpty() ? DEFAULT_TIERS : List.copyOf(parsed);
+            cachedTierSource = source;
+        }
+        return cachedTiers;
+    }
+
+    /** Value of one compound of this tier, in tier 0 compounds. Past the list: x3 per extra tier. */
+    public static long tierValue(int tier) {
+        List<Tier> tiers = tiers();
+        if (tier <= 0) return tiers.get(0).value();
+        if (tier < tiers.size()) return tiers.get(tier).value();
+        long value = tiers.get(tiers.size() - 1).value();
+        for (int i = tiers.size() - 1; i < tier && value < Long.MAX_VALUE / 3; i++) value *= 3;
+        return value;
+    }
+
+    /** Display name of this tier: the configured name, or "Tier N" past the list. */
+    public static String tierName(int tier) {
+        List<Tier> tiers = tiers();
+        return tier >= 0 && tier < tiers.size() ? tiers.get(tier).name() : "Tier " + tier;
+    }
+
+    /** Accepts "Name=value" with a non-empty name and a positive value. */
+    private static boolean isValidTierEntry(Object obj) {
+        if (!(obj instanceof String entry)) return false;
+        int split = entry.lastIndexOf('=');
+        if (split <= 0 || entry.substring(0, split).isBlank()) return false;
+        try {
+            return Long.parseLong(entry.substring(split + 1).trim()) > 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     // ---- Fuel lookup ----
 

@@ -162,19 +162,19 @@ Then add the model `assets/mypack/models/item/crop_extract.json` and its texture
 
 ## Adding a new tier
 
-There is no list of tiers to edit. `tier` is just a number, and the value of a compound comes straight from it:
+Tiers are set in `config/alchymastery-common.toml`, in the `compoundTiers` list. Each line is `Name=value`, from tier 0 up. The value is what one compound of that tier is worth, counted in tier 0 compounds. The default list is:
 
-| Tier | Name shown | Value (in Abundant compounds) |
-|---|---|---|
-| 0 | Abundant | 1 |
-| 1 | Common | 3 |
-| 2 | Uncommon | 9 |
-| 3 | Rare | 27 |
-| 4 | Ancient | 81 |
-| 5 | Tier 5 | 243 |
-| 6 | Tier 6 | 729 |
+```toml
+compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81"]
+```
 
-So to add a tier above Ancient, give a material `"tier": 5`. For example, a modded end metal that should sit above netherite:
+To add tiers, add lines. Each new line is the next tier number. For a tier 5 worth two Ancient compounds and a tier 6 worth three:
+
+```toml
+compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81", "Mythic=162", "Legendary=243"]
+```
+
+Then give a material that tier in its datapack file. For example, a modded end metal that should sit just above netherite:
 
 ```json
 {
@@ -187,17 +187,21 @@ So to add a tier above Ancient, give a material `"tier": 5`. For example, a modd
 }
 ```
 
-One void alloy compound is now worth three Ancient compounds, and transmuting between them follows the usual rules (no loss between equal values, 20% loss otherwise, lowered by Productivity upgrades).
+With the list above, one void alloy compound is worth two Ancient compounds and its tooltip says "Tier: Mythic". Transmuting follows the usual rules: no loss between equal values, 20% loss otherwise, lowered by Productivity upgrades.
 
-Things to know about tiers above 4:
+You can also change the existing tiers. `"Rare=30"` makes every Rare compound worth 30 instead of 27. Changing values changes every transmutation cost, so do it before players build up stock.
 
-- The tooltip shows "Tier 5", "Tier 6" and so on. The five built-in names are fixed in the code and can't be translated or extended from a datapack.
-- For the `mob` family, the Rendering Cauldron's experience stops growing after tier 6.
-- Values grow fast (each tier is three times the last), so a tier 7 or 8 material is very expensive to make from anything below it.
+Things to know:
+
+- Keep values going up with each tier. Nothing checks it, but a tier worth less than the one below is confusing to play with.
+- A material whose tier is past the end of the list is worth 3 times the last tier per step, and shows as "Tier 7", "Tier 8" and so on.
+- To translate a tier name, add the lang key `tier.alchymastery.<tier number>`, e.g. `"tier.alchymastery.5": "Mythique"` in `fr_fr.json`. Without it, the name from the config is shown.
+- For the `mob` family, the Rendering Cauldron gives 2 experience points per unit of value, capped at 1458 points per essence.
+- The config is read on each side. On a server, give players the same `compoundTiers` (a modpack ships it in its config folder), or their tooltips and JEI will show the wrong values. The machines always use the server's list.
 
 ### A value between two tiers
 
-If a material should be worth something that is not a power of three, keep its tier for display and set `worth` instead. Netherite does this: it shows as Ancient, but its value is five diamonds.
+`worth` is a per-material override: the material keeps its tier for the tooltip, but its value is a count of another material instead of its tier's value. Use it for one-off materials. For a whole tier, change `compoundTiers` instead. Netherite uses it: it shows as Ancient, but it is worth five diamonds (5 x 27 = 135) instead of 81.
 
 ```json
 {
