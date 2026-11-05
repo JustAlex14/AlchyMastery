@@ -38,4 +38,4 @@ Mob drops break down into essences on the same tiers: flesh, bone, string, spide
 
 ## Families
 
-Matter keeps its family. Compounds only transmute into materials of the same family: iron can become gold, flesh can become bone, but iron never becomes flesh. The built-in families are `mineral` (ores, ingots, gems) and `mob` (essences). A datapack can add more, see [Configuration and Datapacks](Configuration-and-Datapacks).
+Matter keeps its family. Compounds only transmute into materials of the same family: iron can become gold, flesh can become bone, but iron never becomes flesh. The built-in families are `mineral` (ores, ingots, gems) and `mob` (essences). A datapack can add more families and tiers, see [Custom Compounds](Custom-Compounds).
