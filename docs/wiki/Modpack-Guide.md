@@ -1,6 +1,6 @@
 # Modpack Guide
 
-Everything a modpack maker usually wants to change in AlchyMastery: tier names and values, which items break down into what, new families, fuels and names. None of it needs code.
+Everything a modpack maker usually wants to change in AlchyMastery: tier names and values, which items break down into what, new families, fuels, recipes, machine shapes and names. None of it needs code. For the general methods shared by every AlchyX mod, see the [AlchyX Modpack Guide](https://github.com/JustAlex14/AlchyX/wiki/Modpack-Guide).
 
 ## Where each thing lives
 
@@ -9,6 +9,9 @@ Everything a modpack maker usually wants to change in AlchyMastery: tier names a
 | Tier names and values | `config/alchymastery-common.toml` | `familyTiers`, `compoundTiers` |
 | Distortion Matrix fuels | `config/alchymastery-common.toml` | `distortionFuels` |
 | Materials (what breaks down into what, tier, family, colour) | a datapack, `data/<namespace>/compound_material/<name>.json` | JSON, see [Custom Compounds](Custom-Compounds) |
+| Crafting recipes (cores, upgrades, wormholes, parts) | a datapack, `data/alchymastery/recipe/<item>.json` | vanilla recipe JSON |
+| Machine shapes | a datapack, `data/alchymastery/multiblock/<machine>.json` | [Pattern Format](https://github.com/JustAlex14/AlchyX/wiki/Pattern-Format) |
+| Blocks a machine accepts | a datapack, `data/alchymastery/tags/block/` | block tag |
 | Names shown in game (materials, families, tiers) | a resource pack, `assets/alchymastery/lang/<language>.json` | lang JSON |
 | Compound textures per family | a resource pack, `assets/alchymastery/items/compound.json` | item model, see [Custom Compounds](Custom-Compounds#giving-the-family-its-own-look) |
 
@@ -115,9 +118,68 @@ Names come from lang files, so a resource pack can rename anything, in any langu
 
 Without a tier translation, the name written in the config is shown. For a pack in one language, changing the name in the config is enough.
 
+## Recipes
+
+Every item has an ordinary crafting recipe named after it in `data/alchymastery/recipe/`. The ones that shape progression:
+
+| Recipes | What they gate |
+|---|---|
+| `distortion_matrix`, `wormhole`, `wormhole_attuner` | Distortion Energy, which every machine needs |
+| `condensator_core`, `destructuration_core`, `transmutation_core`, `reconstruction_core`, `rendering_core` | each machine's core |
+| `alchemical_nexus`, `experience_nexus` | the nexuses |
+| `speed_upgrade_1` to `_4`, `efficiency_upgrade_1` to `_3`, `productivity_upgrade_1` to `_4`, `parallel_upgrade` | upgrades |
+| `alchemical_lattice` | the base of every upgrade |
+
+To change one, put a file with the same path in your datapack. A Speed Upgrade I that asks for a modded part instead of sugar:
+
+`data/alchymastery/recipe/speed_upgrade_1.json`
+
+```json
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [ "CEC", "EXE", "CEC" ],
+  "key": {
+    "C": "minecraft:redstone",
+    "E": "somemod:speed_coil",
+    "X": "alchymastery:alchemical_lattice"
+  },
+  "result": { "id": "alchymastery:speed_upgrade_1", "count": 1 }
+}
+```
+
+To remove a recipe, replace the file with `{"neoforge:conditions": [{"type": "neoforge:false"}]}`, or use KubeJS: `event.remove({ id: 'alchymastery:parallel_upgrade' })`. Removing an upgrade's recipe is the simplest way to take that upgrade out of a pack.
+
+What the machines themselves make (breaking down, transmuting, rebuilding) is not a recipe file: it comes from the materials, see above.
+
+## Machine shapes and tags
+
+Each machine is an AlchyX pattern in `data/alchymastery/multiblock/`. Several spots accept any block of a tag, so the easy change is to add to the tag:
+
+| Tag | Machine | Default |
+|---|---|---|
+| `alchymastery:distortion_chamber_frame` | Distortion Chamber walls | stone bricks (plain, mossy, cracked, chiseled) |
+| `alchymastery:distortion_chamber_slabs` | Distortion Chamber | stone brick and mossy stone brick slabs |
+| `alchymastery:distortion_chamber_stairs` | Distortion Chamber | stone brick and mossy stone brick stairs |
+| `alchymastery:distortion_chamber_window` | Distortion Chamber | glass, tinted glass |
+| `alchymastery:copper_grates` | Distortion Condensator back wall | every copper grate, waxed or not |
+| `alchymastery:reconstruction_pillar` | Reconstruction Chamber pillars | cobblestone, stone |
+| `alchymastery:potted_flowers` | Reconstruction Chamber | potted flowers |
+
+`data/alchymastery/tags/block/distortion_chamber_frame.json`
+
+```json
+{
+  "replace": false,
+  "values": [ "minecraft:deepslate_bricks", { "id": "somemod:marble_bricks", "required": false } ]
+}
+```
+
+To change a shape, copy the machine's file from the jar to the same path in your pack and edit it. Keep its `core` and `anchors`.
+
 ## Shipping it
 
 - Put your edited `config/alchymastery-common.toml` in the pack's `config` folder, and the same file on the server.
 - Players and the server must have the same tier lists. The machines use the server's, but tooltips and JEI use the player's, so a different file shows wrong values.
-- Material files are server data and are sent to players when they join, so they only need to be on the server (or in the world's datapacks).
+- Material files, recipes, tags and machine shapes are server data, sent to players when they join, so they only need to be on the server (KubeJS `data` or a global datapack).
 - Lang files and textures are client side: ship them in a resource pack enabled by default, or in KubeJS `assets`.
