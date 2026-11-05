@@ -4,7 +4,7 @@ The Destructuration Chamber strips matter down to pure substance: compounds. Iro
 
 ## Tiers
 
-By default each tier is worth three of the tier below. The values and names can be changed, and tiers added, in the config (see [Custom Compounds](Custom-Compounds#adding-a-new-tier)).
+Each family has its own tiers. For minerals, each tier is worth three of the tier below. Names and values can be changed, and tiers added, in the config (see [Custom Compounds](Custom-Compounds#adding-a-new-tier)).
 
 | Tier | Materials |
 |---|---|
@@ -34,7 +34,14 @@ Breaking down the biggest form is always worth it.
 
 ## Essences
 
-Mob drops break down into essences on the same tiers: flesh, bone, string, spider eyes, gunpowder, leather, feathers, slime, magma cream, ender pearls, blaze rods, ghast tears, phantom membranes and shulker shells. The Rendering Cauldron turns essences into experience.
+Mob drops break down into essences, with their own tiers. The Rendering Cauldron turns essences into experience: 2 points per unit of value.
+
+| Tier | Value | Materials |
+|---|---|---|
+| Weak essence | 1 | rotten flesh, bone, string, spider eye, gunpowder, leather, feather, slime |
+| Strong essence | 3 | blaze rod, ender pearl, magma cream, phantom membrane |
+| Rare essence | 9 | ghast tear |
+| Mythic essence | 27 | shulker shell |
 
 ## Food extracts
 
@@ -47,7 +54,7 @@ Crops and food break down into extracts, in their own `food` family. Like every 
 | Golden food | 16 | golden carrot, glistering melon slice, golden apple |
 | Enchanted meal | 64 | enchanted golden apple |
 
-Food has its own tiers, separate from the mineral ones, set by `familyTiers` in the config. The values above are counted in raw food extracts: one golden apple extract is worth 16 wheat extracts. See [Custom Compounds](Custom-Compounds#tiers-for-one-family) to change them. Extracts do not go in the Rendering Cauldron.
+Food has its own tiers, separate from the mineral and mob ones. The values above are counted in raw food extracts: one golden apple extract is worth 16 wheat extracts. See [Custom Compounds](Custom-Compounds#adding-a-new-tier) to change them. Extracts do not go in the Rendering Cauldron.
 
 ## Families
 

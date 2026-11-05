@@ -29,7 +29,7 @@ Turns compounds into another compound of the same family.
 - **Core:** Transmutation Core (a book that reads itself)
 - **Structure:** a small library in front of the book: stone bricks, spruce and oak logs, bookshelves of both woods facing the front, a redstone lamp and lanterns. The book faces whoever placed it
 - **Target:** set a compound as the target. It is only an image and is never used up. Every compound fed in becomes that target
-- **Cost:** value is kept, but a fifth of it is lost when input and target are worth different amounts. What is left over waits for the next change. Each change takes 2 seconds and 5 DE per Abundant compound of value made
+- **Cost:** value is kept, but a fifth of it is lost when input and target are worth different amounts. What is left over waits for the next change. Each change takes 2 seconds and 5 DE per unit of value made (one tier 0 compound of the family)
 - **Families:** minerals only become minerals, essences only become essences. Netherite is worth five diamonds, so the two trade freely
 
 ## Reconstruction Chamber

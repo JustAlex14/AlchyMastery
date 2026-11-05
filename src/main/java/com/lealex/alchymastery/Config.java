@@ -42,14 +42,16 @@ public class Config {
                     () -> "Mythic=243",
                     Config::isValidTierEntry);
 
-    private static final List<String> DEFAULT_FAMILY_TIER_LINES = List.of("food:Raw food=1", "food:Exotic food=4",
-            "food:Golden food=16", "food:Enchanted meal=64");
+    private static final List<String> DEFAULT_FAMILY_TIER_LINES = List.of(
+            "mineral:Abundant=1", "mineral:Common=3", "mineral:Uncommon=9", "mineral:Rare=27", "mineral:Ancient=81",
+            "mob:Weak essence=1", "mob:Strong essence=3", "mob:Rare essence=9", "mob:Mythic essence=27",
+            "food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64");
 
     public static final ModConfigSpec.ConfigValue<List<? extends String>> FAMILY_TIERS = BUILDER
             .comment("Tiers for one family only, as \"family:Name=value\". A family listed here uses these tiers",
                     "instead of compoundTiers: its tier 0 is its first line, tier 1 its second line, and so on.",
                     "Families never transmute into each other, so their values don't need to match other families.",
-                    "Families not listed here use compoundTiers.",
+                    "Families not listed here (a datapack's new families) use compoundTiers.",
                     "The name can be translated with the lang key tier.alchymastery.<family>.<tier number>.")
             .defineListAllowEmpty("familyTiers",
                     DEFAULT_FAMILY_TIER_LINES,

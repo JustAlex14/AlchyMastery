@@ -56,7 +56,7 @@ AlchyMastery ships a `food` family built exactly this way, so it doubles as a fu
 | 2 Golden food | golden_carrot, glistering_melon, golden_apple |
 | 3 Enchanted meal | enchanted_golden_apple |
 
-The tier names and values come from the food family's own tier list, see [Tiers for one family](#tiers-for-one-family).
+The tier names and values come from the food lines of `familyTiers`, see [Adding a new tier](#adding-a-new-tier).
 
 `wheat.json`: a tier 0 material with a storage block. The hay bale gives 9 wheat extracts, like the 9 wheat it is crafted from.
 
@@ -212,19 +212,27 @@ Then add the model `assets/mypack/models/item/flower_petals.json` and its textur
 
 ## Adding a new tier
 
-Tiers are set in `config/alchymastery-common.toml`, in the `compoundTiers` list. Each line is `Name=value`, from tier 0 up. The value is what one compound of that tier is worth, counted in tier 0 compounds. The default list is:
+Each family has its own tiers, set in `config/alchymastery-common.toml` in the `familyTiers` list. Each line is `family:Name=value`. A family's first line is its tier 0, its second line tier 1, and so on. The value is what one compound of that tier is worth, counted in that family's tier 0. The default list is:
 
 ```toml
-compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81"]
+familyTiers = [
+  "mineral:Abundant=1", "mineral:Common=3", "mineral:Uncommon=9", "mineral:Rare=27", "mineral:Ancient=81",
+  "mob:Weak essence=1", "mob:Strong essence=3", "mob:Rare essence=9", "mob:Mythic essence=27",
+  "food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64"
+]
 ```
 
-To add tiers, add lines. Each new line is the next tier number. For a tier 5 worth two Ancient compounds and a tier 6 worth three:
+Since a family never transmutes into another one, its values only have to make sense inside the family. One golden apple extract is worth 16 wheat extracts, one diamond compound 27 coal compounds, whatever the other families say.
+
+### Adding a tier to a family
+
+Add a line after the family's last one. For a mineral tier 5 worth two Ancient compounds and a tier 6 worth three:
 
 ```toml
-compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81", "Mythic=162", "Legendary=243"]
+"mineral:Ancient=81", "mineral:Mythic=162", "mineral:Legendary=243",
 ```
 
-Then give a material that tier in its datapack file. With the list above, this one shows "Tier: Mythic" and is worth two Ancient compounds. Without the extra line it shows as "Tier 5" and is worth 243:
+Then give a material that tier in its datapack file. With the lines above, this one shows "Tier: Mythic" and is worth two Ancient compounds. Without them it shows as "Tier 5" and is worth 243 (3 times the last tier):
 
 ```json
 {
@@ -239,40 +247,35 @@ Then give a material that tier in its datapack file. With the list above, this o
 
 Transmuting follows the usual rules: no loss between equal values, 20% loss otherwise, lowered by Productivity upgrades.
 
-You can also change the existing tiers. `"Rare=30"` makes every Rare compound worth 30 instead of 27. Changing values changes every transmutation cost, so do it before players build up stock.
+You can also change the existing tiers. `"mineral:Rare=30"` makes every Rare compound worth 30 instead of 27, and `"mob:Weak essence=1"` can be renamed to anything. Changing values changes every transmutation cost, so do it before players build up stock.
 
-Things to know:
+### Tiers for a new family
+
+A family from your datapack has no lines at first, so it uses the fallback list, `compoundTiers`:
+
+```toml
+compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81"]
+```
+
+To give it its own tiers, add its lines to `familyTiers`:
+
+```toml
+"flower:Common flower=1", "flower:Rare flower=5", "flower:Legendary flower=25",
+```
+
+Removing all the lines of a family puts it back on `compoundTiers`.
+
+### Things to know
 
 - Keep values going up with each tier. Nothing checks it, but a tier worth less than the one below is confusing to play with.
-- A material whose tier is past the end of the list is worth 3 times the last tier per step, and shows as "Tier 7", "Tier 8" and so on.
-- To translate a tier name from `compoundTiers`, add the lang key `tier.alchymastery.<tier number>`, e.g. `"tier.alchymastery.5": "Mythique"` in `fr_fr.json`. Without it, the name from the config is shown.
-- For the `mob` family, the Rendering Cauldron gives 2 experience points per unit of value, capped at 1458 points per essence.
-- The config is read on each side. On a server, give players the same `compoundTiers` and `familyTiers` (a modpack ships it in its config folder), or their tooltips and JEI will show the wrong values. The machines always use the server's list.
-
-### Tiers for one family
-
-`compoundTiers` is shared by every family that has no tiers of its own. A family can have its own list instead, in `familyTiers`, one `family:Name=value` line per tier. The first line of a family is its tier 0, the next its tier 1, and so on. The built-in food family uses this:
-
-```toml
-familyTiers = ["food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64"]
-```
-
-The values count in that family's own tier 0. Since a family never transmutes into another one, its values only have to make sense inside the family: one golden apple extract is worth 16 wheat extracts, whatever the mineral tiers say.
-
-To give your own family tiers, add its lines to the list:
-
-```toml
-familyTiers = ["food:Raw food=1", "food:Exotic food=4", "food:Golden food=16", "food:Enchanted meal=64",
-               "flower:Common flower=1", "flower:Rare flower=5"]
-```
-
-Removing all the lines of a family puts it back on `compoundTiers`. Tier names of a family are translated with `tier.alchymastery.<family>.<tier number>`, e.g. `"tier.alchymastery.food.0": "Nourriture crue"`.
-
-The `mob` family can have its own tiers too. The Rendering Cauldron then gives 2 experience points per unit of the mob tier's value.
+- A material whose tier is past the end of its family's list is worth 3 times the last tier per step, and shows as "Tier 7", "Tier 8" and so on.
+- Tier names are translated with `tier.alchymastery.<family>.<tier number>`, e.g. `"tier.alchymastery.food.0": "Nourriture crue"` in `fr_fr.json`, or `tier.alchymastery.<tier number>` for the `compoundTiers` fallback. Without a translation, the name from the config is shown.
+- The Rendering Cauldron gives 2 experience points per unit of a mob tier's value, capped at 1458 points per essence. Raising mob values gives more experience.
+- The config is read on each side. On a server, give players the same `familyTiers` and `compoundTiers` (a modpack ships them in its config folder), or their tooltips and JEI will show the wrong values. The machines always use the server's lists.
 
 ### A value between two tiers
 
-`worth` is a per-material override: the material keeps its tier for the tooltip, but its value is a count of another material instead of its tier's value. Use it for one-off materials. For a whole tier, change `compoundTiers` instead. Netherite uses it: it shows as Ancient, but it is worth five diamonds (5 x 27 = 135) instead of 81.
+`worth` is a per-material override: the material keeps its tier for the tooltip, but its value is a count of another material instead of its tier's value. Use it for one-off materials. For a whole tier, change `familyTiers` instead. Netherite uses it: it shows as Ancient, but it is worth five diamonds (5 x 27 = 135) instead of 81.
 
 ```json
 {
