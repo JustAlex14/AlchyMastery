@@ -7,6 +7,7 @@
 - [Compounds](Compounds)
 - [Upgrades and Corruption](Upgrades-and-Corruption)
 - [Nexuses](Nexuses)
+- [Custom Compounds](Custom-Compounds)
 - [Configuration and Datapacks](Configuration-and-Datapacks)
 
 **Related**

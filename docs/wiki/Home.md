@@ -12,6 +12,7 @@ Every machine is a multiblock chamber built from ordinary blocks around a core. 
 - [Compounds](Compounds): tiers, yields and families
 - [Upgrades and Corruption](Upgrades-and-Corruption)
 - [Nexuses](Nexuses): the Alchemical Nexus and the Experience Nexus
+- [Custom Compounds](Custom-Compounds): new materials, families and tiers, step by step
 - [Configuration and Datapacks](Configuration-and-Datapacks): fuels, new materials, animations
 
 ## Requirements
