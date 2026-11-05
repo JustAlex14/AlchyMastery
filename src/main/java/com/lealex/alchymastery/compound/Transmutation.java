@@ -7,7 +7,6 @@ import net.minecraft.resources.Identifier;
  * Values are counted in hundredths of an abundant compound, so the 20% loss never needs fractions.
  */
 public final class Transmutation {
-    public static final int TIER_MULTIPLIER = 3;    // each tier is worth 3 of the tier below
     public static final int LOSS_PERCENT = 20;      // value lost when transmuting between different values
     public static final int ENERGY_PER_VALUE = 5;   // DE per abundant (copper) of value produced
     public static final int OPERATION_TICKS = 40;   // 2 seconds per operation
@@ -15,11 +14,12 @@ public final class Transmutation {
 
     private Transmutation() {}
 
-    /** Value of one compound of this tier, in hundredths: tier 0 = 100, tier 1 = 300, tier 2 = 900... */
+    /**
+     * Value of one compound of this tier, in hundredths. Set by the compoundTiers config
+     * (default tier 0 = 100, tier 1 = 300, tier 2 = 900...).
+     */
     public static long valueOf(int tier) {
-        long value = UNIT;
-        for (int i = 0; i < tier; i++) value *= TIER_MULTIPLIER;
-        return value;
+        return com.lealex.alchymastery.Config.tierValue(tier) * UNIT;
     }
 
     /**

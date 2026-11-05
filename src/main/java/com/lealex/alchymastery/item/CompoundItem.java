@@ -26,9 +26,6 @@ public class CompoundItem extends Item {
         super(properties);
     }
 
-    /** Tier names from the design spec; tiers past the list (from config) show as "Tier N". */
-    private static final String[] TIER_NAMES = {"Abundant", "Common", "Uncommon", "Rare", "Ancient"};
-
     /** A stack of {@code count} compounds of this material (color, tier and family from its file). */
     public static ItemStack create(Identifier material, CompoundMaterial data, int count) {
         return create(material, data.color(), data.tier(), data.family(), count);
@@ -62,8 +59,10 @@ public class CompoundItem extends Item {
                                 Consumer<Component> tooltip, TooltipFlag flag) {
         Integer tier = stack.get(ModRegistries.TIER.get());
         if (tier != null) {
-            String name = tier >= 0 && tier < TIER_NAMES.length ? TIER_NAMES[tier] : "Tier " + tier;
-            tooltip.accept(Component.literal("Tier: " + name).withStyle(ChatFormatting.GRAY));
+            // Name from the compoundTiers config, translatable with tier.alchymastery.<tier>
+            Component name = Component.translatableWithFallback("tier.alchymastery." + tier,
+                    com.lealex.alchymastery.Config.tierName(tier));
+            tooltip.accept(Component.literal("Tier: ").append(name).withStyle(ChatFormatting.GRAY));
         }
         String family = familyOf(stack);
         tooltip.accept(Component.translatableWithFallback("family.alchymastery." + family,

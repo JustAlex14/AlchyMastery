@@ -4,7 +4,7 @@ The Destructuration Chamber strips matter down to pure substance: compounds. Iro
 
 ## Tiers
 
-Each tier is worth three of the tier below.
+By default each tier is worth three of the tier below. The values and names can be changed, and tiers added, in the config (see [Custom Compounds](Custom-Compounds#adding-a-new-tier)).
 
 | Tier | Materials |
 |---|---|
