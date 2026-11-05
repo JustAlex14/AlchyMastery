@@ -48,7 +48,7 @@ Crops and food break down into extracts, in their own `food` family. Like every 
 | Rare | golden apple |
 | Tier 5 | enchanted golden apple |
 
-The enchanted golden apple sits above Ancient, on tier 5. With the default config it is worth 243 Abundant compounds and shows as "Tier 5". Add a fifth line to `compoundTiers` to name it and set its value, see [Custom Compounds](Custom-Compounds#adding-a-new-tier). Extracts do not go in the Rendering Cauldron.
+The enchanted golden apple sits above Ancient, on tier 5. With the default config it is worth 243 Abundant compounds and shows as "Tier 5". Add a sixth line to `compoundTiers` (for example `"Mythic=243"`) to name it and set its value, see [Custom Compounds](Custom-Compounds#adding-a-new-tier). Extracts do not go in the Rendering Cauldron.
 
 ## Families
 
