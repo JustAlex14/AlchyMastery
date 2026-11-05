@@ -45,79 +45,120 @@ The simplest case: a tin ore from another mod, in the `mineral` family.
 
 A family is just a name. As soon as one material file uses a new name, the family exists. There is nothing to register.
 
-Say you want crops to become their own family, so wheat can turn into carrots but never into iron. Give each crop the same `family`:
+### Example: the food family
 
-`data/mypack/compound_material/wheat.json`
+AlchyMastery ships a `food` family built exactly this way, so it doubles as a full example. Its files are in `data/alchymastery/compound_material/`. Wheat can become carrots or golden apples, but never iron or rotten flesh.
+
+| Tier | Materials |
+|---|---|
+| 0 Abundant | wheat, carrot, potato, beetroot, melon, pumpkin |
+| 1 Common | apple, cocoa |
+| 2 Uncommon | golden_carrot, glistering_melon |
+| 3 Rare | golden_apple |
+| 5 | enchanted_golden_apple |
+
+`wheat.json`: a tier 0 material with a storage block. The hay bale gives 9 wheat extracts, like the 9 wheat it is crafted from.
 
 ```json
 {
-  "family": "crop",
+  "family": "food",
   "color": "#D8B54A",
   "tier": 0,
   "forms": {
     "drop": "minecraft:wheat",
     "drop_block": "minecraft:hay_block"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
   }
 }
 ```
 
-`data/mypack/compound_material/carrot.json`
+`golden_apple.json`: the same shape on a higher tier.
 
 ```json
 {
-  "family": "crop",
-  "color": "#E8892B",
-  "tier": 0,
+  "family": "food",
+  "color": "#F5D547",
+  "tier": 3,
   "forms": {
-    "drop": "minecraft:carrot"
+    "drop": "minecraft:golden_apple"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
   }
 }
 ```
 
-`data/mypack/compound_material/golden_carrot.json`
+`enchanted_golden_apple.json`: a material on tier 5, above Ancient. It is worth whatever tier 5 is worth in the config (see [Adding a new tier](#adding-a-new-tier)).
 
 ```json
 {
-  "family": "crop",
-  "color": "#F2D23C",
-  "tier": 2,
+  "family": "food",
+  "color": "#E86BE0",
+  "tier": 5,
   "forms": {
-    "drop": "minecraft:golden_carrot"
+    "drop": "minecraft:enchanted_golden_apple"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
   }
 }
 ```
 
-Rules for the name: lowercase letters, digits and `_` only (`crop`, `nether_plant`, `gem_dust`). Anything else fails to load and the log says why.
+What each part does:
 
-For items that are not ores or ingots, use the `drop` form (1 compound per item) and `drop_block` for their storage block (9 per block). If a block holds a different amount, set it with `costs`, the same way the built-in bone block does: `"costs": { "drop_block": 3 }`.
+- `"family": "food"` puts the material in the family. Every food file uses the same name.
+- Food items are not ores or ingots, so they use the `drop` form (1 extract per item) and `drop_block` for storage blocks (9 per block). If a block holds a different amount, set it with `costs`, the same way the built-in bone block does: `"costs": { "drop_block": 3 }`.
+- `catalysts` sets the Reconstruction base block. Drops are rebuilt on soul sand by default, which suits mob drops. Food is rebuilt on dirt instead.
+
+And the names, in `assets/alchymastery/lang/en_us.json`:
+
+```json
+{
+  "family.alchymastery.food": "Food",
+  "item.alchymastery.compound.of.food": "%s Extract",
+  "material.alchymastery.wheat": "Wheat",
+  "material.alchymastery.golden_apple": "Golden Apple",
+  "material.alchymastery.enchanted_golden_apple": "Enchanted Golden Apple"
+}
+```
+
+With these, a wheat extract is called "Wheat Extract" and its tooltip says "Tier: Abundant" and "Food".
+
+### Making your own
+
+Copy the food files into your datapack under your own namespace, give them a new family name, and point the forms at other items. For example `data/mypack/compound_material/dandelion.json` with `"family": "flower"` and `"drop": "minecraft:dandelion"`, then poppy, cornflower and so on. Each item should belong to one material only, so don't reuse items that are already in a built-in file.
+
+Rules for the name: lowercase letters, digits and `_` only (`food`, `flower`, `nether_plant`). Anything else fails to load and the log says why.
 
 A family needs at least two materials to be useful, since transmutation only works inside a family.
 
 ### Naming the family
 
-Without a translation, the compound is called "Wheat Compound" and the tooltip shows the family name with a capital letter ("Crop"). To change that, add a resource pack (or the `assets` folder of your mod) with a lang file:
+Without a translation, the compound is called "Dandelion Compound" and the tooltip shows the family name with a capital letter ("Flower"). To change that, add a resource pack (or the `assets` folder of your mod) with a lang file, like the food one above:
 
 `assets/alchymastery/lang/en_us.json`
 
 ```json
 {
-  "family.alchymastery.crop": "Crop matter",
-  "item.alchymastery.compound.of.crop": "%s Extract",
-  "material.mypack.golden_carrot": "Golden Carrot"
+  "family.alchymastery.flower": "Flower",
+  "item.alchymastery.compound.of.flower": "%s Petals",
+  "material.mypack.dandelion": "Dandelion"
 }
 ```
 
 | Key | What it changes |
 |---|---|
 | `family.alchymastery.<family>` | the family line in the tooltip |
-| `item.alchymastery.compound.of.<family>` | the item name, `%s` is the material. "Wheat Extract" here, like "Rotten Flesh Essence" for the `mob` family |
+| `item.alchymastery.compound.of.<family>` | the item name, `%s` is the material. "Wheat Extract" for `food`, "Rotten Flesh Essence" for `mob` |
 | `material.<namespace>.<name>` | the material name. Without it, the file name is used with a capital letter and `_` turned into spaces |
 
 The family keys always use the `alchymastery` namespace, whatever namespace your materials are in.
 
 ### Giving the family its own look
 
-By default a new family uses the normal compound texture, tinted with each material's `color`. The `mob` family has its own essence texture. To do the same for your family, override `assets/alchymastery/items/compound.json` in a resource pack and add a case for it. Keep the `mob` case, since this file replaces the built-in one:
+By default a new family uses the normal compound texture, tinted with each material's `color`. The `mob` family has its own essence texture, and the `food` family a bottle. To do the same for your family, override `assets/alchymastery/items/compound.json` in a resource pack and add a case for it. Keep the `mob` and `food` cases, since this file replaces the built-in one:
 
 ```json
 {
@@ -135,10 +176,18 @@ By default a new family uses the normal compound texture, tinted with each mater
         }
       },
       {
-        "when": "crop",
+        "when": "food",
         "model": {
           "type": "minecraft:model",
-          "model": "mypack:item/crop_extract",
+          "model": "alchymastery:item/food_extract",
+          "tints": [ { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 } ]
+        }
+      },
+      {
+        "when": "flower",
+        "model": {
+          "type": "minecraft:model",
+          "model": "mypack:item/flower_petals",
           "tints": [ { "type": "minecraft:custom_model_data", "index": 0, "default": 16777215 } ]
         }
       }
@@ -152,7 +201,7 @@ By default a new family uses the normal compound texture, tinted with each mater
 }
 ```
 
-Then add the model `assets/mypack/models/item/crop_extract.json` and its texture. Look at `alchymastery:item/mob_essence` for the layout: a greyscale layer that takes the tint, and an overlay that keeps its own colours.
+Then add the model `assets/mypack/models/item/flower_petals.json` and its texture. Look at `alchymastery:item/mob_essence` or `alchymastery:item/food_extract` for the layout: a greyscale layer that takes the tint, and an overlay that keeps its own colours.
 
 ### What a new family can and cannot do
 
@@ -174,7 +223,7 @@ To add tiers, add lines. Each new line is the next tier number. For a tier 5 wor
 compoundTiers = ["Abundant=1", "Common=3", "Uncommon=9", "Rare=27", "Ancient=81", "Mythic=162", "Legendary=243"]
 ```
 
-Then give a material that tier in its datapack file. For example, a modded end metal that should sit just above netherite:
+Then give a material that tier in its datapack file. The built-in enchanted golden apple is on tier 5, so with the list above its tooltip says "Tier: Mythic" and it is worth two Ancient compounds. Without the extra line it shows as "Tier 5" and is worth 243. Your own materials work the same way:
 
 ```json
 {
@@ -187,7 +236,7 @@ Then give a material that tier in its datapack file. For example, a modded end m
 }
 ```
 
-With the list above, one void alloy compound is worth two Ancient compounds and its tooltip says "Tier: Mythic". Transmuting follows the usual rules: no loss between equal values, 20% loss otherwise, lowered by Productivity upgrades.
+Transmuting follows the usual rules: no loss between equal values, 20% loss otherwise, lowered by Productivity upgrades.
 
 You can also change the existing tiers. `"Rare=30"` makes every Rare compound worth 30 instead of 27. Changing values changes every transmutation cost, so do it before players build up stock.
 

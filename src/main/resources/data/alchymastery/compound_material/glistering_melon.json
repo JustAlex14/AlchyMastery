@@ -1,0 +1,11 @@
+{
+  "family": "food",
+  "color": "#F0B84A",
+  "tier": 2,
+  "forms": {
+    "drop": "minecraft:glistering_melon_slice"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}

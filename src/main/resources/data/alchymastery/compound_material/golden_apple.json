@@ -1,0 +1,11 @@
+{
+  "family": "food",
+  "color": "#F5D547",
+  "tier": 3,
+  "forms": {
+    "drop": "minecraft:golden_apple"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}
