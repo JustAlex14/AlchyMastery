@@ -463,12 +463,10 @@ public class ExperienceNexusBlockEntity extends PoweredCoreBlockEntity implement
         return true;
     }
 
-    /** Experience points of one essence of this material: 2 x 3^tier, like the rendering cauldron. */
+    /** Experience points of one essence of this material, like the rendering cauldron. */
     private static int pointsOf(Identifier material) {
         CompoundMaterial data = CompoundMaterials.get(material);
-        int points = RenderingCoreBlockEntity.BASE_POINTS;
-        for (int i = 0; i < Math.clamp(data == null ? 0 : data.tier(), 0, 6); i++) points *= 3;
-        return points;
+        return RenderingCoreBlockEntity.pointsForTier(data == null ? 0 : data.tier());
     }
 
     private boolean tickRender() {
