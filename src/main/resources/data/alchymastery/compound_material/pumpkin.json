@@ -1,0 +1,11 @@
+{
+  "family": "food",
+  "color": "#E38A1D",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:pumpkin"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}

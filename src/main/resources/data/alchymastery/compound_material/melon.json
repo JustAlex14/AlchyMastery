@@ -1,0 +1,12 @@
+{
+  "family": "food",
+  "color": "#C7472E",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:melon_slice",
+    "drop_block": "minecraft:melon"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}

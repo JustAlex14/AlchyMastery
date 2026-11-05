@@ -1,0 +1,11 @@
+{
+  "family": "food",
+  "color": "#E8892B",
+  "tier": 0,
+  "forms": {
+    "drop": "minecraft:carrot"
+  },
+  "catalysts": {
+    "drop": "minecraft:dirt"
+  }
+}
